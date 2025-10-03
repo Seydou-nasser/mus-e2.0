@@ -5,7 +5,7 @@ import Collections from "./components/Collections";
 import About from "./components/About";
 import { I18nextProvider } from "react-i18next";
 import i18n from "./translation/i18n";
-import Layout from "./components/layout";
+import Layout from "./components/Layout";
 
 function App() {
   return (
