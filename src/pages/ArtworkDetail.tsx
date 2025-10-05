@@ -4,6 +4,15 @@ import { useTranslation } from "react-i18next";
 import { artworks } from "../data/artworks";
 import { QRCodeSVG } from "qrcode.react";
 
+/**
+ * Composant ArtworkDetail - Affiche les détails d'une œuvre d'art
+ *
+ * Logique d'affichage des onglets média :
+ * - Le bouton "Vidéo" s'affiche seulement si artwork.media.video existe
+ * - Le contenu vidéo s'affiche seulement si l'onglet est actif ET que la vidéo existe
+ * - Même logique pour l'audio
+ * - Seules les œuvres avec id "002" (Statuette Yoruba) et "004" (Tambour Djembe) ont des vidéos
+ */
 const ArtworkDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const { t, i18n } = useTranslation();
@@ -72,6 +81,7 @@ const ArtworkDetail: React.FC = () => {
                 >
                   {t('description')}
                 </button>
+                {/* Bouton audio - s'affiche seulement si l'œuvre a un audio défini dans les données */}
                 {artwork.media.audio && (
                   <button
                     onClick={() => setActiveTab('audio')}
@@ -84,6 +94,7 @@ const ArtworkDetail: React.FC = () => {
                     {t('audio')}
                   </button>
                 )}
+                {/* Bouton vidéo - s'affiche seulement si l'œuvre a une vidéo définie dans les données */}
                 {artwork.media.video && (
                   <button
                     onClick={() => setActiveTab('video')}
@@ -118,10 +129,23 @@ const ArtworkDetail: React.FC = () => {
                   </div>
                 )}
 
+                {/* Contenu de l'onglet vidéo - s'affiche seulement si l'onglet vidéo est actif ET que l'œuvre a une vidéo */}
                 {activeTab === 'video' && artwork.media.video && (
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-3">{t('video')}</h3>
-                    <video controls className="w-full rounded-md">
+                    {/* Gestion d'erreur si le fichier vidéo n'existe pas */}
+                    <video
+                      controls
+                      className="w-full rounded-md"
+                      onError={(e) => {
+                        const target = e.target as HTMLVideoElement;
+                        target.style.display = 'none';
+                        const errorMsg = document.createElement('p');
+                        errorMsg.textContent = 'Vidéo non disponible';
+                        errorMsg.className = 'text-red-500 text-center py-4';
+                        target.parentNode?.appendChild(errorMsg);
+                      }}
+                    >
                       <source src={artwork.media.video} type="video/mp4" />
                       Votre navigateur ne supporte pas l'élément vidéo.
                     </video>
