@@ -1,40 +1,92 @@
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
+import { Mail, Phone, MapPin, ExternalLink } from "lucide-react";
 
 export default function Footer() {
   const { t } = useTranslation();
+  const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900 text-white py-8 px-4">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-6">
-          {/* About */}
-          <div>
-            <h3 className="text-xl font-bold mb-3">🏛️ Musée 2.0</h3>
-            <p className="text-gray-400 text-sm">{t("footer.description")}</p>
+    <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+          {/* About Section */}
+          <div className="md:col-span-2">
+            <div className="flex items-center space-x-3 mb-4">
+              <div className="text-4xl">🏛️</div>
+              <div>
+                <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                  Musée 2.0
+                </h3>
+                <p className="text-xs text-gray-400">
+                  Museum of Black Civilizations
+                </p>
+              </div>
+            </div>
+            <p className="text-gray-400 text-sm leading-relaxed mb-4">
+              {t("footer.description")}
+            </p>
+            <div className="flex space-x-3">
+              <a
+                href="https://senstartup.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-lg text-sm font-medium transition-all duration-200 flex items-center space-x-2"
+              >
+                <ExternalLink size={16} />
+                <span>Senstartup</span>
+              </a>
+            </div>
           </div>
 
-          {/* Links */}
+          {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-3">{t("footer.links")}</h3>
-            <ul className="space-y-2 text-gray-400 text-sm">
+            <h3 className="text-lg font-semibold mb-4 flex items-center">
+              <span className="mr-2">🔗</span>
+              {t("footer.links")}
+            </h3>
+            <ul className="space-y-3">
               <li>
-                <Link to="/" className="hover:text-white transition">
+                <Link
+                  to="/"
+                  className="text-gray-400 hover:text-white transition-colors duration-200 text-sm flex items-center group"
+                >
+                  <span className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                    →
+                  </span>
                   {t("nav.home")}
                 </Link>
               </li>
               <li>
-                <Link to="/collections" className="hover:text-white transition">
+                <Link
+                  to="/collections"
+                  className="text-gray-400 hover:text-white transition-colors duration-200 text-sm flex items-center group"
+                >
+                  <span className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                    →
+                  </span>
                   {t("nav.collections")}
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="hover:text-white transition">
+                <Link
+                  to="/about"
+                  className="text-gray-400 hover:text-white transition-colors duration-200 text-sm flex items-center group"
+                >
+                  <span className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                    →
+                  </span>
                   {t("nav.about")}
                 </Link>
               </li>
               <li>
-                <Link to="/scan" className="hover:text-white transition">
+                <Link
+                  to="/scan"
+                  className="text-gray-400 hover:text-white transition-colors duration-200 text-sm flex items-center group"
+                >
+                  <span className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                    →
+                  </span>
                   {t("nav.scan")}
                 </Link>
               </li>
@@ -43,26 +95,47 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-lg font-semibold mb-3">
+            <h3 className="text-lg font-semibold mb-4 flex items-center">
+              <span className="mr-2">📞</span>
               {t("footer.contact")}
             </h3>
-            <div className="text-gray-400 text-sm space-y-2">
-              <p>📧 contact@senstartup.com</p>
-              <p>📞 +221 77 106 19 17</p>
-              <p>📍 Dakar, Sénégal</p>
-            </div>
+            <ul className="space-y-3 text-sm">
+              <li className="flex items-start space-x-3 text-gray-400 hover:text-white transition-colors duration-200">
+                <Mail size={16} className="mt-1 flex-shrink-0" />
+                <a href="mailto:contact@senstartup.com">
+                  contact@senstartup.com
+                </a>
+              </li>
+              <li className="flex items-start space-x-3 text-gray-400 hover:text-white transition-colors duration-200">
+                <Phone size={16} className="mt-1 flex-shrink-0" />
+                <a href="tel:+221771061917">+221 77 106 19 17</a>
+              </li>
+              <li className="flex items-start space-x-3 text-gray-400">
+                <MapPin size={16} className="mt-1 flex-shrink-0" />
+                <span>Dakar, Sénégal</span>
+              </li>
+            </ul>
           </div>
         </div>
 
-        {/* Bottom */}
-        <div className="border-t border-gray-800 pt-6 text-center text-gray-400 text-sm">
-          <p>
-            &copy; 2025 Musée des Civilisations Noires - {t("footer.rights")}
-          </p>
-          <p className="mt-2">
-            {t("footer.hackathon")}{" "}
-            <span className="text-blue-400">Dakar Slush'D 2025</span>
-          </p>
+        {/* Divider */}
+        <div className="border-t border-gray-700 mb-6" />
+
+        {/* Bottom Section */}
+        <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+          <div className="text-center md:text-left">
+            <p className="text-gray-400 text-sm">
+              © {currentYear} Musée des Civilisations Noires
+            </p>
+            <p className="text-gray-500 text-xs mt-1">{t("footer.rights")}</p>
+          </div>
+
+          <div className="flex items-center space-x-2 text-sm">
+            <span className="text-gray-400">{t("footer.hackathon")}</span>
+            <div className="px-3 py-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-white font-semibold text-xs">
+              Dakar Slush'D 2025
+            </div>
+          </div>
         </div>
       </div>
     </footer>
