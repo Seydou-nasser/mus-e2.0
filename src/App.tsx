@@ -3,6 +3,8 @@ import { Route, Routes } from "react-router";
 import Home from "./components/Home";
 import Collections from "./components/Collections";
 import About from "./components/About";
+import QRScanner from "./components/QRScanner";
+import ArtworkDetail from "./components/ArtworkDetail";
 import { I18nextProvider } from "react-i18next";
 import i18n from "./translation/i18n";
 import Layout from "./components/Layout";
@@ -32,6 +34,22 @@ function App() {
           element={
             <Layout>
               <About />
+            </Layout>
+          }
+        />
+        <Route
+          path="/scan"
+          element={
+            <Layout>
+              <QRScanner />
+            </Layout>
+          }
+        />
+        <Route
+          path="/artwork/:id"
+          element={
+            <Layout>
+              <ArtworkDetail />
             </Layout>
           }
         />

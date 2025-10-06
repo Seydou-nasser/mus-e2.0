@@ -1,3 +1,22 @@
 {
-  "helloWorld": "Nanga def aduna !"
+  "helloWorld": "Nanga def aduna !",
+  "qrScanner": {
+    "title": "Scan benn lëkkalekaay",
+    "instruction": "Wut sa kamera ci QR code bi ci lëkkalekaay bi",
+    "artworkNotFound": "Lëkkalekaay bi amuul. Xoolal QR code bi.",
+    "cameraError": "Manuñu jël kamera bi. Xoolal permissions yi.",
+    "cancel": "Doxal",
+    "tips": {
+      "title": "Ndimbal ngir scan bu baax",
+      "light": "Jëkk ni amnga benn lumière bu baax",
+      "stable": "Tëral sa aparey bi mu nekk mu jaadu",
+      "distance": "Amnga 15-20 cm ci biir"
+    }
+  },
+  "nav": {
+    "home": "Njaboot",
+    "collections": "Lëkkalekaay yi",
+    "about": "Ci sun nu",
+    "scan": "Scan"
+  }
 }
