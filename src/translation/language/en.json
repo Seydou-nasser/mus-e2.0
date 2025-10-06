@@ -1,3 +1,22 @@
 {
-  "helloWorld": "Hello World !"
+  "helloWorld": "Hello world!",
+  "qrScanner": {
+    "title": "Scan an artwork",
+    "instruction": "Point your camera at the artwork's QR code",
+    "artworkNotFound": "Artwork not found. Check the QR code.",
+    "cameraError": "Cannot access camera. Check permissions.",
+    "cancel": "Cancel",
+    "tips": {
+      "title": "Tips for optimal scanning",
+      "light": "Make sure you have good lighting",
+      "stable": "Keep your device steady",
+      "distance": "Keep a distance of about 15-20 cm"
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "collections": "Collections",
+    "about": "About",
+    "scan": "Scan"
+  }
 }
