@@ -3,12 +3,10 @@ import Header from "./header";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <Header />
-      <main className="flex" style={{ marginBottom: "3.5rem" }}>
-        {children}
-      </main>
+      <main className="flex-grow">{children}</main>
       <Footer />
-    </>
+    </div>
   );
 }

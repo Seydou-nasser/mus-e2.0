@@ -18,5 +18,77 @@
     "collections": "Lëkkalekaay yi",
     "about": "Ci sun nu",
     "scan": "Scan"
+  },
+  "collections": {
+    "title": "Suñu Lëkkalekaay yi",
+    "subtitle": "Giseel li njool ci Musée des Civilisations Noires",
+    "searchPlaceholder": "Seet benn lëkkalekaay...",
+    "all": "Lépp",
+    "results": "lëkkalekaay bi ñu gis",
+    "featured": "Yu bari",
+    "viewDetails": "Xool ci kanam",
+    "noResults": "Amuñu gis lëkkalekaay bu amul ni ci seet bi"
+  },
+  "home": {
+    "hero": {
+      "title": "Musée des Civilisations Noires",
+      "subtitle": "Giseel aada bu Afrik ci benn fann bu bees",
+      "scanButton": "Scan benn lëkkalekaay",
+      "exploreButton": "Xool lëkkalekaay yi"
+    },
+    "featured": {
+      "title": "Lëkkalekaay yu bari",
+      "subtitle": "Giseel suñu lëkkalekaay yi ñu gën a bari",
+      "badge": "Yu bari",
+      "discover": "Gis",
+      "viewAll": "Xool lépp lëkkalekaay yi"
+    },
+    "features": {
+      "title": "Benn xeetu bu wër",
+      "scan": {
+        "title": "Scan QR Code",
+        "description": "Scan QR code yi ngir am xalaat yu bari ci yoon bu gaaw"
+      },
+      "multilingual": {
+        "title": "Ay lakk yu bari",
+        "description": "Xalaat yi amnañu ko ci Fränsee, Angéle ak Wolof"
+      },
+      "audio": {
+        "title": "Guide audio",
+        "description": "Deglu ay xalaat ngir am benn xeetu bu gën"
+      }
+    }
+  },
+  "about": {
+    "title": "Ci sunñu",
+    "subtitle": "Gis suñu misin ak suñu projee",
+    "museum": {
+      "title": "Musée des Civilisations Noires",
+      "description": "Musée des Civilisations Noires mooy benn ci espace yu mag yu aada ci Sénégal ak Afrik. Am na patrimoine bu njool bu war a am ci biir néeg yi. Benen sa bi mooy melokaan na loxo bu bees bu aada yu Afrik ci yoon yi lépp."
+    },
+    "project": {
+      "title": "Projee Musée 2.0",
+      "description": "Musée 2.0 mooy benn plateforme digital bu bees bu di wut xeetu gën ci musée bi. Suñu xeltu mooy jox ay xalaat yu aada ci néeg yi lépp te melokaan patrimoine bi ci gina biir musée bi.",
+      "features": {
+        "title": "Li ñu di def",
+        "scan": "Scan QR Code ngir am xalaat yu bari",
+        "multilingual": "Xalaat ci ay lakk yu bari (Fränsee, Angéle, Wolof)",
+        "audio": "Guide audio ngir benn xeetu bu gën",
+        "accessible": "Manñu ko am ci lu nekk, ci musée walla ci kaw"
+      }
+    },
+    "hackathon": {
+      "title": "Hackathon Dakar Slush'D",
+      "description": "Projee bii ñu ko def ci Hackathon bu Senstartup organise ak Musée des Civilisations Noires ci Dakar Slush'D (09-10 Oktoobar 2025).",
+      "organizer": "Mööl",
+      "event": "Des"
+    }
+  },
+  "footer": {
+    "description": "Xool patrimoine bu aada bu Afrik ci benn xeetu digital bu bees.",
+    "links": "Lien yu gaaw",
+    "contact": "Jokkoo",
+    "rights": "Lépp ay sag yi am nañu ko",
+    "hackathon": "Projee bi ñu ko def ngir"
   }
 }

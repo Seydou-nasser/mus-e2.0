@@ -18,5 +18,77 @@
     "collections": "Collections",
     "about": "About",
     "scan": "Scan"
+  },
+  "collections": {
+    "title": "Our Collections",
+    "subtitle": "Discover the treasures of the Museum of Black Civilizations",
+    "searchPlaceholder": "Search for an artwork...",
+    "all": "All",
+    "results": "artwork(s) found",
+    "featured": "Featured",
+    "viewDetails": "View details",
+    "noResults": "No artwork found for this search"
+  },
+  "home": {
+    "hero": {
+      "title": "Museum of Black Civilizations",
+      "subtitle": "Discover African cultural heritage like never before",
+      "scanButton": "Scan an artwork",
+      "exploreButton": "Explore collections"
+    },
+    "featured": {
+      "title": "Featured Artworks",
+      "subtitle": "Discover our most iconic pieces",
+      "badge": "Featured",
+      "discover": "Discover",
+      "viewAll": "View all collections"
+    },
+    "features": {
+      "title": "A unique experience",
+      "scan": {
+        "title": "QR Code Scan",
+        "description": "Scan QR codes to instantly access detailed information"
+      },
+      "multilingual": {
+        "title": "Multilingual",
+        "description": "Content available in French, English and Wolof"
+      },
+      "audio": {
+        "title": "Audio guides",
+        "description": "Listen to descriptions for an immersive experience"
+      }
+    }
+  },
+  "about": {
+    "title": "About",
+    "subtitle": "Discover our mission and project",
+    "museum": {
+      "title": "The Museum of Black Civilizations",
+      "description": "The Museum of Black Civilizations is one of the largest cultural spaces in Senegal and Africa. It houses invaluable heritage that deserves to be accessible to as many people as possible. This iconic place celebrates the diversity and richness of African civilizations through the ages."
+    },
+    "project": {
+      "title": "The Museum 2.0 Project",
+      "description": "Museum 2.0 is an innovative digital platform that reimagines the museum visit experience. Our goal is to democratize access to cultural content and showcase this heritage beyond the museum walls.",
+      "features": {
+        "title": "Key Features",
+        "scan": "QR Code scan to access detailed information",
+        "multilingual": "Multilingual descriptions (French, English, Wolof)",
+        "audio": "Audio guides for an immersive experience",
+        "accessible": "Accessible anywhere, at the museum or remotely"
+      }
+    },
+    "hackathon": {
+      "title": "Dakar Slush'D Hackathon",
+      "description": "This project was developed as part of the Hackathon organized by Senstartup in partnership with the Museum of Black Civilizations during Dakar Slush'D (October 9-10, 2025).",
+      "organizer": "Organizer",
+      "event": "Event"
+    }
+  },
+  "footer": {
+    "description": "Explore African cultural heritage through an innovative digital experience.",
+    "links": "Quick Links",
+    "contact": "Contact",
+    "rights": "All rights reserved",
+    "hackathon": "Project developed for"
   }
 }

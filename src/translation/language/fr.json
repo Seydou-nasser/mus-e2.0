@@ -18,5 +18,77 @@
     "collections": "Collections",
     "about": "À propos",
     "scan": "Scanner"
+  },
+  "collections": {
+    "title": "Nos Collections",
+    "subtitle": "Découvrez les trésors du Musée des Civilisations Noires",
+    "searchPlaceholder": "Rechercher une œuvre...",
+    "all": "Toutes",
+    "results": "œuvre(s) trouvée(s)",
+    "featured": "En vedette",
+    "viewDetails": "Voir les détails",
+    "noResults": "Aucune œuvre trouvée pour cette recherche"
+  },
+  "home": {
+    "hero": {
+      "title": "Musée des Civilisations Noires",
+      "subtitle": "Découvrez l'héritage culturel africain comme jamais auparavant",
+      "scanButton": "Scanner une œuvre",
+      "exploreButton": "Explorer les collections"
+    },
+    "featured": {
+      "title": "Œuvres en vedette",
+      "subtitle": "Découvrez nos pièces les plus emblématiques",
+      "badge": "Vedette",
+      "discover": "Découvrir",
+      "viewAll": "Voir toutes les collections"
+    },
+    "features": {
+      "title": "Une expérience unique",
+      "scan": {
+        "title": "Scan QR Code",
+        "description": "Scannez les QR codes pour accéder instantanément aux informations détaillées"
+      },
+      "multilingual": {
+        "title": "Multilingue",
+        "description": "Contenu disponible en Français, Anglais et Wolof"
+      },
+      "audio": {
+        "title": "Guides audio",
+        "description": "Écoutez les descriptions pour une expérience immersive"
+      }
+    }
+  },
+  "about": {
+    "title": "À propos",
+    "subtitle": "Découvrez notre mission et notre projet",
+    "museum": {
+      "title": "Le Musée des Civilisations Noires",
+      "description": "Le Musée des Civilisations Noires est l'un des plus grands espaces culturels du Sénégal et d'Afrique. Il abrite une richesse patrimoniale inestimable qui mérite d'être accessible au plus grand nombre. Ce lieu emblématique célèbre la diversité et la richesse des civilisations africaines à travers les âges."
+    },
+    "project": {
+      "title": "Le Projet Musée 2.0",
+      "description": "Musée 2.0 est une plateforme digitale innovante qui repense l'expérience de visite du musée. Notre objectif est de démocratiser l'accès aux contenus culturels et de faire rayonner ce patrimoine au-delà des murs du musée.",
+      "features": {
+        "title": "Fonctionnalités principales",
+        "scan": "Scan QR Code pour accéder aux informations détaillées",
+        "multilingual": "Descriptions multilingues (Français, Anglais, Wolof)",
+        "audio": "Guides audio pour une expérience immersive",
+        "accessible": "Accessible partout, au musée comme à distance"
+      }
+    },
+    "hackathon": {
+      "title": "Hackathon Dakar Slush'D",
+      "description": "Ce projet a été développé dans le cadre du Hackathon organisé par Senstartup en partenariat avec le Musée des Civilisations Noires lors du Dakar Slush'D (09-10 octobre 2025).",
+      "organizer": "Organisateur",
+      "event": "Événement"
+    }
+  },
+  "footer": {
+    "description": "Explorez le patrimoine culturel africain grâce à une expérience digitale innovante.",
+    "links": "Liens rapides",
+    "contact": "Contact",
+    "rights": "Tous droits réservés",
+    "hackathon": "Projet développé pour le"
   }
 }
