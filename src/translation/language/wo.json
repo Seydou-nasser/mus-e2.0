@@ -45,6 +45,7 @@
     },
     "features": {
       "title": "Benn xeetu bu wër",
+      "subtitle": "Gis suñu fonctionnalités yu bees ngir am benn xeetu bu gën",
       "scan": {
         "title": "Scan QR Code",
         "description": "Scan QR code yi ngir am xalaat yu bari ci yoon bu gaaw"
