@@ -23,13 +23,13 @@ const Home = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={() => navigate("/scan")}
-              className="px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold text-lg hover:bg-gray-100 transition transform hover:scale-105"
+              className="px-8 py-4 bg-white text-[#D17842] rounded-lg font-semibold text-lg hover:bg-orange-50 transition hover:scale-105"
             >
               📱 {t("home.hero.scanButton")}
             </button>
             <button
               onClick={() => navigate("/collections")}
-              className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-600 transition"
+              className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-lg font-semibold text-lg hover:bg-white hover:text-[#D17842] transition"
             >
               🎨 {t("home.hero.exploreButton")}
             </button>
@@ -65,7 +65,7 @@ const Home = () => {
                     alt={translation.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition duration-300"
                   />
-                  <div className="absolute top-2 right-2 px-3 py-1 bg-yellow-400 text-yellow-900 text-xs font-semibold rounded-full">
+                  <div className="absolute top-2 right-2 px-3 py-1 bg-[#D17842] text-white text-xs font-semibold rounded-full shadow-md">
                     ⭐ {t("home.featured.badge")}
                   </div>
                 </div>
@@ -80,7 +80,7 @@ const Home = () => {
                   <p className="text-gray-700 dark:text-gray-300 text-sm line-clamp-2 mb-4">
                     {translation.description}
                   </p>
-                  <div className="flex items-center text-blue-600 dark:text-blue-400 font-semibold">
+                  <div className="flex items-center text-[#D17842] dark:text-[#E89563] font-semibold">
                     {t("home.featured.discover")} →
                   </div>
                 </div>
@@ -92,7 +92,7 @@ const Home = () => {
         <div className="text-center mt-12">
           <button
             onClick={() => navigate("/collections")}
-            className="px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition"
+            className="px-8 py-3 bg-[#D17842] text-white rounded-lg font-semibold hover:bg-[#B85F30] transition hover:scale-105"
           >
             {t("home.featured.viewAll")}
           </button>
