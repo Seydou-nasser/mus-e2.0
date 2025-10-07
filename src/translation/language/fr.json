@@ -99,6 +99,22 @@
     "backToHome": "Retour",
     "notFound": "Œuvre non trouvée"
   },
+  "audioPlayer": {
+    "title": "Écouter la description",
+    "browserNotSupported": "Votre navigateur ne supporte pas la lecture audio.",
+    "useTTSInstead": "Utiliser la synthèse vocale à la place",
+    "browserNotSupportedTTS": "Votre navigateur ne supporte pas la synthèse vocale",
+    "audioError": "Erreur lors de la lecture audio",
+    "loading": "Chargement...",
+    "stopPlayback": "Arrêter la lecture",
+    "listenWithTTS": "Écouter avec synthèse vocale",
+    "demoMode": "Mode démo : Cette lecture utilise la synthèse vocale de votre navigateur. Pour une meilleure qualité, des fichiers audio professionnels seront ajoutés.",
+    "backToAudioPlayer": "Revenir au lecteur audio",
+    "language": "Langue :",
+    "french": "Français",
+    "english": "English",
+    "wolof": "Wolof"
+  },
   "footer": {
     "description": "Explorez le patrimoine culturel africain grâce à une expérience digitale innovante.",
     "links": "Liens rapides",

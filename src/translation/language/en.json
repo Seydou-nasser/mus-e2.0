@@ -98,6 +98,22 @@
     "backToHome": "Back",
     "notFound": "Artwork not found"
   },
+  "audioPlayer": {
+    "title": "Listen to description",
+    "browserNotSupported": "Your browser does not support audio playback.",
+    "useTTSInstead": "Use text-to-speech instead",
+    "browserNotSupportedTTS": "Your browser does not support text-to-speech",
+    "audioError": "Error during audio playback",
+    "loading": "Loading...",
+    "stopPlayback": "Stop playback",
+    "listenWithTTS": "Listen with text-to-speech",
+    "demoMode": "Demo mode: This playback uses your browser's text-to-speech. For better quality, professional audio files will be added.",
+    "backToAudioPlayer": "Return to audio player",
+    "language": "Language:",
+    "french": "French",
+    "english": "English",
+    "wolof": "Wolof"
+  },
   "footer": {
     "description": "Explore African cultural heritage through an innovative digital experience.",
     "links": "Quick Links",
