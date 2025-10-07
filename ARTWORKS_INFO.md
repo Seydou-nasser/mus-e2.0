@@ -5,30 +5,34 @@
 Toutes les fonctionnalités requises ont été implémentées dans le fichier `artworks.json` :
 
 ### 1. Scan des œuvres via QR Code ✅
+
 Chaque œuvre possède un `qrCode` unique (ex: MCN001, MCN002...)
 
 ### 2. Descriptions multilingues ✅
+
 - **Français** (fr)
-- **Anglais** (en)  
+- **Anglais** (en)
 - **Wolof** (wo)
 
 ### 3. Contenu multimédia ✅
+
 - **Texte** : Description, période, origine, contexte culturel
 - **Audio** : URL audio pour chaque langue (`audioUrl`)
 - **Vidéo** : URL vidéo explicative (`videoUrl`)
 
 ### 4. Galerie d'images ✅
+
 Chaque œuvre peut avoir plusieurs images (`imageGallery`)
 
 ## 📊 Œuvres actuellement disponibles
 
-| ID | Titre | Catégorie | Origine | Featured |
-|----|-------|-----------|---------|----------|
-| MCN-001 | Masque Gelede | Sculpture | Nigéria - Yoruba | ⭐ Oui |
-| MCN-002 | Tissu Kente Royal | Textile | Ghana - Akan | ⭐ Oui |
-| MCN-003 | Statue Akua'ba | Sculpture | Ghana - Ashanti | Non |
-| MCN-004 | Tambour Parlant | Instrument | Nigéria - Yoruba | Non |
-| MCN-005 | Couronne Royale | Bijoux | Cameroun - Bamoun | ⭐ Oui |
+| ID      | Titre             | Catégorie  | Origine           | Featured |
+| ------- | ----------------- | ---------- | ----------------- | -------- |
+| MCN-001 | Masque Gelede     | Sculpture  | Nigéria - Yoruba  | ⭐ Oui   |
+| MCN-002 | Tissu Kente Royal | Textile    | Ghana - Akan      | ⭐ Oui   |
+| MCN-003 | Statue Akua'ba    | Sculpture  | Ghana - Ashanti   | Non      |
+| MCN-004 | Tambour Parlant   | Instrument | Nigéria - Yoruba  | Non      |
+| MCN-005 | Couronne Royale   | Bijoux     | Cameroun - Bamoun | ⭐ Oui   |
 
 ## 🎵 Fichiers Audio à générer
 
@@ -73,13 +77,16 @@ Les URLs vidéo sont actuellement configurées avec des placeholders YouTube.
 ### Pour le hackathon, options recommandées :
 
 #### Option A : Vidéos YouTube existantes
+
 Recherchez des vidéos pertinentes sur :
+
 - Art Yoruba
 - Tissage Kente traditionnel
 - Artisanat africain
 - Musée des Civilisations Noires
 
 #### Option B : Créer vos propres vidéos courtes
+
 - Filmer des démonstrations (1-2 minutes)
 - Présenter le contexte historique
 - Montrer les détails de l'œuvre
@@ -87,6 +94,7 @@ Recherchez des vidéos pertinentes sur :
 ## 🔧 Prochaines étapes
 
 1. **Créer le dossier audio**
+
    ```bash
    mkdir public/audio
    ```
@@ -115,18 +123,19 @@ Recherchez des vidéos pertinentes sur :
 
 ## 🎯 Critères d'évaluation couverts
 
-| Critère | Status | Notes |
-|---------|--------|-------|
-| Innovation et créativité | ✅ | Multilingue avec Wolof, audio guides |
-| Expérience utilisateur | ✅ | Interface intuitive, QR scanner |
-| Impact culturel | ✅ | Valorisation patrimoine africain |
-| Faisabilité technique | ✅ | 100% frontend, déployable facilement |
-| Scalabilité | ✅ | Structure extensible, facile d'ajouter œuvres |
+| Critère                  | Status | Notes                                         |
+| ------------------------ | ------ | --------------------------------------------- |
+| Innovation et créativité | ✅     | Multilingue avec Wolof, audio guides          |
+| Expérience utilisateur   | ✅     | Interface intuitive, QR scanner               |
+| Impact culturel          | ✅     | Valorisation patrimoine africain              |
+| Faisabilité technique    | ✅     | 100% frontend, déployable facilement          |
+| Scalabilité              | ✅     | Structure extensible, facile d'ajouter œuvres |
 
 ## 📞 Besoin d'aide ?
 
 Consultez `AUDIO_VIDEO_GUIDE.md` pour des instructions détaillées sur la génération des fichiers audio et vidéo.
 
 ---
+
 **Musée 2.0** - Hackathon Dakar Slush'D 2025  
-*Deadline : 08 octobre 2025 à 23h59*
+_Deadline : 08 octobre 2025 à 23h59_

@@ -2,6 +2,7 @@ import { useParams, useNavigate, Link } from "react-router";
 import { useTranslation } from "react-i18next";
 import { getArtworkById } from "../data/artworkService";
 import type { Language } from "../types/artwork";
+import AudioPlayer from "./AudioPlayer";
 
 const ArtworkDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -85,18 +86,12 @@ const ArtworkDetail = () => {
           </p>
         </div>
 
-        {/* Audio player */}
-        {translation.audioUrl && (
-          <div className="border-t border-gray-200 dark:border-gray-700 pt-4 mt-4">
-            <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
-              <span>🎧</span> Écouter la description
-            </h2>
-            <audio controls className="w-full">
-              <source src={translation.audioUrl} type="audio/mpeg" />
-              Votre navigateur ne supporte pas l'audio.
-            </audio>
-          </div>
-        )}
+        {/* Audio player avec Web Speech API */}
+        <AudioPlayer
+          text={translation.description}
+          lang={currentLang}
+          audioUrl={translation.audioUrl}
+        />
 
         {/* Video player */}
         {artwork.videoUrl && (
