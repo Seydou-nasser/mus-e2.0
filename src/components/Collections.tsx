@@ -57,7 +57,7 @@ const Collections = () => {
             placeholder={t("collections.searchPlaceholder")}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-[#D17842] focus:border-transparent"
           />
         </div>
 
@@ -65,9 +65,9 @@ const Collections = () => {
         <div className="mb-8 flex flex-wrap gap-2">
           <button
             onClick={() => setSelectedCategory("all")}
-            className={`px-4 py-2 rounded-full transition ${
+            className={`px-4 py-2 rounded-full transition hover:scale-105 ${
               selectedCategory === "all"
-                ? "bg-blue-600 text-white"
+                ? "bg-[#D17842] text-white shadow-md"
                 : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700"
             }`}
           >
@@ -81,9 +81,9 @@ const Collections = () => {
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 rounded-full transition ${
+                className={`px-4 py-2 rounded-full transition hover:scale-105 ${
                   selectedCategory === category
-                    ? "bg-blue-600 text-white"
+                    ? "bg-[#D17842] text-white shadow-md"
                     : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700"
                 }`}
               >
@@ -119,7 +119,7 @@ const Collections = () => {
                       className="w-full h-full object-cover"
                     />
                     {artwork.featured && (
-                      <span className="absolute top-2 right-2 px-3 py-1 bg-yellow-400 text-yellow-900 text-xs font-semibold rounded-full">
+                      <span className="absolute top-2 right-2 px-3 py-1 bg-[#D17842] text-white text-xs font-semibold rounded-full shadow-md">
                         ⭐ {t("collections.featured")}
                       </span>
                     )}
@@ -131,7 +131,7 @@ const Collections = () => {
                       <h3 className="text-xl font-bold text-gray-900 dark:text-white">
                         {translation.title}
                       </h3>
-                      <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-300 text-xs rounded-full whitespace-nowrap ml-2">
+                      <span className="px-2 py-1 bg-orange-100 dark:bg-orange-900/30 text-[#D17842] dark:text-orange-300 text-xs rounded-full whitespace-nowrap ml-2">
                         {artwork.category}
                       </span>
                     </div>
@@ -144,7 +144,7 @@ const Collections = () => {
                       {translation.description}
                     </p>
 
-                    <div className="mt-4 flex items-center text-blue-600 dark:text-blue-400 text-sm font-semibold">
+                    <div className="mt-4 flex items-center text-[#D17842] dark:text-[#E89563] text-sm font-semibold">
                       {t("collections.viewDetails")} →
                     </div>
                   </div>

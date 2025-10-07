@@ -42,15 +42,15 @@ export default function Header() {
   const languageButtonClasses = (lang: string) =>
     `px-3 py-1.5 rounded-md text-xs font-semibold transition-all duration-200 ${
       i18n.language === lang
-        ? "bg-white text-blue-600 shadow-md"
+        ? "bg-white text-[#D17842] shadow-md"
         : "bg-white/20 text-white hover:bg-white/30"
     }`;
 
   return (
     <>
-      {/* <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 shadow-lg backdrop-blur-md"> */}
-      <nav className="sticky md:top-4 top-0 z-50 w-full ">
-        <div className=" max-w-6xl backdrop-blur border border-border md:rounded-2xl px-4 mx-auto flex h-16 items-center justify-between">
+      {/* <header className=""> */}
+      <nav className="sticky md:top-4 top-0 z-50 w-full">
+        <div className="max-w-6xl backdrop-blur border border-border md:rounded-2xl px-4 mx-auto flex h-16 items-center justify-between">
           {/* Logo et nom */}
           <Link
             to="/"
@@ -79,7 +79,7 @@ export default function Header() {
             </Link>
             <Link
               to="/scan"
-              className="ml-2 px-5 py-2 rounded-lg text-sm font-semibold bg-white text-blue-600 hover:bg-blue-50 transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105"
+              className="ml-2 px-5 py-2 rounded-lg text-sm font-semibold bg-white text-[#D17842] hover:bg-orange-50 transition-all duration-200 shadow-md hover:shadow-lg hover:scale-105"
             >
               📱 {t("nav.scan")}
             </Link>
@@ -142,7 +142,7 @@ export default function Header() {
                 onClick={() => setMobileMenuOpen(false)}
                 className={`px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 text-center ${
                   isActive("/")
-                    ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-md"
+                    ? "bg-[#D17842] text-white shadow-md"
                     : "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
                 }`}
               >
@@ -153,7 +153,7 @@ export default function Header() {
                 onClick={() => setMobileMenuOpen(false)}
                 className={`px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 text-center ${
                   isActive("/collections")
-                    ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-md"
+                    ? "bg-[#D17842] text-white shadow-md"
                     : "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
                 }`}
               >
@@ -164,7 +164,7 @@ export default function Header() {
                 onClick={() => setMobileMenuOpen(false)}
                 className={`px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 text-center ${
                   isActive("/about")
-                    ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-md"
+                    ? "bg-[#D17842] text-white shadow-md"
                     : "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
                 }`}
               >
@@ -173,7 +173,7 @@ export default function Header() {
               <Link
                 to="/scan"
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 shadow-md text-center"
+                className="px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 bg-[#D17842] text-white hover:bg-[#B85F30] shadow-md text-center"
               >
                 📱 {t("nav.scan")}
               </Link>
@@ -193,7 +193,7 @@ export default function Header() {
                   }}
                   className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 ${
                     i18n.language === "fr"
-                      ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-md"
+                      ? "bg-[#D17842] text-white shadow-md"
                       : "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300"
                   }`}
                 >
@@ -206,7 +206,7 @@ export default function Header() {
                   }}
                   className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 ${
                     i18n.language === "en"
-                      ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-md"
+                      ? "bg-[#D17842] text-white shadow-md"
                       : "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300"
                   }`}
                 >
@@ -219,7 +219,7 @@ export default function Header() {
                   }}
                   className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 ${
                     i18n.language === "wo"
-                      ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-md"
+                      ? "bg-[#D17842] text-white shadow-md"
                       : "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300"
                   }`}
                 >
