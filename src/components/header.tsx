@@ -48,80 +48,77 @@ export default function Header() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 shadow-lg backdrop-blur-md">
-        <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo */}
-            <Link to="/" className="flex items-center space-x-3 group">
-              <div className="text-3xl transform group-hover:scale-110 transition-transform duration-200">
-                🏛️
-              </div>
-              <div className="flex flex-col">
-                <h1 className="text-white text-lg md:text-xl font-bold leading-tight">
-                  Musée 2.0
-                </h1>
-                <span className="text-white/80 text-xs hidden md:block">
-                  Museum of Black Civilizations
-                </span>
-              </div>
+      {/* <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 shadow-lg backdrop-blur-md"> */}
+      <nav className="sticky md:top-4 top-0 z-50 w-full ">
+        <div className=" max-w-6xl backdrop-blur border border-border md:rounded-2xl px-4 mx-auto flex h-16 items-center justify-between">
+          {/* Logo et nom */}
+          <Link
+            to="/"
+            className="flex items-center text-white text-lg md:text-2xl font-bold hover:text-amber-200 transition-colors"
+          >
+            <img
+              src="/assets/logoMCN.png"
+              alt="Logo Musée des Civilisations Noires"
+              className="h-8 w-8 mr-3"
+            />
+            <span className="hidden md:inline">
+              Museum of Black Civilizations
+            </span>
+          </Link>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-1">
+            <Link to="/" className={navLinkClasses("/")}>
+              {t("nav.home")}
+            </Link>
+            <Link to="/collections" className={navLinkClasses("/collections")}>
+              {t("nav.collections")}
+            </Link>
+            <Link to="/about" className={navLinkClasses("/about")}>
+              {t("nav.about")}
+            </Link>
+            <Link
+              to="/scan"
+              className="ml-2 px-5 py-2 rounded-lg text-sm font-semibold bg-white text-blue-600 hover:bg-blue-50 transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105"
+            >
+              📱 {t("nav.scan")}
             </Link>
 
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-1">
-              <Link to="/" className={navLinkClasses("/")}>
-                {t("nav.home")}
-              </Link>
-              <Link
-                to="/collections"
-                className={navLinkClasses("/collections")}
+            {/* Language Selector */}
+            <div className="ml-4 flex items-center space-x-2 bg-white/10 rounded-lg p-1 backdrop-blur-sm">
+              <Globe size={16} className="text-white/70 ml-2" />
+              <button
+                onClick={() => changeLanguage("fr")}
+                className={languageButtonClasses("fr")}
               >
-                {t("nav.collections")}
-              </Link>
-              <Link to="/about" className={navLinkClasses("/about")}>
-                {t("nav.about")}
-              </Link>
-              <Link
-                to="/scan"
-                className="ml-2 px-5 py-2 rounded-lg text-sm font-semibold bg-white text-blue-600 hover:bg-blue-50 transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105"
+                FR
+              </button>
+              <button
+                onClick={() => changeLanguage("en")}
+                className={languageButtonClasses("en")}
               >
-                📱 {t("nav.scan")}
-              </Link>
-
-              {/* Language Selector */}
-              <div className="ml-4 flex items-center space-x-2 bg-white/10 rounded-lg p-1 backdrop-blur-sm">
-                <Globe size={16} className="text-white/70 ml-2" />
-                <button
-                  onClick={() => changeLanguage("fr")}
-                  className={languageButtonClasses("fr")}
-                >
-                  FR
-                </button>
-                <button
-                  onClick={() => changeLanguage("en")}
-                  className={languageButtonClasses("en")}
-                >
-                  EN
-                </button>
-                <button
-                  onClick={() => changeLanguage("wo")}
-                  className={languageButtonClasses("wo")}
-                >
-                  WO
-                </button>
-              </div>
+                EN
+              </button>
+              <button
+                onClick={() => changeLanguage("wo")}
+                className={languageButtonClasses("wo")}
+              >
+                WO
+              </button>
             </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 rounded-lg text-white hover:bg-white/20 transition-colors duration-200"
-              aria-label="Toggle mobile menu"
-            >
-              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
           </div>
-        </nav>
-      </header>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden p-2 rounded-lg text-white hover:bg-white/20 transition-colors duration-200"
+            aria-label="Toggle mobile menu"
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+      </nav>
+      {/* </header> */}
 
       {/* Overlay sombre pour mobile */}
       {mobileMenuOpen && (
@@ -233,9 +230,6 @@ export default function Header() {
           </div>
         </div>
       )}
-
-      {/* Spacer pour compenser le header fixe */}
-      <div className="h-16" />
     </>
   );
 }

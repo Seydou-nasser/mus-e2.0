@@ -1,5 +1,4 @@
 {
-  "helloWorld": "Hello world!",
   "qrScanner": {
     "title": "Scan an artwork",
     "instruction": "Point your camera at the artwork's QR code",
