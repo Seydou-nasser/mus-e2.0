@@ -48,10 +48,18 @@
   "languages": "Wàll, Angale, Wolof",
   "accessibility": "Jot",
   "integratedAudioVideo": "Audio ak wideo ñu duggal",
+  "scanDescription": "Sànn kod QR yi ñu am ci yëf yi ngir jot teg yi yépp ci wàll, angale ak wolof",
+  "scanFeature": "Sànn kod QR yi ñu am ci yëf yu musée bi ngir jot teg yi yépp, audio yi ak wideo yi ñu teg ci saa si.",
   "searchPlaceholder": "Seet yëf...",
   "allRegions": "Diiwaanu yépp",
   "resultsFound": "gis",
   "resultsFoundPlural": "gis",
   "regionDescription": "Gis yëf yi ñu jag ci diiwaanu yi ñu dugg",
-  "collectionDescription": "Gis yëf yu yépp yi nu am ci njàng ak taariix bu siviilisaasioñ yi ñuñu"
+  "collectionDescription": "Gis yëf yu nu am bu yépp ci far ñeel ak taariix bu siviilisaasioñ yi ñuñu",
+  "aboutDesc": "Gis taariix ak li nu bokk ci Musée bu Siviilisaasioñ yi Ñuñu",
+  "ourMissionTitle": "Li nu bokk",
+  "missionText": "Musée bu Siviilisaasioñ yi Ñuñu, kenn ci diggante yu yëf yu Senegaal ak Afrik, am tontu taamu bu ñu manul dara. Ci mbirum Dakar Slush'D (9-10 oktoobar 2025), Senstartup dagale hackathon bu ñu jël ngir soppi gis gi ci dijital ak jappal jot ci yëf yu kulturaal yu musée bi.",
+  "ourHistoryTitle": "Taariix bu nu",
+  "historyText": "Duggal ci 2024, musée bu nu yu dijital di wone soppi institusioñ yu kulturaal yu dëgg ci jamono dijital. Nu dagale baaxam yëf yu fisel yi ak mën yi dijital yi ngir jappal far ñeel ci yëf yi.",
+  "features": "📱 Am ci telefon ak ordinatëer • 🌍 3 làkk • 🎧 Audio ñu duggal • 📹 Wideo ñu teg"
 }

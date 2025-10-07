@@ -13,7 +13,7 @@ const About: React.FC = () => {
               {t('about')}
             </h1>
             <p className="text-xl text-gray-600">
-              Découvrez l'histoire et la mission du Musée des Civilisations Noires
+              {t('aboutDesc')}
             </p>
           </div>
 
@@ -25,12 +25,9 @@ const About: React.FC = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Notre Mission</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">{t('ourMissionTitle')}</h2>
               <p className="text-gray-700 leading-relaxed">
-                Le Musée des Civilisations Noires, l'un des plus grands espaces culturels du Sénégal et d'Afrique,
-                abrite une richesse patrimoniale inestimable. Dans le cadre du Dakar Slush'D (09-10 octobre 2025),
-                Senstartup organise ce hackathon exclusif pour repenser l'expérience de visite grâce au digital
-                et démocratiser l'accès aux contenus culturels du musée.
+                {t('missionText')}
               </p>
             </div>
 
@@ -41,11 +38,9 @@ const About: React.FC = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                 </svg>
               </div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Notre Histoire</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">{t('ourHistoryTitle')}</h2>
               <p className="text-gray-700 leading-relaxed">
-                Fondé en 2024, notre musée numérique représente l'évolution des institutions culturelles
-                traditionnelles vers l'ère digitale. Nous combinons la richesse des collections physiques
-                avec les possibilités infinies du numérique pour rendre l'art accessible à tous.
+                {t('historyText')}
               </p>
             </div>
           </div>

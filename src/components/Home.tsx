@@ -14,25 +14,25 @@ const Home: React.FC = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-amber-900 via-amber-800 to-amber-900 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-black bg-opacity-20"></div>
+        <div className="absolute inset-0 bg-[url('/assets/bg_museum.jpg')] bg-cover bg-center bg-opacity-20"></div>
         <div className="relative container mx-auto px-4 py-20 lg:py-32">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
               {t('museumTitle')}
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-amber-100 leading-relaxed">
-              Scannez les QR codes des œuvres pour accéder à des descriptions complètes en français, anglais et wolof
+              {t('scanDescription')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/collections"
-                className="inline-block bg-white text-amber-900 px-8 py-4 rounded-lg hover:bg-amber-50 transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                className="inline-block bg-white text-amber-900 px-6 py-3 md:px-8 md:py-4 rounded-lg hover:bg-amber-50 transition-all duration-300 font-semibold text-base md:text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
                 {t('exploreCollection')}
               </Link>
               <Link
                 to="/about"
-                className="inline-block bg-amber-700 text-white px-8 py-4 rounded-lg hover:bg-amber-600 transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                className="inline-block bg-amber-700 text-white px-6 py-3 md:px-8 md:py-4 rounded-lg hover:bg-amber-600 transition-all duration-300 font-semibold text-base md:text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
                 {t('learnMore')}
               </Link>
@@ -52,12 +52,11 @@ const Home: React.FC = () => {
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Scan QR Code</h2>
             <p className="text-xl text-amber-100 mb-8">
-              Scannez les QR codes présents sur les œuvres du musée pour accéder instantanément
-              aux descriptions complètes, audios et vidéos explicatives.
+              {t('scanFeature')}
             </p>
             <div className="bg-white bg-opacity-10 rounded-lg p-6 backdrop-blur-sm">
               <p className="text-lg text-amber-600">
-                📱 Disponible sur mobile et PC • 🌍 3 langues • 🎧 Audio intégré • 📹 Vidéo explicative
+                {t('features')}
               </p>
             </div>
           </div>
@@ -65,7 +64,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="bg-gray-50 py-16">
+      <section className="bg-gray-50 py-12 md:py-16">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
@@ -96,7 +95,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* Featured Artworks */}
-      <section className="py-20 bg-white">
+      <section className="py-12 md:py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">{t('featuredArtworks')}</h2>

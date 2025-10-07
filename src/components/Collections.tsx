@@ -45,7 +45,7 @@ const Collections: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header Section */}
-      <section className="bg-gradient-to-r from-amber-800 to-amber-900 text-white py-16">
+      <section className="bg-gradient-to-r from-amber-800 to-amber-900 text-white py-12 md:py-16">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8">
             <h1 className="text-5xl md:text-6xl font-bold mb-4">
@@ -242,7 +242,7 @@ const Collections: React.FC = () => {
                 >
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">{category}</h3>
                   <p className="text-gray-600 mb-3">
-                    {categoryArtworks.length} œuvre{categoryArtworks.length !== 1 ? 's' : ''}
+                    {categoryArtworks.length} {t(categoryArtworks.length !== 1 ? 'artworksCountPlural' : 'artworksCount')}
                   </p>
                   <div className="flex -space-x-2">
                     {categoryArtworks.slice(0, 3).map((artwork, index) => (

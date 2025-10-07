@@ -48,10 +48,18 @@
   "languages": "French, English, Wolof",
   "accessibility": "Accessibility",
   "integratedAudioVideo": "Integrated audio and video",
+  "scanDescription": "Scan the QR codes of the artworks to access complete descriptions in French, English and Wolof",
+  "scanFeature": "Scan the QR codes present on the museum's artworks to instantly access complete descriptions, explanatory audios and videos.",
   "searchPlaceholder": "Search for an artwork...",
   "allRegions": "All regions",
   "resultsFound": "artwork found",
   "resultsFoundPlural": "artworks found",
   "regionDescription": "Discover artworks organized by their region of origin",
-  "collectionDescription": "Explore our complete collection of art and history of Black civilizations"
+  "collectionDescription": "Explore our complete collection of art and history of Black civilizations",
+  "aboutDesc": "Discover the history and mission of the Museum of Black Civilizations",
+  "ourMissionTitle": "Our Mission",
+  "missionText": "The Museum of Black Civilizations, one of the largest cultural spaces in Senegal and Africa, houses an invaluable heritage wealth. As part of Dakar Slush'D (October 9-10, 2025), Senstartup organizes this exclusive hackathon to rethink the visit experience through digital and democratize access to the museum's cultural content.",
+  "ourHistoryTitle": "Our History",
+  "historyText": "Founded in 2024, our digital museum represents the evolution of traditional cultural institutions towards the digital age. We combine the richness of physical collections with the infinite possibilities of digital to make art accessible to all.",
+  "features": "📱 Available on mobile and PC • 🌍 3 languages • 🎧 Integrated audio • 📹 Explanatory video"
 }

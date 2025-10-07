@@ -48,10 +48,18 @@
   "languages": "Français, Anglais, Wolof",
   "accessibility": "Accessibilité",
   "integratedAudioVideo": "Audio et vidéo intégrés",
+  "scanDescription": "Scannez les QR codes des œuvres pour accéder à des descriptions complètes en français, anglais et wolof",
+  "scanFeature": "Scannez les QR codes présents sur les œuvres du musée pour accéder instantanément aux descriptions complètes, audios et vidéos explicatives.",
   "searchPlaceholder": "Rechercher une œuvre...",
   "allRegions": "Toutes les régions",
   "resultsFound": "œuvre trouvée",
   "resultsFoundPlural": "œuvres trouvées",
   "regionDescription": "Découvrez les œuvres organisées par leur région d'origine",
-  "collectionDescription": "Explorez notre collection complète d'art et d'histoire des civilisations noires"
+  "collectionDescription": "Explorez notre collection complète d'art et d'histoire des civilisations noires",
+  "aboutDesc": "Découvrez l'histoire et la mission du Musée des Civilisations Noires",
+  "ourMissionTitle": "Notre Mission",
+  "missionText": "Le Musée des Civilisations Noires, l'un des plus grands espaces culturels du Sénégal et d'Afrique, abrite une richesse patrimoniale inestimable. Dans le cadre du Dakar Slush'D (09-10 octobre 2025), Senstartup organise ce hackathon exclusif pour repenser l'expérience de visite grâce au digital et démocratiser l'accès aux contenus culturels du musée.",
+  "ourHistoryTitle": "Notre Histoire",
+  "historyText": "Fondé en 2024, notre musée numérique représente l'évolution des institutions culturelles traditionnelles vers l'ère digitale. Nous combinons la richesse des collections physiques avec les possibilités infinies du numérique pour rendre l'art accessible à tous.",
+  "features": "📱 Disponible sur mobile et PC • 🌍 3 langues • 🎧 Audio intégré • 📹 Vidéo explicative"
 }
