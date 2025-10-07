@@ -44,6 +44,7 @@
     },
     "features": {
       "title": "A unique experience",
+      "subtitle": "Discover our innovative features for an immersive experience",
       "scan": {
         "title": "QR Code Scan",
         "description": "Scan QR codes to instantly access detailed information"

@@ -107,39 +107,53 @@ const Home = () => {
       </div>
 
       {/* Features Section */}
-      <div className="bg-white dark:bg-gray-800 py-16 px-4">
+      <div className="bg-gradient-to-b from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 py-20 px-4">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-12">
-            {t("home.features.title")}
-          </h2>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+              {t("home.features.title")}
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+              {t("home.features.subtitle")}
+            </p>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center p-6">
-              <div className="text-5xl mb-4">📱</div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+            {/* Feature 1 */}
+            <div className="group bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 hover:border-[#D17842] dark:hover:border-[#E89563]">
+              <div className="w-16 h-16 bg-[#D17842]/10 dark:bg-[#E89563]/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <span className="text-4xl">📱</span>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
                 {t("home.features.scan.title")}
               </h3>
-              <p className="text-gray-600 dark:text-gray-400">
+              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
                 {t("home.features.scan.description")}
               </p>
             </div>
 
-            <div className="text-center p-6">
-              <div className="text-5xl mb-4">🌍</div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+            {/* Feature 2 */}
+            <div className="group bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 hover:border-[#D17842] dark:hover:border-[#E89563]">
+              <div className="w-16 h-16 bg-[#D17842]/10 dark:bg-[#E89563]/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <span className="text-4xl">🌍</span>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
                 {t("home.features.multilingual.title")}
               </h3>
-              <p className="text-gray-600 dark:text-gray-400">
+              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
                 {t("home.features.multilingual.description")}
               </p>
             </div>
 
-            <div className="text-center p-6">
-              <div className="text-5xl mb-4">🎧</div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+            {/* Feature 3 */}
+            <div className="group bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 hover:border-[#D17842] dark:hover:border-[#E89563]">
+              <div className="w-16 h-16 bg-[#D17842]/10 dark:bg-[#E89563]/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <span className="text-4xl">🎧</span>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
                 {t("home.features.audio.title")}
               </h3>
-              <p className="text-gray-600 dark:text-gray-400">
+              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
                 {t("home.features.audio.description")}
               </p>
             </div>
