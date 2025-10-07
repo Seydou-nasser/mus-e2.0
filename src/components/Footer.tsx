@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
-import { Mail, Phone, MapPin, ExternalLink } from "lucide-react";
+import { Mail, Phone, MapPin, ExternalLink, Link2 } from "lucide-react";
 
 export default function Footer() {
   const { t } = useTranslation();
@@ -8,14 +8,18 @@ export default function Footer() {
 
   return (
     <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
           {/* About Section */}
           <div className="md:col-span-2">
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="text-4xl">🏛️</div>
+            <div className="flex items-center space-x-3 mb-3">
+              <img
+                src="/assets/logoMCN.png"
+                alt="Logo MCN"
+                className="w-10 h-10 object-contain"
+              />
               <div>
-                <h3 className="text-2xl font-bold bg-gradient-to-r from-orange-400 to-[#D17842] bg-clip-text text-transparent">
+                <h3 className="text-xl font-bold bg-gradient-to-r from-orange-400 to-[#D17842] bg-clip-text text-transparent">
                   Musée 2.0
                 </h3>
                 <p className="text-xs text-gray-400">
@@ -23,7 +27,7 @@ export default function Footer() {
                 </p>
               </div>
             </div>
-            <p className="text-gray-400 text-sm leading-relaxed mb-4">
+            <p className="text-gray-400 text-sm leading-relaxed mb-3">
               {t("footer.description")}
             </p>
             <div className="flex space-x-3">
@@ -41,11 +45,11 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 flex items-center">
-              <span className="mr-2">🔗</span>
+            <h3 className="text-lg font-semibold mb-3 flex items-center">
+              <Link2 size={18} className="mr-2 text-[#D17842]" />
               {t("footer.links")}
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-2">
               <li>
                 <Link
                   to="/"
@@ -95,11 +99,11 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 flex items-center">
-              <span className="mr-2">📞</span>
+            <h3 className="text-lg font-semibold mb-3 flex items-center">
+              <Phone size={18} className="mr-2 text-[#D17842]" />
               {t("footer.contact")}
             </h3>
-            <ul className="space-y-3 text-sm">
+            <ul className="space-y-2 text-sm">
               <li className="flex items-start space-x-3 text-gray-400 hover:text-white transition-colors duration-200">
                 <Mail size={16} className="mt-1 flex-shrink-0" />
                 <a href="mailto:contact@senstartup.com">
@@ -119,10 +123,10 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-gray-700 mb-6" />
+        <div className="border-t border-gray-700 mb-4" />
 
         {/* Bottom Section */}
-        <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+        <div className="flex flex-col md:flex-row justify-between items-center space-y-3 md:space-y-0">
           <div className="text-center md:text-left">
             <p className="text-gray-400 text-sm">
               © {currentYear} Musée des Civilisations Noires
