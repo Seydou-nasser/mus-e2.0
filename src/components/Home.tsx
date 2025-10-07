@@ -2,6 +2,7 @@ import { useNavigate } from "react-router";
 import { useTranslation } from "react-i18next";
 import { getFeaturedArtworks } from "../data/artworkService";
 import type { Language } from "../types/artwork";
+import { QrCode, Globe, Headphones } from "lucide-react";
 
 const Home = () => {
   const { i18n, t } = useTranslation();
@@ -122,7 +123,10 @@ const Home = () => {
             {/* Feature 1 */}
             <div className="group bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 hover:border-[#D17842] dark:hover:border-[#E89563]">
               <div className="w-16 h-16 bg-[#D17842]/10 dark:bg-[#E89563]/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <span className="text-4xl">📱</span>
+                <QrCode
+                  size={32}
+                  className="text-[#D17842] dark:text-[#E89563]"
+                />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
                 {t("home.features.scan.title")}
@@ -135,7 +139,10 @@ const Home = () => {
             {/* Feature 2 */}
             <div className="group bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 hover:border-[#D17842] dark:hover:border-[#E89563]">
               <div className="w-16 h-16 bg-[#D17842]/10 dark:bg-[#E89563]/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <span className="text-4xl">🌍</span>
+                <Globe
+                  size={32}
+                  className="text-[#D17842] dark:text-[#E89563]"
+                />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
                 {t("home.features.multilingual.title")}
@@ -148,7 +155,10 @@ const Home = () => {
             {/* Feature 3 */}
             <div className="group bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 hover:border-[#D17842] dark:hover:border-[#E89563]">
               <div className="w-16 h-16 bg-[#D17842]/10 dark:bg-[#E89563]/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <span className="text-4xl">🎧</span>
+                <Headphones
+                  size={32}
+                  className="text-[#D17842] dark:text-[#E89563]"
+                />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
                 {t("home.features.audio.title")}

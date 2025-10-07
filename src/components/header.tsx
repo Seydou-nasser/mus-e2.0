@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router";
 import { useTranslation } from "react-i18next";
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, Globe } from "lucide-react";
+import { Menu, X, Globe, QrCode, Home, Palette, Info } from "lucide-react";
 
 export default function Header() {
   const { t, i18n } = useTranslation();
@@ -79,9 +79,9 @@ export default function Header() {
             </Link>
             <Link
               to="/scan"
-              className="ml-2 px-5 py-2 rounded-lg text-sm font-semibold bg-white text-[#D17842] hover:bg-orange-50 transition-all duration-200 shadow-md hover:shadow-lg hover:scale-105"
+              className="ml-2 px-5 py-2 rounded-lg text-sm font-semibold bg-white text-[#D17842] hover:bg-orange-50 transition-all duration-200 shadow-md hover:shadow-lg hover:scale-105 flex items-center gap-2"
             >
-              📱 {t("nav.scan")}
+              <QrCode size={16} /> {t("nav.scan")}
             </Link>
 
             {/* Language Selector */}
@@ -138,42 +138,42 @@ export default function Header() {
               <Link
                 to="/"
                 onClick={() => setMobileMenuOpen(false)}
-                className={`px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 text-center ${
+                className={`px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 text-center flex items-center justify-center gap-2 ${
                   isActive("/")
                     ? "bg-[#D17842] text-white shadow-md"
                     : "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
                 }`}
               >
-                🏠 {t("nav.home")}
+                <Home size={16} /> {t("nav.home")}
               </Link>
               <Link
                 to="/collections"
                 onClick={() => setMobileMenuOpen(false)}
-                className={`px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 text-center ${
+                className={`px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 text-center flex items-center justify-center gap-2 ${
                   isActive("/collections")
                     ? "bg-[#D17842] text-white shadow-md"
                     : "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
                 }`}
               >
-                🎨 {t("nav.collections")}
+                <Palette size={16} /> {t("nav.collections")}
               </Link>
               <Link
                 to="/about"
                 onClick={() => setMobileMenuOpen(false)}
-                className={`px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 text-center ${
+                className={`px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 text-center flex items-center justify-center gap-2 ${
                   isActive("/about")
                     ? "bg-[#D17842] text-white shadow-md"
                     : "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
                 }`}
               >
-                ℹ️ {t("nav.about")}
+                <Info size={16} /> {t("nav.about")}
               </Link>
               <Link
                 to="/scan"
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 bg-[#D17842] text-white hover:bg-[#B85F30] shadow-md text-center"
+                className="px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 bg-[#D17842] text-white hover:bg-[#B85F30] shadow-md text-center flex items-center justify-center gap-2"
               >
-                📱 {t("nav.scan")}
+                <QrCode size={16} /> {t("nav.scan")}
               </Link>
             </div>
 
