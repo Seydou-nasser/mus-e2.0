@@ -17,7 +17,8 @@
     "home": "Accueil",
     "collections": "Collections",
     "about": "À propos",
-    "scan": "Scanner"
+    "scan": "Scanner",
+    "language": "Langue"
   },
   "collections": {
     "title": "Nos Collections",
