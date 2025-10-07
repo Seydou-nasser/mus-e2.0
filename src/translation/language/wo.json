@@ -99,6 +99,22 @@
     "backToHome": "Dellu",
     "notFound": "Lëkkalekaay gisuma"
   },
+  "audioPlayer": {
+    "title": "Deglu saññ-saññ bi",
+    "browserNotSupported": "Sa navigateur deglu audio du.",
+    "useTTSInstead": "Jëfandikoo bind bu mat ci sa bopp",
+    "browserNotSupportedTTS": "Sa navigateur jëfandikoo bind du",
+    "audioError": "Njuumte ci deglu audio bi",
+    "loading": "Yeb...",
+    "stopPlayback": "Taxaw deglu bi",
+    "listenWithTTS": "Deglu ak jëfandikoo bind",
+    "demoMode": "Mode demo: Deglu goo jëfandikoo bindu sa navigateur. Ngir xol bu gën, ay fichier audio yu profeesyonel dinañ yees.",
+    "backToAudioPlayer": "Dellu ci deglukaay audio",
+    "language": "Làkk:",
+    "french": "Français",
+    "english": "English",
+    "wolof": "Wolof"
+  },
   "footer": {
     "description": "Xool patrimoine bu aada bu Afrik ci benn xeetu digital bu bees.",
     "links": "Lien yu gaaw",

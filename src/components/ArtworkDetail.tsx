@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { getArtworkById } from "../data/artworkService";
 import type { Language } from "../types/artwork";
 import AudioPlayer from "./AudioPlayer";
+import { Clock } from "lucide-react";
 
 const ArtworkDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -89,7 +90,8 @@ const ArtworkDetail = () => {
         {/* Informations historiques */}
         <div className="border-t border-gray-200 dark:border-gray-700 pt-4 mt-4">
           <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-            <span>📜</span> {t("artwork.history")}
+            <Clock size={20} className="text-[#D17842]" />
+            {t("artwork.history")}
           </h2>
           <div className="space-y-4">
             {/* Période de création */}
