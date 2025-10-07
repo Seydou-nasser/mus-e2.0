@@ -12,26 +12,33 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-blue-600 to-purple-600 text-white py-20 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+      <div className="relative bg-gray-900 text-white py-32 px-4 overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/assets/bg_museum.jpg')" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
+
+        {/* Contenu */}
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 drop-shadow-lg">
             {t("home.hero.title")}
           </h1>
-          <p className="text-xl md:text-2xl mb-8 opacity-90">
+          <p className="text-xl md:text-2xl mb-8 opacity-90 drop-shadow-md">
             {t("home.hero.subtitle")}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={() => navigate("/scan")}
-              className="px-8 py-4 bg-white text-[#D17842] rounded-lg font-semibold text-lg hover:bg-orange-50 transition hover:scale-105"
+              className="px-8 py-4 bg-[#D17842] text-white rounded-lg font-semibold text-lg hover:bg-[#B85F30] transition hover:scale-105 shadow-lg"
             >
-              📱 {t("home.hero.scanButton")}
+              {t("home.hero.scanButton")}
             </button>
             <button
               onClick={() => navigate("/collections")}
-              className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-lg font-semibold text-lg hover:bg-white hover:text-[#D17842] transition"
+              className="px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white text-white rounded-lg font-semibold text-lg hover:bg-white hover:text-[#D17842] transition"
             >
-              🎨 {t("home.hero.exploreButton")}
+              {t("home.hero.exploreButton")}
             </button>
           </div>
         </div>

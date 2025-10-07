@@ -49,7 +49,7 @@ export default function Header() {
   return (
     <>
       {/* <header className=""> */}
-      <nav className="sticky md:top-4 top-0 z-50 w-full">
+      <nav className="sticky md:top-4 top-0 z-50">
         <div className="max-w-6xl backdrop-blur border border-border md:rounded-2xl px-4 mx-auto flex h-16 items-center justify-between">
           {/* Logo et nom */}
           <Link
@@ -119,7 +119,6 @@ export default function Header() {
         </div>
       </nav>
       {/* </header> */}
-
       {/* Overlay sombre pour mobile */}
       {mobileMenuOpen && (
         <div
@@ -127,7 +126,6 @@ export default function Header() {
           onClick={() => setMobileMenuOpen(false)}
         />
       )}
-
       {/* Menu mobile */}
       {mobileMenuOpen && (
         <div
