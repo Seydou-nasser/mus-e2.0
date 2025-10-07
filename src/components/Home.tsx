@@ -12,7 +12,7 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Hero Section */}
-      <div className="relative bg-gray-900 text-white py-32 px-4 overflow-hidden">
+      <div className="relative bg-gray-900 text-white h-screen px-4 overflow-hidden flex items-center justify-center">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: "url('/assets/bg_museum.jpg')" }}
@@ -30,13 +30,13 @@ const Home = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={() => navigate("/scan")}
-              className="px-8 py-4 bg-[#D17842] text-white rounded-lg font-semibold text-lg hover:bg-[#B85F30] transition hover:scale-105 shadow-lg"
+              className="px-6 py-3 bg-[#D17842] text-white rounded-lg font-semibold hover:bg-[#B85F30] transition hover:scale-105 shadow-lg"
             >
               {t("home.hero.scanButton")}
             </button>
             <button
               onClick={() => navigate("/collections")}
-              className="px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white text-white rounded-lg font-semibold text-lg hover:bg-white hover:text-[#D17842] transition"
+              className="px-6 py-3 bg-white/10 backdrop-blur-sm border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-[#D17842] transition"
             >
               {t("home.hero.exploreButton")}
             </button>
