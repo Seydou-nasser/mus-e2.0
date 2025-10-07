@@ -85,16 +85,34 @@ const ArtworkDetail = () => {
           </p>
         </div>
 
-        {/* Audio player (placeholder) */}
+        {/* Audio player */}
         {translation.audioUrl && (
           <div className="border-t border-gray-200 dark:border-gray-700 pt-4 mt-4">
-            <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-              Écouter la description
+            <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
+              <span>🎧</span> Écouter la description
             </h2>
             <audio controls className="w-full">
               <source src={translation.audioUrl} type="audio/mpeg" />
               Votre navigateur ne supporte pas l'audio.
             </audio>
+          </div>
+        )}
+
+        {/* Video player */}
+        {artwork.videoUrl && (
+          <div className="border-t border-gray-200 dark:border-gray-700 pt-4 mt-4">
+            <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
+              <span>🎥</span> Vidéo explicative
+            </h2>
+            <div className="aspect-video rounded-lg overflow-hidden bg-gray-900">
+              <iframe
+                src={artwork.videoUrl}
+                className="w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                title={`Vidéo - ${translation.title}`}
+              />
+            </div>
           </div>
         )}
       </div>
