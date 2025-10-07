@@ -16,7 +16,8 @@
     "home": "Home",
     "collections": "Collections",
     "about": "About",
-    "scan": "Scan"
+    "scan": "Scan",
+    "language": "Language"
   },
   "collections": {
     "title": "Our Collections",
