@@ -84,6 +84,20 @@
       "event": "Event"
     }
   },
+  "artwork": {
+    "history": "Historical Information",
+    "creationPeriod": "Creation Period",
+    "origin": "Origin",
+    "category": "Category",
+    "identificationCode": "Identification Code",
+    "culturalContext": "Cultural Context",
+    "description": "Description",
+    "gallery": "Gallery",
+    "listenDescription": "Listen to description",
+    "videoExplanation": "Explanatory Video",
+    "backToHome": "Back",
+    "notFound": "Artwork not found"
+  },
   "footer": {
     "description": "Explore African cultural heritage through an innovative digital experience.",
     "links": "Quick Links",
