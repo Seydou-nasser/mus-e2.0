@@ -85,6 +85,20 @@
       "event": "Des"
     }
   },
+  "artwork": {
+    "history": "Xalaat yu taariix",
+    "creationPeriod": "Jamono mu ñu ko def",
+    "origin": "Jiitu",
+    "category": "Wàllu",
+    "identificationCode": "Koodu xam-xam",
+    "culturalContext": "Yoon bu aada",
+    "description": "Saññ-saññ",
+    "gallery": "Nataal",
+    "listenDescription": "Deglu saññ-saññ bi",
+    "videoExplanation": "Widéwo bu faral",
+    "backToHome": "Dellu",
+    "notFound": "Lëkkalekaay gisuma"
+  },
   "footer": {
     "description": "Xool patrimoine bu aada bu Afrik ci benn xeetu digital bu bees.",
     "links": "Lien yu gaaw",

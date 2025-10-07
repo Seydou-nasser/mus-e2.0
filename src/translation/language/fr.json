@@ -85,6 +85,20 @@
       "event": "Événement"
     }
   },
+  "artwork": {
+    "history": "Informations historiques",
+    "creationPeriod": "Période de création",
+    "origin": "Origine",
+    "category": "Catégorie",
+    "identificationCode": "Code d'identification",
+    "culturalContext": "Contexte culturel",
+    "description": "Description",
+    "gallery": "Galerie",
+    "listenDescription": "Écouter la description",
+    "videoExplanation": "Vidéo explicative",
+    "backToHome": "Retour",
+    "notFound": "Œuvre non trouvée"
+  },
   "footer": {
     "description": "Explorez le patrimoine culturel africain grâce à une expérience digitale innovante.",
     "links": "Liens rapides",

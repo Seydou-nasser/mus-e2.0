@@ -6,7 +6,7 @@ import AudioPlayer from "./AudioPlayer";
 
 const ArtworkDetail = () => {
   const { id } = useParams<{ id: string }>();
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const navigate = useNavigate();
 
   const currentLang = i18n.language as Language;
@@ -17,13 +17,13 @@ const ArtworkDetail = () => {
       <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900">
         <div className="text-center">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-            Œuvre non trouvée
+            {t("artwork.notFound")}
           </h2>
           <button
             onClick={() => navigate("/")}
-            className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+            className="px-6 py-2 bg-[#D17842] text-white rounded-lg hover:bg-[#B85F30] transition"
           >
-            Retour à l'accueil
+            {t("artwork.backToHome")}
           </button>
         </div>
       </div>
@@ -38,9 +38,9 @@ const ArtworkDetail = () => {
       {/* Header avec bouton retour */}
       <Link
         to={"/"}
-        className="mb-6 flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-400 no-underline"
+        className="mb-6 flex items-center text-[#D17842] dark:text-[#E89563] hover:text-[#B85F30] dark:hover:text-[#D17842] no-underline transition"
       >
-        ← Retour
+        ← {t("artwork.backToHome")}
       </Link>
 
       {/* Image principale */}
@@ -63,14 +63,14 @@ const ArtworkDetail = () => {
               {translation.origin} • {translation.period}
             </p>
           </div>
-          <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-300 rounded-full text-sm">
+          <span className="px-3 py-1 bg-[#D17842]/10 dark:bg-[#E89563]/10 text-[#D17842] dark:text-[#E89563] rounded-full text-sm font-semibold">
             {artwork.category}
           </span>
         </div>
 
         <div className="border-t border-gray-200 dark:border-gray-700 pt-4 mt-4">
           <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-            Description
+            {t("artwork.description")}
           </h2>
           <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
             {translation.description}
@@ -79,11 +79,71 @@ const ArtworkDetail = () => {
 
         <div className="border-t border-gray-200 dark:border-gray-700 pt-4 mt-4">
           <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-            Contexte culturel
+            {t("artwork.culturalContext")}
           </h2>
           <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
             {translation.culturalContext}
           </p>
+        </div>
+
+        {/* Informations historiques */}
+        <div className="border-t border-gray-200 dark:border-gray-700 pt-4 mt-4">
+          <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+            <span>📜</span> {t("artwork.history")}
+          </h2>
+          <div className="space-y-4">
+            {/* Période de création */}
+            <div className="flex items-start gap-3">
+              <div className="w-2 h-2 mt-2 rounded-full bg-[#D17842] flex-shrink-0"></div>
+              <div>
+                <h3 className="font-semibold text-gray-900 dark:text-white">
+                  {t("artwork.creationPeriod")}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-400 text-sm">
+                  {translation.period} ({artwork.createdAt})
+                </p>
+              </div>
+            </div>
+
+            {/* Origine géographique */}
+            <div className="flex items-start gap-3">
+              <div className="w-2 h-2 mt-2 rounded-full bg-[#D17842] flex-shrink-0"></div>
+              <div>
+                <h3 className="font-semibold text-gray-900 dark:text-white">
+                  {t("artwork.origin")}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-400 text-sm">
+                  {translation.origin}
+                </p>
+              </div>
+            </div>
+
+            {/* Catégorie */}
+            <div className="flex items-start gap-3">
+              <div className="w-2 h-2 mt-2 rounded-full bg-[#D17842] flex-shrink-0"></div>
+              <div>
+                <h3 className="font-semibold text-gray-900 dark:text-white">
+                  {t("artwork.category")}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-400 text-sm">
+                  {artwork.category}
+                </p>
+              </div>
+            </div>
+
+            {/* QR Code */}
+            <div className="flex items-start gap-3">
+              <div className="w-2 h-2 mt-2 rounded-full bg-[#D17842] flex-shrink-0"></div>
+              <div>
+                <h3 className="font-semibold text-gray-900 dark:text-white">
+                  {t("artwork.identificationCode")}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-400 text-sm font-mono">
+                  {artwork.qrCode}
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Audio player avec Web Speech API */}
@@ -97,7 +157,7 @@ const ArtworkDetail = () => {
         {artwork.videoUrl && (
           <div className="border-t border-gray-200 dark:border-gray-700 pt-4 mt-4">
             <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
-              <span>🎥</span> Vidéo explicative
+              <span>🎥</span> {t("artwork.videoExplanation")}
             </h2>
             <div className="aspect-video rounded-lg overflow-hidden bg-gray-900">
               <iframe
@@ -116,7 +176,7 @@ const ArtworkDetail = () => {
       {artwork.imageGallery && artwork.imageGallery.length > 1 && (
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
           <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
-            Galerie
+            {t("artwork.gallery")}
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {artwork.imageGallery.map((img, index) => (
