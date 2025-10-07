@@ -50,7 +50,7 @@ export default function Header() {
     <>
       {/* <header className=""> */}
       <nav className="sticky md:top-4 top-0 z-50">
-        <div className="max-w-6xl backdrop-blur border border-border md:rounded-2xl px-4 mx-auto flex h-16 items-center justify-between">
+        <div className="max-w-6xl bg-white/80 dark:bg-gray-900/80 backdrop-blur border border-border border-[#D17842] md:rounded-2xl px-4 mx-auto flex h-16 items-center justify-between">
           {/* Logo et nom */}
           <Link
             to="/"
