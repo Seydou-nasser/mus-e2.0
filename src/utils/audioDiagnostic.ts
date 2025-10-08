@@ -162,6 +162,12 @@ export const testAudioGeneration = async (): Promise<boolean> => {
       return new Promise((resolve) => {
         let isResolved = false;
         
+        // Vérifier si la synthèse vocale est déjà en cours
+        if (speechSynthesis.speaking) {
+          console.log('🔄 [TEST AUDIO] Arrêt de la synthèse en cours...');
+          speechSynthesis.cancel();
+        }
+        
         utterance.onstart = () => {
           console.log('🎉 [TEST AUDIO] Synthèse vocale démarrée');
         };
@@ -182,18 +188,20 @@ export const testAudioGeneration = async (): Promise<boolean> => {
           }
         };
         
-        // Lancer la synthèse vocale
-        speechSynthesis.speak(utterance);
-        console.log('🚀 [TEST AUDIO] Synthèse vocale lancée');
+        // Attendre un peu avant de lancer
+        setTimeout(() => {
+          speechSynthesis.speak(utterance);
+          console.log('🚀 [TEST AUDIO] Synthèse vocale lancée');
+        }, 100);
         
-        // Timeout après 5 secondes (plus de temps)
+        // Timeout après 3 secondes
         setTimeout(() => {
           if (!isResolved) {
             isResolved = true;
             console.log('⏰ [TEST AUDIO] Timeout Web Speech API');
             resolve(false);
           }
-        }, 5000);
+        }, 3000);
       });
     } else {
       console.log('❌ [TEST AUDIO] Web Speech API non disponible');

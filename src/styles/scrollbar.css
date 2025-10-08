@@ -1,0 +1,80 @@
+/* Scrollbar personnalisé pour Audio Guide */
+
+/* Webkit (Chrome, Safari, Edge) */
+.audio-guide-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.audio-guide-scrollbar::-webkit-scrollbar-track {
+  background: rgba(156, 163, 175, 0.2);
+  border-radius: 3px;
+}
+
+.audio-guide-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.5);
+  border-radius: 3px;
+  transition: background 0.2s ease;
+}
+
+.audio-guide-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(156, 163, 175, 0.7);
+}
+
+/* Mode sombre */
+.dark .audio-guide-scrollbar::-webkit-scrollbar-track {
+  background: rgba(75, 85, 99, 0.2);
+}
+
+.dark .audio-guide-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(75, 85, 99, 0.5);
+}
+
+.dark .audio-guide-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(75, 85, 99, 0.7);
+}
+
+/* Firefox */
+.audio-guide-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(156, 163, 175, 0.5) rgba(156, 163, 175, 0.2);
+}
+
+.dark .audio-guide-scrollbar {
+  scrollbar-color: rgba(75, 85, 99, 0.5) rgba(75, 85, 99, 0.2);
+}
+
+/* Animation de scroll fluide */
+.audio-guide-scrollbar {
+  scroll-behavior: smooth;
+}
+
+/* Optimisation pour mobile */
+@media (max-width: 640px) {
+  .audio-guide-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  .audio-guide-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(156, 163, 175, 0.6);
+  }
+}
+
+/* Gestion du scroll modal */
+.modal-open {
+  overflow: hidden !important;
+  position: fixed !important;
+  top: calc(-1 * var(--scroll-y, 0px)) !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+}
+
+/* Restauration du scroll après fermeture du modal */
+body:not(.modal-open) {
+  overflow: auto !important;
+  position: static !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  width: auto !important;
+}

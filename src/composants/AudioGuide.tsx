@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { elevenLabsService } from '../services/elevenLabsService';
 import { runAudioDiagnostic, testAudioGeneration, logAudioStatus } from '../utils/audioDiagnostic';
+import '../styles/scrollbar.css';
 
 /**
  * Composant AudioGuide avec ElevenLabs TTS
@@ -117,6 +118,45 @@ const AudioGuide: React.FC<AudioGuideProps> = ({ oeuvre, isOpen, onClose }) => {
       }
     };
   }, [progressInterval]);
+
+  // Empêcher le scroll de la page d'accueil quand le modal est ouvert
+  useEffect(() => {
+    // Sauvegarder la position de scroll actuelle
+    const scrollY = window.scrollY;
+    
+    // Bloquer le scroll de manière plus douce
+    const originalStyle = {
+      overflow: document.body.style.overflow,
+      position: document.body.style.position,
+      top: document.body.style.top,
+      left: document.body.style.left,
+      right: document.body.style.right,
+      width: document.body.style.width
+    };
+    
+    // Appliquer les styles pour bloquer le scroll
+    document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+    document.body.style.width = '100%';
+    
+    return () => {
+      // Restaurer les styles originaux
+      document.body.style.overflow = originalStyle.overflow;
+      document.body.style.position = originalStyle.position;
+      document.body.style.top = originalStyle.top;
+      document.body.style.left = originalStyle.left;
+      document.body.style.right = originalStyle.right;
+      document.body.style.width = originalStyle.width;
+      
+      // Restaurer la position de scroll après un court délai
+      setTimeout(() => {
+        window.scrollTo(0, scrollY);
+      }, 50);
+    };
+  }, []);
 
   // Diagnostic audio au montage du composant (une seule fois)
   useEffect(() => {
@@ -238,11 +278,22 @@ const AudioGuide: React.FC<AudioGuideProps> = ({ oeuvre, isOpen, onClose }) => {
       console.error('📊 [AUDIO GUIDE] Stack:', (err as Error).stack);
       
       // Fallback vers Web Speech API en cas d'erreur
-      const text = language === 'fr' ? 
-        `Bienvenue dans cette exploration de ${currentOeuvre.titre.fr}. ${currentOeuvre.description.fr}. Cette œuvre date du ${currentOeuvre.periode.fr} et provient de ${currentOeuvre.region.fr}.` :
-        language === 'en' ?
-        `Welcome to this exploration of ${currentOeuvre.titre.en}. ${currentOeuvre.description.en}. This work dates from ${currentOeuvre.periode.en} and comes from ${currentOeuvre.region.en}.` :
-        `Jëfandikoo bu yees ci ${currentOeuvre.titre.wo}. ${currentOeuvre.description.wo}. Jëfandikoo bi ci ${currentOeuvre.periode.wo} ak ci ${currentOeuvre.region.wo}.`;
+      let text = '';
+      
+      if (language === 'fr') {
+        text = `Bienvenue dans cette exploration de ${currentOeuvre.titre.fr}. ${currentOeuvre.description.fr}. Cette œuvre date du ${currentOeuvre.periode.fr} et provient de ${currentOeuvre.region.fr}.`;
+      } else if (language === 'en') {
+        text = `Welcome to this exploration of ${currentOeuvre.titre.en}. ${currentOeuvre.description.en}. This work dates from ${currentOeuvre.periode.en} and comes from ${currentOeuvre.region.en}.`;
+      } else if (language === 'wo') {
+        // Texte Wolof simplifié pour meilleure prononciation
+        text = `Jëfandikoo bu yees ci ${currentOeuvre.titre.wo}. ${currentOeuvre.description.wo}. Jëfandikoo bi ci ${currentOeuvre.periode.wo} ak ci ${currentOeuvre.region.wo}.`;
+        
+        // Ajouter des pauses pour améliorer la prononciation
+        text = text.replace(/\./g, '. '); // Espaces après les points
+        text = text.replace(/,/g, ', '); // Espaces après les virgules
+        
+        console.log('🌍 [AUDIO GUIDE] Texte Wolof optimisé:', text);
+      }
       
       console.log('🔄 [AUDIO GUIDE] Fallback vers Web Speech API');
       console.log('📝 [AUDIO GUIDE] Texte fallback:', text.substring(0, 100) + '...');
@@ -251,10 +302,25 @@ const AudioGuide: React.FC<AudioGuideProps> = ({ oeuvre, isOpen, onClose }) => {
         console.log('🎤 [AUDIO GUIDE] Web Speech API disponible');
         
         const utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = language === 'fr' ? 'fr-FR' : language === 'en' ? 'en-US' : 'fr-FR';
-        utterance.rate = 0.8;
-        utterance.pitch = 1;
-        utterance.volume = 0.8;
+        
+        // Configuration spéciale pour le Wolof
+        if (language === 'wo') {
+          utterance.lang = 'fr-FR'; // Utilise le français comme base
+          utterance.rate = 0.6; // Plus lent pour le Wolof
+          utterance.pitch = 0.7; // Pitch plus bas
+          utterance.volume = 0.7; // Volume réduit
+          console.log('🌍 [AUDIO GUIDE] Configuration Wolof fallback:', {
+            lang: utterance.lang,
+            rate: utterance.rate,
+            pitch: utterance.pitch,
+            volume: utterance.volume
+          });
+        } else {
+          utterance.lang = language === 'fr' ? 'fr-FR' : 'en-US';
+          utterance.rate = 0.8;
+          utterance.pitch = 1;
+          utterance.volume = 0.8;
+        }
         
         console.log('🎵 [AUDIO GUIDE] Configuration utterance:', {
           lang: utterance.lang,
@@ -311,10 +377,25 @@ const AudioGuide: React.FC<AudioGuideProps> = ({ oeuvre, isOpen, onClose }) => {
         console.log('📝 [AUDIO GUIDE] Texte synthèse:', text.substring(0, 100) + '...');
         
         const utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = currentLanguage === 'fr' ? 'fr-FR' : currentLanguage === 'en' ? 'en-US' : 'fr-FR';
-        utterance.rate = playbackRate;
-        utterance.pitch = 1;
-        utterance.volume = isMuted ? 0 : volume;
+        
+        // Configuration spéciale pour le Wolof
+        if (currentLanguage === 'wo') {
+          utterance.lang = 'fr-FR'; // Utilise le français comme base
+          utterance.rate = 0.7; // Plus lent pour le Wolof
+          utterance.pitch = 0.8; // Pitch plus bas
+          utterance.volume = isMuted ? 0 : volume * 0.9; // Volume légèrement réduit
+          console.log('🌍 [AUDIO GUIDE] Configuration spéciale Wolof:', {
+            lang: utterance.lang,
+            rate: utterance.rate,
+            pitch: utterance.pitch,
+            volume: utterance.volume
+          });
+        } else {
+          utterance.lang = currentLanguage === 'fr' ? 'fr-FR' : 'en-US';
+          utterance.rate = playbackRate;
+          utterance.pitch = 1;
+          utterance.volume = isMuted ? 0 : volume;
+        }
         
         console.log('🎵 [AUDIO GUIDE] Configuration utterance:', {
           lang: utterance.lang,
@@ -338,31 +419,37 @@ const AudioGuide: React.FC<AudioGuideProps> = ({ oeuvre, isOpen, onClose }) => {
   const testAudio = async () => {
     console.log('🧪 [AUDIO GUIDE] Test de génération audio');
     setIsTesting(true);
-    setError(null); // Effacer les erreurs précédentes
+    setError(null);
     
     try {
-      console.log('🔍 [AUDIO GUIDE] Vérification Web Speech API...');
-      
       if (!('speechSynthesis' in window)) {
-        console.log('❌ [AUDIO GUIDE] Web Speech API non disponible');
-        setError('❌ Web Speech API non disponible dans ce navigateur');
+        setError('❌ Web Speech API non disponible');
         return;
       }
       
-      console.log('🎤 [AUDIO GUIDE] Web Speech API disponible, lancement du test...');
+      // Test simple et direct
+      const utterance = new SpeechSynthesisUtterance('Test audio guide');
+      utterance.volume = 0.5;
+      utterance.rate = 1.0;
       
-      const success = await testAudioGeneration();
-      if (success) {
+      utterance.onend = () => {
         console.log('✅ [AUDIO GUIDE] Test audio réussi');
         setError('✅ Test audio réussi - Service fonctionnel !');
-      } else {
-        console.log('❌ [AUDIO GUIDE] Test audio échoué');
-        setError('❌ Test audio échoué - Vérifier la configuration');
-      }
+        setIsTesting(false);
+      };
+      
+      utterance.onerror = (error) => {
+        console.error('❌ [AUDIO GUIDE] Erreur test:', error);
+        setError('❌ Test audio échoué');
+        setIsTesting(false);
+      };
+      
+      speechSynthesis.speak(utterance);
+      console.log('🚀 [AUDIO GUIDE] Test audio lancé');
+      
     } catch (error) {
-      console.error('❌ [AUDIO GUIDE] Erreur test audio:', error);
-      setError('❌ Erreur lors du test audio');
-    } finally {
+      console.error('❌ [AUDIO GUIDE] Erreur:', error);
+      setError('❌ Erreur lors du test');
       setIsTesting(false);
     }
   };
@@ -465,63 +552,63 @@ const AudioGuide: React.FC<AudioGuideProps> = ({ oeuvre, isOpen, onClose }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+        className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-2 sm:p-4 overflow-y-auto"
         onClick={onClose}
       >
       <motion.div
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.8, opacity: 0 }}
-        className={`${themeClasses.background} rounded-3xl p-8 max-w-2xl w-full border ${
+        className={`${themeClasses.background} rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 max-w-2xl w-full border ${
           isDarkMode ? 'border-white/20' : 'border-gray-300'
-        } shadow-2xl`}
+        } shadow-2xl max-h-[90vh] overflow-y-auto audio-guide-scrollbar`}
         onClick={(e) => e.stopPropagation()}
       >
           {/* Header */}
-          <div className="flex items-center justify-between mb-6">
-            <div className="flex items-center space-x-3">
+          <div className="flex items-center justify-between mb-4 sm:mb-6">
+            <div className="flex items-center space-x-2 sm:space-x-3">
               <AudioIcon />
               <div>
-                <h2 className={`text-2xl font-bold ${themeClasses.text}`}>
+                <h2 className={`text-lg sm:text-xl lg:text-2xl font-bold ${themeClasses.text}`}>
                   {i18n.language === 'fr' ? 'Guide Audio' : 
                   i18n.language === 'en' ? 'Audio Guide' : 
                   'Jëfandikoo Audio'}
                 </h2>
-                <p className={themeClasses.textSecondary}>
+                <p className={`text-sm sm:text-base ${themeClasses.textSecondary}`}>
                   {currentOeuvre.titre[i18n.language as keyof typeof currentOeuvre.titre]}
                 </p>
               </div>
             </div>
             <button
               onClick={onClose}
-              className={`${themeClasses.textSecondary} hover:${themeClasses.text} transition-colors`}
+              className={`text-lg sm:text-xl ${themeClasses.textSecondary} hover:${themeClasses.text} transition-colors p-1`}
             >
               ✕
             </button>
           </div>
 
           {/* Message de statut ElevenLabs */}
-          <div className="mb-4 p-4 bg-green-500/20 border border-green-500/50 rounded-xl">
-            <p className="text-green-300 text-sm">
+          <div className="mb-3 sm:mb-4 p-2 sm:p-3 bg-green-500/20 border border-green-500/50 rounded-xl">
+            <p className="text-green-300 text-xs sm:text-sm leading-relaxed">
               🎙️ <strong>ElevenLabs TTS Activé :</strong> Qualité audio professionnelle avec voix naturelles. 
               Fallback vers Web Speech API en cas d'erreur.
             </p>
           </div>
 
           {/* Sélection de langue */}
-          <div className="mb-6">
-            <h3 className={`text-lg font-semibold ${themeClasses.text} mb-3`}>
+          <div className="mb-3 sm:mb-4">
+            <h3 className={`text-base sm:text-lg font-semibold ${themeClasses.text} mb-2`}>
               {i18n.language === 'fr' ? 'Choisir la langue' : 
                i18n.language === 'en' ? 'Choose language' : 
                'Tànn ci làkk'}
             </h3>
-            <div className="flex space-x-3">
+            <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3">
               {(['fr', 'en', 'wo'] as const).map((lang) => (
                 <button
                   key={lang}
                   onClick={() => generateAudio(lang)}
                   disabled={isLoading}
-                  className={`px-6 py-3 rounded-xl font-semibold transition-all ${
+                  className={`px-3 sm:px-6 py-2 sm:py-3 rounded-xl font-semibold transition-all text-sm sm:text-base ${
                     currentLanguage === lang
                       ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg'
                       : isDarkMode 
@@ -537,10 +624,10 @@ const AudioGuide: React.FC<AudioGuideProps> = ({ oeuvre, isOpen, onClose }) => {
 
           {/* Contrôles audio */}
           {currentLanguage && (
-            <div className="space-y-4">
+            <div className="space-y-2 sm:space-y-3">
               {/* Barre de progression */}
               <div className="space-y-2">
-                <div className="flex justify-between text-sm text-gray-400">
+                <div className="flex justify-between text-xs sm:text-sm text-gray-400">
                   <span>{formatTime(currentTime)}</span>
                   <span>{formatTime(duration)}</span>
                 </div>
@@ -569,17 +656,17 @@ const AudioGuide: React.FC<AudioGuideProps> = ({ oeuvre, isOpen, onClose }) => {
               </div>
 
               {/* Boutons de contrôle */}
-              <div className="flex items-center justify-center space-x-6">
+              <div className="flex items-center justify-center space-x-3 sm:space-x-6">
                 <button
                   onClick={resetAudio}
-                  className={`p-4 rounded-full transition-all border ${
+                  className={`p-3 sm:p-4 rounded-full transition-all border ${
                     isDarkMode 
                       ? 'bg-gradient-to-br from-blue-500/20 to-cyan-500/20 hover:from-blue-500/30 hover:to-cyan-500/30 border-blue-500/30'
                       : 'bg-gradient-to-br from-blue-100 to-cyan-100 hover:from-blue-200 hover:to-cyan-200 border-blue-300'
                   }`}
                   title="Redémarrer"
                 >
-                  <RotateCcw className={`w-5 h-5 ${isDarkMode ? 'text-blue-400' : 'text-blue-600'}`} />
+                  <RotateCcw className={`w-4 h-4 sm:w-5 sm:h-5 ${isDarkMode ? 'text-blue-400' : 'text-blue-600'}`} />
                 </button>
                 
                 <motion.button
@@ -587,7 +674,7 @@ const AudioGuide: React.FC<AudioGuideProps> = ({ oeuvre, isOpen, onClose }) => {
                   disabled={isLoading}
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className={`p-6 rounded-full transition-all disabled:opacity-50 shadow-2xl hover:shadow-3xl transform ${
+                  className={`p-4 sm:p-6 rounded-full transition-all disabled:opacity-50 shadow-2xl hover:shadow-3xl transform ${
                     isPlaying 
                       ? 'bg-gradient-to-br from-red-500 via-rose-500 to-pink-600 hover:from-red-600 hover:via-rose-600 hover:to-pink-700' 
                       : 'bg-gradient-to-br from-emerald-500 via-green-500 to-teal-600 hover:from-emerald-600 hover:via-green-600 hover:to-teal-700'
@@ -652,7 +739,7 @@ const AudioGuide: React.FC<AudioGuideProps> = ({ oeuvre, isOpen, onClose }) => {
               </div>
 
               {/* Contrôle du volume */}
-              <div className="flex items-center space-x-3">
+              <div className="flex items-center space-x-2 sm:space-x-3">
                 <VolumeIcon />
                 <div className="flex-1 relative">
                   <input
@@ -666,7 +753,7 @@ const AudioGuide: React.FC<AudioGuideProps> = ({ oeuvre, isOpen, onClose }) => {
                       console.log('🔊 [AUDIO GUIDE] Changement volume:', newVolume);
                       setVolume(newVolume);
                     }}
-                    className={`w-full h-3 rounded-lg appearance-none cursor-pointer slider ${
+                    className={`w-full h-2 sm:h-3 rounded-lg appearance-none cursor-pointer slider ${
                       isDarkMode ? 'bg-gray-700' : 'bg-gray-300'
                     }`}
                     style={{
@@ -676,13 +763,13 @@ const AudioGuide: React.FC<AudioGuideProps> = ({ oeuvre, isOpen, onClose }) => {
                     }}
                   />
                 </div>
-                <span className={`text-sm font-semibold w-12 ${isDarkMode ? 'text-blue-400' : 'text-blue-600'}`}>
+                <span className={`text-xs sm:text-sm font-semibold w-10 sm:w-12 ${isDarkMode ? 'text-blue-400' : 'text-blue-600'}`}>
                   {Math.round(volume * 100)}%
                 </span>
               </div>
 
               {/* Contrôle de la vitesse */}
-              <div className="flex items-center space-x-3">
+              <div className="flex items-center space-x-2 sm:space-x-3">
                 <SpeedIcon />
                 <div className="flex-1 relative">
                   <input
@@ -692,7 +779,7 @@ const AudioGuide: React.FC<AudioGuideProps> = ({ oeuvre, isOpen, onClose }) => {
                     step="0.1"
                     value={playbackRate}
                     onChange={(e) => setPlaybackRate(parseFloat(e.target.value))}
-                    className={`w-full h-3 rounded-lg appearance-none cursor-pointer slider ${
+                    className={`w-full h-2 sm:h-3 rounded-lg appearance-none cursor-pointer slider ${
                       isDarkMode ? 'bg-gray-700' : 'bg-gray-300'
                     }`}
                     style={{
@@ -702,7 +789,7 @@ const AudioGuide: React.FC<AudioGuideProps> = ({ oeuvre, isOpen, onClose }) => {
                     }}
                   />
                 </div>
-                <span className={`text-sm font-semibold w-12 ${isDarkMode ? 'text-orange-400' : 'text-orange-600'}`}>
+                <span className={`text-xs sm:text-sm font-semibold w-10 sm:w-12 ${isDarkMode ? 'text-orange-400' : 'text-orange-600'}`}>
                   {playbackRate.toFixed(1)}x
                 </span>
               </div>
@@ -710,25 +797,25 @@ const AudioGuide: React.FC<AudioGuideProps> = ({ oeuvre, isOpen, onClose }) => {
           )}
 
           {/* Indicateur de mode audio */}
-          <div className="mt-4 p-3 rounded-xl border">
+          <div className="mt-3 p-2 sm:p-3 rounded-xl border">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-2">
                 {audioMode === 'elevenlabs' && (
                   <>
-                    <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                    <span className="text-sm font-medium text-green-400">Mode ElevenLabs (Professionnel)</span>
+                    <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-500 rounded-full animate-pulse"></div>
+                    <span className="text-xs sm:text-sm font-medium text-green-400">Mode ElevenLabs (Professionnel)</span>
                   </>
                 )}
                 {audioMode === 'webspeech' && (
                   <>
-                    <div className="w-3 h-3 bg-yellow-500 rounded-full animate-pulse"></div>
-                    <span className="text-sm font-medium text-yellow-400">Mode Web Speech (Démonstration)</span>
+                    <div className="w-2 h-2 sm:w-3 sm:h-3 bg-yellow-500 rounded-full animate-pulse"></div>
+                    <span className="text-xs sm:text-sm font-medium text-yellow-400">Mode Web Speech (Démonstration)</span>
                   </>
                 )}
                 {audioMode === 'unknown' && (
                   <>
-                    <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
-                    <span className="text-sm font-medium text-red-400">Aucun service audio</span>
+                    <div className="w-2 h-2 sm:w-3 sm:h-3 bg-red-500 rounded-full animate-pulse"></div>
+                    <span className="text-xs sm:text-sm font-medium text-red-400">Aucun service audio</span>
                   </>
                 )}
               </div>
@@ -742,12 +829,12 @@ const AudioGuide: React.FC<AudioGuideProps> = ({ oeuvre, isOpen, onClose }) => {
 
           {/* Message d'erreur */}
           {error && (
-            <div className={`mt-4 p-4 rounded-xl border ${
+            <div className={`mt-3 p-3 rounded-xl border ${
               error.includes('✅') 
                 ? 'bg-green-500/20 border-green-500/50 text-green-300'
                 : 'bg-red-500/20 border-red-500/50 text-red-300'
             }`}>
-              {error}
+              <p className="text-xs sm:text-sm leading-relaxed">{error}</p>
             </div>
           )}
 
