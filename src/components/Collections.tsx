@@ -39,6 +39,7 @@ const Collections = () => {
   }, [searchQuery, selectedCategory, currentLang]);
 
   return (
+
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
@@ -49,6 +50,7 @@ const Collections = () => {
           <p className="text-gray-600 dark:text-gray-400">
             {t("collections.subtitle")}
           </p>
+
         </div>
 
         {/* Barre de recherche */}
@@ -112,6 +114,7 @@ const Collections = () => {
                   onClick={() => navigate(`/artwork/${artwork.id}`)}
                   className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden cursor-pointer transform transition hover:scale-105 hover:shadow-xl"
                 >
+
                   {/* Image */}
                   <div className="relative h-64 overflow-hidden">
                     <img
@@ -124,6 +127,7 @@ const Collections = () => {
                         <Star size={12} />
                         {t("collections.featured")}
                       </span>
+
                     )}
                   </div>
 

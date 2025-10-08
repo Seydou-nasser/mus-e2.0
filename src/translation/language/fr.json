@@ -1,4 +1,5 @@
 {
+
   "helloWorld": "Bonjour le monde !",
   "qrScanner": {
     "title": "Scanner une œuvre",
@@ -136,4 +137,5 @@
     "typing": "L'assistant écrit...",
     "disclaimer": "Assistant spécialisé dans le musée uniquement"
   }
+
 }

@@ -1,4 +1,5 @@
 {
+
   "qrScanner": {
     "title": "Scan an artwork",
     "instruction": "Point your camera at the artwork's QR code",
@@ -135,4 +136,5 @@
     "typing": "Assistant is typing...",
     "disclaimer": "Assistant specialized in the museum only"
   }
+
 }

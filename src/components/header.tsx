@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router";
 import { useTranslation } from "react-i18next";
+
 import { useState, useEffect, useRef } from "react";
 import { Menu, X, Globe, QrCode, Home, Palette, Info } from "lucide-react";
 
@@ -8,6 +9,7 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
   const menuRef = useRef<HTMLDivElement>(null);
+
 
   const changeLanguage = (lang: string) => {
     i18n.changeLanguage(lang);
@@ -47,6 +49,7 @@ export default function Header() {
     }`;
 
   return (
+
     <>
       {/* <header className=""> */}
       <nav className="sticky md:top-4 top-0 z-50">
@@ -56,11 +59,13 @@ export default function Header() {
             to="/"
             className="flex items-center text-white text-lg md:text-2xl font-bold hover:text-amber-200 transition-colors"
           >
+
             <img
               src="/assets/logoMCN.png"
               alt="Logo Musée des Civilisations Noires"
               className="h-8 w-8 mr-3"
             />
+
             <span className="hidden md:inline">
               Museum of Black Civilizations
             </span>
@@ -90,6 +95,7 @@ export default function Header() {
               <button
                 onClick={() => changeLanguage("fr")}
                 className={languageButtonClasses("fr")}
+
               >
                 FR
               </button>
@@ -107,6 +113,7 @@ export default function Header() {
               </button>
             </div>
           </div>
+
 
           {/* Mobile Menu Button */}
           <button
@@ -229,5 +236,6 @@ export default function Header() {
         </div>
       )}
     </>
+
   );
 }
