@@ -5,22 +5,26 @@
 ### En Français 🇫🇷
 
 1. **Questions générales**
+
    - "Bonjour, présente-toi"
    - "Combien d'œuvres sont exposées dans le musée ?"
    - "Quelles sont les catégories d'œuvres disponibles ?"
 
 2. **Questions sur des œuvres spécifiques**
+
    - "Parle-moi du Masque Gelede"
    - "Quelle est l'origine du Tissu Kente Royal ?"
    - "Décris-moi le Tambour Djembé"
    - "Qu'est-ce que la Statuette Nok ?"
 
 3. **Questions par origine géographique**
+
    - "Quelles œuvres viennent du Nigéria ?"
    - "Montre-moi des œuvres du Ghana"
    - "Que possédez-vous du Cameroun ?"
 
 4. **Questions par catégorie**
+
    - "Quelles sculptures avez-vous ?"
    - "Parle-moi des textiles africains"
    - "Montrez-moi les bijoux de la collection"
@@ -49,6 +53,7 @@
 ## Réponses attendues
 
 L'IA devrait :
+
 - ✅ Répondre dans la langue de la question
 - ✅ Utiliser les informations exactes de la collection
 - ✅ Être concise (2-3 phrases)
@@ -58,16 +63,19 @@ L'IA devrait :
 ## Scénarios de test
 
 ### Scénario 1 : Nouveau visiteur
+
 1. "Bonjour"
 2. "Que recommandez-vous de voir en premier ?"
 3. "Parlez-moi de cette œuvre" (mentionner une œuvre vedette)
 
 ### Scénario 2 : Recherche thématique
+
 1. "Je m'intéresse aux textiles"
 2. "Quelle est l'histoire du tissu Kente ?"
 3. "Y a-t-il d'autres textiles dans la collection ?"
 
 ### Scénario 3 : Exploration géographique
+
 1. "Quelles œuvres représentent le Nigéria ?"
 2. "Parle-moi du Masque Gelede"
 3. "Quelles autres cultures nigérianes sont exposées ?"

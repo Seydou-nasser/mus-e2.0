@@ -60,6 +60,7 @@ L'assistant a accès à :
 ### 🚀 Modèle utilisé
 
 **Llama 3.3 70B Versatile** (via Groq)
+
 - Ultra-rapide (~500 tokens/seconde)
 - Très performant en multilingue
 - Contexte jusqu'à 32K tokens
