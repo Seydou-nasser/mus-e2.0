@@ -34,7 +34,7 @@
         "audioUrl": "/audio/mcn-001-wo.mp3"
       }
     },
-    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "videoUrl": "/assets/videoplayback.mp4",
     "createdAt": "1850",
     "featured": true
   },
@@ -72,7 +72,7 @@
         "audioUrl": "/audio/mcn-002-wo.mp3"
       }
     },
-    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "videoUrl": "/assets/videoplayback.mp4",
     "createdAt": "1750",
     "featured": true
   },
@@ -110,7 +110,7 @@
         "audioUrl": "/audio/mcn-003-wo.mp3"
       }
     },
-    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "videoUrl": "/assets/videoplayback.mp4",
     "createdAt": "1920",
     "featured": false
   },
@@ -148,7 +148,7 @@
         "audioUrl": "/audio/mcn-004-wo.mp3"
       }
     },
-    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "videoUrl": "/assets/videoplayback.mp4",
     "createdAt": "1880",
     "featured": false
   },
@@ -186,7 +186,7 @@
         "audioUrl": "/audio/mcn-005-wo.mp3"
       }
     },
-    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "videoUrl": "/assets/videoplayback.mp4",
     "createdAt": "1910",
     "featured": true
   }

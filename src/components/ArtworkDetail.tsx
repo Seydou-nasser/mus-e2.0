@@ -168,14 +168,28 @@ const ArtworkDetail = () => {
                     {t("artwork.videoExplanation")}
                   </h2>
                 </div>
+
                 <div className="aspect-video rounded-xl overflow-hidden bg-gray-900 shadow-inner">
-                  <iframe
-                    src={artwork.videoUrl}
-                    className="w-full h-full"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    title={`Vidéo - ${translation.title}`}
-                  />
+                  {artwork.videoUrl.includes("youtube.com") ||
+                  artwork.videoUrl.includes("youtu.be") ? (
+                    <iframe
+                      src={artwork.videoUrl}
+                      className="w-full h-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      title={`Vidéo - ${translation.title}`}
+                    />
+                  ) : (
+                    <video
+                      className="w-full h-full"
+                      controls
+                      preload="metadata"
+                      title={`Vidéo - ${translation.title}`}
+                    >
+                      <source src={artwork.videoUrl} type="video/mp4" />
+                      Votre navigateur ne supporte pas la lecture de vidéos.
+                    </video>
+                  )}
                 </div>
               </div>
             )}
