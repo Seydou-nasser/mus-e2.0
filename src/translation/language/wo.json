@@ -1,0 +1,73 @@
+{
+  "accueil": {
+    "titre": "MUSÉE DES CIVILISATIONS NOIRES",
+    "sousTitre": "Jëfandikoo bu yees bu di wàllal seetukaay bu koom-koom",
+    "description": "RÉVOLUTION jëfandikoo bi ci musée bi ak IA, DËGG-DËGG AUGMENTÉE ak INNOVATION ci xeet ci ngërëm PATRIMOINE AFRIK",
+    "boutonCollections": "SEETAL KOLLECTIONS",
+    "boutonQR": "JËFANDIKOO QR",
+    "boutonAR": "DËGG-DËGG AUGMENTÉE",
+    "statistiques": {
+      "visiteurs": "SEETUKAAY",
+      "oeuvres": "JËF",
+      "parcours": "JËM",
+      "oeuvresDescription": "Koom-koom yu melni",
+      "parcoursDescription": "Jëfandikoo yu yees",
+      "gamifies": "Ci lëkk"
+    }
+  },
+  "header": {
+    "musee": "MUSÉE DES",
+    "civilisations": "CIVILISATIONS",
+    "noires": "NOIRES",
+    "experience": "JËFANDIKOO 2.0"
+  },
+  "navigation": {
+    "accueil": "Kër",
+    "collections": "Kolleksiyon",
+    "parcours": "Jëm",
+    "ar": "AR",
+    "aPropos": "Ci mbir"
+  },
+  "langues": {
+    "francais": "Français",
+    "anglais": "English",
+    "wolof": "Wolof"
+  },
+  "scanner": {
+    "titre": "Scanner QR Code",
+    "description": "Pointez votre caméra vers un QR code pour découvrir l'œuvre",
+    "fermer": "Fermer"
+  },
+  "footer": {
+    "titre": "Musée des Civilisations Noires",
+    "sousTitre": "Jëfandikoo 2.0",
+    "description": "Seetal koom-koom Afrig ci jëfandikoo bu yees ak bu lëkk-lëkk.",
+    "liensRapides": "Lëkk yu gaaw",
+    "contact": "Jëkkal",
+    "copyright": "© 2024 Musée des Civilisations Noires. Yépp ci sañ-sañ.",
+    "faitAvec": "Fay ak",
+    "pourAfrique": "ngërëm Afrig",
+    "lieu": "Dakar, Senegaal",
+    "telephone": "+221 33 XXX XX XX",
+    "email": "contact@museecivilisationsnoires.sn"
+  },
+  "fonctionnalites": {
+    "titre": "Jëfandikoo yu Melni",
+    "sousTitre": "Seetal xeet yi di wàllal jëfandikoo bi ci musée bi",
+    "qr": {
+      "titre": "Jëfandikoo QR",
+      "description": "Wax yu yees ci lu baree lëkk, ak baat ak video"
+    },
+    "ia": {
+      "titre": "IA ci Wax",
+      "description": "Kërëg bu wuute ci koom-koom Afrig"
+    },
+    "ar": {
+      "titre": "Dëgg-dëgg Augmentée",
+      "description": "Jëfandikoo 3D bu yees ak xam-xam ci kanam"
+    }
+  },
+  "traduction": {
+    "ouvrir": "Ubbi jëfandikoo bu baree lëkk"
+  }
+}

@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+/* Styles de base pour le Musée des Civilisations Noires 2.0 */
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #F5F5DC; /* beige */
+  color: #1C1C1C; /* noir-doux */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Styles pour sliders audio */
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.slider::-webkit-slider-track {
+  background: #374151;
+  height: 8px;
+  border-radius: 4px;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #8b5cf6;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.slider::-webkit-slider-thumb:hover {
+  background: #7c3aed;
+  transform: scale(1.1);
+}
+
+.slider::-moz-range-track {
+  background: #374151;
+  height: 8px;
+  border-radius: 4px;
+  border: none;
+}
+
+.slider::-moz-range-thumb {
+  background: #8b5cf6;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Mode Visite Nocturne - Effets de lumière premium */
+.dark-mode {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #1a1a1a;
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a0;
+  --accent-blue: #3b82f6;
+  --accent-gold: #fbbf24;
+  --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+.dark-mode body {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f23 100%);
+  color: var(--text-primary);
+}
+
+/* Effets de projecteur sur les œuvres */
+.dark-mode .artwork-spotlight {
+  background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+  box-shadow: var(--shadow-glow);
+}
+
+/* Particules lumineuses flottantes */
+.dark-mode .floating-particles::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, rgba(59, 130, 246, 0.3), transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(251, 191, 36, 0.2), transparent),
+    radial-gradient(1px 1px at 90px 40px, rgba(59, 130, 246, 0.4), transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(251, 191, 36, 0.3), transparent);
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  animation: float 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) translateX(0px); }
+  33% { transform: translateY(-100px) translateX(50px); }
+  66% { transform: translateY(-200px) translateX(-50px); }
+  100% { transform: translateY(-300px) translateX(0px); }
+}
+
+/* Transitions fluides entre thèmes */
+* {
+  transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
+}
+
+/* Effet de brillance sur les éléments dorés en mode nuit */
+.dark-mode .golden-glow {
+  box-shadow: 0 0 30px rgba(251, 191, 36, 0.4);
+  border: 1px solid rgba(251, 191, 36, 0.3);
+}

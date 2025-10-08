@@ -1,0 +1,117 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradient de fond authentique -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a1a;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#2d1b0e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a1a;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Gradient pour le masque -->
+    <linearGradient id="maskGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B4513;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#A0522D;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#8B4513;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#654321;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Gradient pour les détails -->
+    <linearGradient id="detailGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#CD853F;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D2691E;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Ombre portée -->
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="10" stdDeviation="20" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+    
+    <!-- Effet de texture -->
+    <filter id="texture" x="-50%" y="-50%" width="200%" height="200%">
+      <feTurbulence baseFrequency="0.02" numOctaves="3" result="noise"/>
+      <feColorMatrix type="saturate" values="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Fond avec gradient authentique -->
+  <rect width="1920" height="1080" fill="url(#bgGradient)"/>
+  
+  <!-- Effet de texture de fond -->
+  <rect width="1920" height="1080" fill="url(#bgGradient)" filter="url(#texture)" opacity="0.1"/>
+  
+  <!-- Masque Dan - Forme principale -->
+  <g transform="translate(960, 540)" filter="url(#shadow)">
+    <!-- Visage principal -->
+    <ellipse cx="0" cy="0" rx="280" ry="380" fill="url(#maskGradient)" opacity="0.9"/>
+    
+    <!-- Front - Ligne centrale -->
+    <rect x="-15" y="-350" width="30" height="200" fill="url(#detailGradient)" opacity="0.8"/>
+    
+    <!-- Yeux -->
+    <ellipse cx="-80" cy="-120" rx="25" ry="8" fill="#000000" opacity="0.9"/>
+    <ellipse cx="80" cy="-120" rx="25" ry="8" fill="#000000" opacity="0.9"/>
+    
+    <!-- Paupières -->
+    <ellipse cx="-80" cy="-130" rx="30" ry="12" fill="#F5DEB3" opacity="0.9"/>
+    <ellipse cx="80" cy="-130" rx="30" ry="12" fill="#F5DEB3" opacity="0.9"/>
+    
+    <!-- Nez -->
+    <ellipse cx="0" cy="-50" rx="15" ry="60" fill="url(#detailGradient)" opacity="0.8"/>
+    
+    <!-- Bouche -->
+    <rect x="-40" y="50" width="80" height="30" fill="#000000" opacity="0.9"/>
+    <rect x="-35" y="55" width="10" height="20" fill="#F5DEB3" opacity="0.9"/>
+    <rect x="-20" y="55" width="10" height="20" fill="#F5DEB3" opacity="0.9"/>
+    <rect x="-5" y="55" width="10" height="20" fill="#F5DEB3" opacity="0.9"/>
+    <rect x="10" y="55" width="10" height="20" fill="#F5DEB3" opacity="0.9"/>
+    <rect x="25" y="55" width="10" height="20" fill="#F5DEB3" opacity="0.9"/>
+    
+    <!-- Joues -->
+    <ellipse cx="-120" cy="0" rx="40" ry="60" fill="#F5DEB3" opacity="0.7"/>
+    <ellipse cx="120" cy="0" rx="40" ry="60" fill="#F5DEB3" opacity="0.7"/>
+    
+    <!-- Fibres naturelles (cheveux) -->
+    <g stroke="#8B4513" stroke-width="3" fill="none" opacity="0.8">
+      <!-- Côté gauche -->
+      <path d="M -200 -200 Q -250 -150 -280 -100 Q -300 -50 -320 0 Q -340 50 -360 100 Q -380 150 -400 200"/>
+      <path d="M -190 -200 Q -240 -150 -270 -100 Q -290 -50 -310 0 Q -330 50 -350 100 Q -370 150 -390 200"/>
+      <path d="M -180 -200 Q -230 -150 -260 -100 Q -280 -50 -300 0 Q -320 50 -340 100 Q -360 150 -380 200"/>
+      
+      <!-- Côté droit -->
+      <path d="M 200 -200 Q 250 -150 280 -100 Q 300 -50 320 0 Q 340 50 360 100 Q 380 150 400 200"/>
+      <path d="M 190 -200 Q 240 -150 270 -100 Q 290 -50 310 0 Q 330 50 350 100 Q 370 150 390 200"/>
+      <path d="M 180 -200 Q 230 -150 260 -100 Q 280 -50 300 0 Q 320 50 340 100 Q 360 150 380 200"/>
+    </g>
+    
+    <!-- Coquillages cauris -->
+    <g fill="#FFFFFF" opacity="0.9">
+      <ellipse cx="-150" cy="-200" rx="8" ry="12" transform="rotate(-30 -150 -200)"/>
+      <ellipse cx="-120" cy="-210" rx="6" ry="10" transform="rotate(-20 -120 -210)"/>
+      <ellipse cx="-90" cy="-205" rx="7" ry="11" transform="rotate(-25 -90 -205)"/>
+      <ellipse cx="150" cy="-200" rx="8" ry="12" transform="rotate(30 150 -200)"/>
+      <ellipse cx="120" cy="-210" rx="6" ry="10" transform="rotate(20 120 -210)"/>
+      <ellipse cx="90" cy="-205" rx="7" ry="11" transform="rotate(25 90 -205)"/>
+    </g>
+  </g>
+  
+  <!-- Texte informatif -->
+  <g transform="translate(960, 900)">
+    <rect x="-200" y="-30" width="400" height="60" fill="#000000" opacity="0.7" rx="10"/>
+    <text x="0" y="-5" font-family="Arial, sans-serif" font-size="32" fill="#FFFFFF" text-anchor="middle" dominant-baseline="middle" font-weight="bold">
+      Masque Dan
+    </text>
+    <text x="0" y="25" font-family="Arial, sans-serif" font-size="18" fill="#F5DEB3" text-anchor="middle" dominant-baseline="middle">
+      Côte d'Ivoire - Peuple Dan
+    </text>
+  </g>
+  
+  <!-- Effet de particules culturelles -->
+  <g opacity="0.3">
+    <circle cx="200" cy="200" r="2" fill="#8B4513"/>
+    <circle cx="1720" cy="300" r="3" fill="#A0522D"/>
+    <circle cx="300" cy="800" r="2" fill="#654321"/>
+    <circle cx="1620" cy="700" r="2" fill="#8B4513"/>
+    <circle cx="500" cy="400" r="1" fill="#A0522D"/>
+    <circle cx="1420" cy="500" r="2" fill="#654321"/>
+  </g>
+</svg>

@@ -1,0 +1,170 @@
+@import "tailwindcss";
+
+/* Styles personnalisés pour le Musée des Civilisations Noires 2.0 */
+
+/* Thèmes visuels */
+.theme-africain {
+  --couleur-primaire: #d97706;
+  --couleur-secondaire: #ea580c;
+  --couleur-accent: #f59e0b;
+  --couleur-fond: #fef3c7;
+}
+
+.theme-moderne {
+  --couleur-primaire: #3b82f6;
+  --couleur-secondaire: #1d4ed8;
+  --couleur-accent: #60a5fa;
+  --couleur-fond: #eff6ff;
+}
+
+.theme-classique {
+  --couleur-primaire: #6b7280;
+  --couleur-secondaire: #374151;
+  --couleur-accent: #9ca3af;
+  --couleur-fond: #f9fafb;
+}
+
+/* Animations personnalisées */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-africain {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes rotate-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Classes utilitaires */
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-africain {
+  animation: pulse-africain 2s ease-in-out infinite;
+}
+
+.animate-rotate-slow {
+  animation: rotate-slow 20s linear infinite;
+}
+
+/* Effets de survol personnalisés */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Gradients personnalisés */
+.gradient-africain {
+  background: linear-gradient(135deg, #d97706 0%, #ea580c 50%, #dc2626 100%);
+}
+
+.gradient-africain-text {
+  background: linear-gradient(135deg, #d97706 0%, #ea580c 50%, #dc2626 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Motifs géométriques africains */
+.pattern-africain::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(212, 138, 4, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(234, 88, 12, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Responsive design amélioré */
+@media (max-width: 768px) {
+  .mobile-padding {
+    padding: 1rem;
+  }
+  
+  .mobile-text {
+    font-size: 0.875rem;
+  }
+}
+
+/* Accessibilité */
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-pulse-africain,
+  .animate-rotate-slow {
+    animation: none;
+  }
+}
+
+  /* Focus visible pour l'accessibilité */
+  .focus-visible:focus {
+    outline: 2px solid var(--couleur-primaire);
+    outline-offset: 2px;
+  }
+
+  /* Scrollbar hide pour le carousel */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+/* Styles pour les cartes d'œuvres */
+.oeuvre-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, box-shadow;
+}
+
+.oeuvre-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Effet de brillance */
+.shine-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.shine-effect:hover::after {
+  left: 100%;
+}

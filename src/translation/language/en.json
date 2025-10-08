@@ -1,0 +1,73 @@
+{
+  "accueil": {
+    "titre": "MUSEUM OF BLACK CIVILIZATIONS",
+    "sousTitre": "An immersive experience that redefines cultural discovery",
+    "description": "REVOLUTIONIZE the museum experience with AI, AUGMENTED REALITY and technological INNOVATION at the service of AFRICAN HERITAGE",
+    "boutonCollections": "EXPLORE COLLECTIONS",
+    "boutonQR": "SCAN QR CODE",
+    "boutonAR": "AUGMENTED REALITY",
+    "statistiques": {
+      "visiteurs": "VISITORS",
+      "oeuvres": "ARTWORKS",
+      "parcours": "TOURS",
+      "oeuvresDescription": "Heritage treasures",
+      "parcoursDescription": "Immersive experiences",
+      "gamifies": "Gamified"
+    }
+  },
+  "header": {
+    "musee": "MUSEUM OF",
+    "civilisations": "BLACK",
+    "noires": "CIVILIZATIONS",
+    "experience": "EXPERIENCE 2.0"
+  },
+  "navigation": {
+    "accueil": "Home",
+    "collections": "Collections",
+    "parcours": "Tours",
+    "ar": "AR",
+    "aPropos": "About"
+  },
+  "langues": {
+    "francais": "Français",
+    "anglais": "English",
+    "wolof": "Wolof"
+  },
+  "scanner": {
+    "titre": "Scan QR Code",
+    "description": "Point your camera at a QR code to discover the artwork",
+    "fermer": "Close"
+  },
+  "footer": {
+    "titre": "Museum of Black Civilizations",
+    "sousTitre": "Experience 2.0",
+    "description": "Discover African cultural heritage through an immersive and interactive experience.",
+    "liensRapides": "Quick links",
+    "contact": "Contact",
+    "copyright": "© 2024 Museum of Black Civilizations. All rights reserved.",
+    "faitAvec": "Made with",
+    "pourAfrique": "for Africa",
+    "lieu": "Dakar, Senegal",
+    "telephone": "+221 33 XXX XX XX",
+    "email": "contact@museecivilisationsnoires.sn"
+  },
+  "fonctionnalites": {
+    "titre": "Revolutionary Features",
+    "sousTitre": "Discover the technologies that transform the museum experience",
+    "qr": {
+      "titre": "QR Code Scanner",
+      "description": "Enriched multilingual descriptions with audio and video"
+    },
+    "ia": {
+      "titre": "Conversational AI",
+      "description": "Virtual assistant specialized in African culture"
+    },
+    "ar": {
+      "titre": "Augmented Reality",
+      "description": "Immersive 3D experience with information overlay"
+    }
+  },
+  "traduction": {
+    "ouvrir": "Open multilingual translator"
+  }
+}

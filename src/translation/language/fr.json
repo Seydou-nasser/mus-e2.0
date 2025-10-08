@@ -1,0 +1,73 @@
+{
+  "accueil": {
+    "titre": "MUSÉE DES CIVILISATIONS NOIRES",
+    "sousTitre": "Une expérience immersive qui redéfinit la découverte culturelle",
+    "description": "REVOLUTION | experience museale avec IA, la REALITE AUGMENTEE et INNOVATION technologique au service du PATRIMOINE AFRICAIN",
+    "boutonCollections": "EXPLORER LES COLLECTIONS",
+    "boutonQR": "SCANNER QR CODE",
+    "boutonAR": "RÉALITÉ AUGMENTÉE",
+    "statistiques": {
+      "visiteurs": "VISITEURS",
+      "oeuvres": "ŒUVRES",
+      "parcours": "PARCOURS",
+      "oeuvresDescription": "Trésors patrimoniaux",
+      "parcoursDescription": "Expériences immersives",
+      "gamifies": "Gamifiés"
+    }
+  },
+  "header": {
+    "musee": "MUSÉE DES",
+    "civilisations": "CIVILISATIONS",
+    "noires": "NOIRES",
+    "experience": "EXPÉRIENCE 2.0"
+  },
+  "navigation": {
+    "accueil": "Accueil",
+    "collections": "Collections",
+    "parcours": "Parcours",
+    "ar": "AR",
+    "aPropos": "À propos"
+  },
+  "langues": {
+    "francais": "Français",
+    "anglais": "English",
+    "wolof": "Wolof"
+  },
+  "scanner": {
+    "titre": "Scanner QR Code",
+    "description": "Pointez votre caméra vers un QR code pour découvrir l'œuvre",
+    "fermer": "Fermer"
+  },
+  "footer": {
+    "titre": "Musée des Civilisations Noires",
+    "sousTitre": "Expérience 2.0",
+    "description": "Découvrez le patrimoine culturel africain à travers une expérience immersive et interactive.",
+    "liensRapides": "Liens rapides",
+    "contact": "Contact",
+    "copyright": "© 2024 Musée des Civilisations Noires. Tous droits réservés.",
+    "faitAvec": "Fait avec",
+    "pourAfrique": "pour l'Afrique",
+    "lieu": "Dakar, Sénégal",
+    "telephone": "+221 33 XXX XX XX",
+    "email": "contact@museecivilisationsnoires.sn"
+  },
+  "fonctionnalites": {
+    "titre": "Fonctionnalités Révolutionnaires",
+    "sousTitre": "Découvrez les technologies qui transforment l'expérience muséale",
+    "qr": {
+      "titre": "Scanner QR Code",
+      "description": "Descriptions enrichies multilingues avec audio et vidéo"
+    },
+    "ia": {
+      "titre": "IA Conversationnelle",
+      "description": "Assistant virtuel spécialisé en culture africaine"
+    },
+    "ar": {
+      "titre": "Réalité Augmentée",
+      "description": "Expérience immersive 3D avec overlay d'informations"
+    }
+  },
+  "traduction": {
+    "ouvrir": "Ouvrir le traducteur multilingue"
+  }
+}
