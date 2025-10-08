@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QR Codes - Musée des Civilisations Noires</title>
-    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -47,6 +47,11 @@
         }
 
         canvas {
+            margin: 15px auto;
+            display: block;
+        }
+
+        #qr-container img {
             margin: 15px auto;
             display: block;
         }
@@ -107,27 +112,31 @@
             const code = document.createElement('p');
             code.innerHTML = `<strong>Code: ${artwork.code}</strong>`;
 
-            const canvas = document.createElement('canvas');
-            canvas.id = `qr-${artwork.id}`;
+            const qrContainer = document.createElement('div');
+            qrContainer.id = `qr-${artwork.id}`;
+            qrContainer.style.margin = '15px auto';
 
             card.appendChild(title);
             card.appendChild(origin);
             card.appendChild(code);
-            card.appendChild(canvas);
+            card.appendChild(qrContainer);
 
             container.appendChild(card);
 
-            // Générer le QR code
-            QRCode.toCanvas(canvas, artwork.code, {
-                width: 200,
-                margin: 2,
-                color: {
-                    dark: '#000000',
-                    light: '#FFFFFF'
-                }
-            }, function (error) {
-                if (error) console.error(error);
-            });
+            // Générer le QR code avec QRCode.js
+            try {
+                new QRCode(qrContainer, {
+                    text: artwork.code,
+                    width: 200,
+                    height: 200,
+                    colorDark: "#000000",
+                    colorLight: "#ffffff",
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+            } catch (error) {
+                console.error('Erreur génération QR:', error);
+                qrContainer.innerHTML = '<p style="color: red;">Erreur génération QR</p>';
+            }
         });
     </script>
 </body>
