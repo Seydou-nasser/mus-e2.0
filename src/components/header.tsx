@@ -95,9 +95,7 @@ export default function Header() {
               alt="Logo Musée des Civilisations Noires"
               className="h-8 w-8 mr-3"
             />
-            <span className="hidden md:inline">
-              Museum of Black Civilizations
-            </span>
+            <span className="hidden md:inline">Musée 2.0</span>
           </Link>
 
           {/* Desktop Navigation */}

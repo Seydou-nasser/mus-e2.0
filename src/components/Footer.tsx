@@ -22,9 +22,7 @@ export default function Footer() {
                 <h3 className="text-xl font-bold bg-gradient-to-r from-orange-400 to-[#D17842] bg-clip-text text-transparent">
                   Musée 2.0
                 </h3>
-                <p className="text-xs text-gray-400">
-                  Museum of Black Civilizations
-                </p>
+                <p className="text-xs text-gray-400">Musée 2.0</p>
               </div>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed mb-3">

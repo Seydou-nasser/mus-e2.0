@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { X, Send, Loader2, Sparkles } from "lucide-react";
 import { sendMessageToGroq, type ChatMessage } from "../services/groqService";
+import { motion } from "motion/react";
 
 interface Message {
   id: string;
@@ -108,16 +109,40 @@ const AIAssistant = () => {
     <>
       {/* Bouton flottant */}
       {!isOpen && (
-        <button
+        <motion.button
           onClick={() => setIsOpen(true)}
           className="fixed bottom-4 right-4 md:bottom-6 md:right-6 bg-[#D17842] hover:bg-[#B85F30] text-white rounded-full p-3 md:p-4 shadow-lg transition-all duration-200 hover:scale-110 z-50 flex items-center gap-2"
           aria-label={t("aiAssistant.openChat")}
+          animate={{
+            y: [0, -10, 0],
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          whileHover={{
+            scale: 1.1,
+            boxShadow: "0 20px 40px rgba(209, 120, 66, 0.4)",
+          }}
+          whileTap={{ scale: 0.95 }}
         >
-          <Sparkles size={20} className="md:w-6 md:h-6" />
+          <motion.div
+            animate={{
+              rotate: [0, 10, -10, 0],
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          >
+            <Sparkles size={20} className="md:w-6 md:h-6" />
+          </motion.div>
           <span className="hidden md:inline font-semibold">
             {t("aiAssistant.askAI")}
           </span>
-        </button>
+        </motion.button>
       )}
 
       {/* Fenêtre de chat */}

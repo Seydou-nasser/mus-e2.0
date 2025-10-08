@@ -91,18 +91,18 @@ const ArtworkDetail = () => {
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+            <div className="absolute bottom-0 left-0 right-0 p-4 md:p-8 text-white">
               <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
-                <div>
-                  <h1 className="text-4xl md:text-5xl font-bold mb-2 leading-tight">
+                <div className="max-w-full">
+                  <h1 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold mb-2 leading-tight break-words">
                     {translation.title}
                   </h1>
-                  <p className="text-xl text-gray-200 mb-4">
+                  <p className="text-xs sm:text-sm md:text-xl text-gray-200 mb-2 md:mb-4">
                     {translation.origin} • {translation.period}
                   </p>
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  <span className="px-4 py-2 bg-[#D17842] text-white rounded-full text-sm font-semibold shadow-lg">
+                  <span className="px-3 md:px-4 py-1.5 md:py-2 bg-[#D17842] text-white rounded-full text-xs md:text-sm font-semibold shadow-lg">
                     {artwork.category}
                   </span>
                 </div>
