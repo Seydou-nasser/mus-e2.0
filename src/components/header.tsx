@@ -74,7 +74,7 @@ export default function Header() {
     }`;
 
   const languageButtonClasses = (lang: string) =>
-    `px-3 py-1.5 rounded-md text-xs font-semibold transition-all duration-200 ${
+    `px-3 py-1.5 rounded-md text-xs font-semibold transition-all duration-200 cursor-pointer ${
       i18n.language === lang
         ? "bg-[#D17842] text-white shadow-md"
         : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
@@ -145,7 +145,7 @@ export default function Header() {
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className="ml-2 p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200"
+              className="ml-2 p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200 cursor-pointer"
               aria-label="Toggle theme"
             >
               {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
@@ -155,7 +155,7 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200"
+            className="md:hidden p-2 rounded-lg text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 cursor-pointer"
             aria-label="Toggle mobile menu"
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -225,7 +225,7 @@ export default function Header() {
             <div className="pt-2">
               <div className="flex items-center justify-center space-x-2 mb-2 text-gray-600 dark:text-gray-400 text-sm">
                 <Globe size={16} />
-                <span>{t("nav.language") || "Language"}</span>
+                <span>{t("nav.language")}</span>
               </div>
               <div className="grid grid-cols-3 gap-2">
                 <button

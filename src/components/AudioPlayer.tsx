@@ -88,7 +88,7 @@ const AudioPlayer = ({ text, lang, audioUrl }: AudioPlayerProps) => {
             </audio>
             <button
               onClick={() => setUseTTS(true)}
-              className="mt-2 text-sm text-gray-600 dark:text-gray-400 hover:text-[#D17842] transition"
+              className="mt-2 text-sm text-gray-600 dark:text-gray-400 hover:text-[#D17842] transition cursor-pointer"
             >
               {t("audioPlayer.useTTSInstead")}
             </button>
