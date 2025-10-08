@@ -31,8 +31,9 @@ export const EXTENDED_KNOWLEDGE = {
       path: "/realite-augmentee",
       title: "Expérience en Réalité Augmentée",
       description: "Plongez au cœur des œuvres avec des superpositions numériques interactives",
-      features: ["Scanner QR intégré", "Modèles 3D en AR", "Animations et effets visuels"],
-      status: "En développement"
+      features: ["Scanner QR intégré", "Modèles 3D en AR", "Animations et effets visuels", "Tutoriel AR interactif", "Scanner d'œuvres d'art"],
+      status: "Fonctionnel",
+      details: "La page AR est entièrement fonctionnelle avec un scanner QR intégré, des modèles 3D interactifs et un tutoriel complet pour utiliser la réalité augmentée avec les œuvres du musée."
     },
     aPropos: {
       path: "/a-propos",
@@ -217,6 +218,13 @@ export const generateIntelligentResponseAdvanced = (question: string): {
   const analysis = analyzeQuestionIntelligently(question);
   const questionLower = question.toLowerCase();
 
+  // Logs de diagnostic
+  console.log('🔍 DIAGNOSTIC INTELLIGENT CHATBOT:');
+  console.log('📝 Question analysée:', analysis.originalQuestion);
+  console.log('🎯 Intent détecté:', analysis.intent);
+  console.log('🔤 Mots-clés:', analysis.keywords);
+  console.log('💭 Emotion:', analysis.emotion);
+  
   // Réponses de navigation intelligentes
   if (analysis.intent === "navigation") {
     const pageEntity = analysis.entities.find(entity => 
@@ -315,15 +323,42 @@ export const generateIntelligentResponseAdvanced = (question: string): {
 
     if (questionLower.includes("ar") || questionLower.includes("réalité augmentée")) {
       return {
-        text: "La réalité augmentée au musée vous permet d'explorer les œuvres en 3D, de scanner des QR codes pour des informations détaillées et d'interagir avec le patrimoine de manière immersive. C'est une technologie révolutionnaire qui rend l'art accessible et interactif !",
+        text: "🥽 **Page Réalité Augmentée disponible !**\n\n**Fonctionnalités :**\n• Scanner QR intégré\n• Modèles 3D interactifs\n• Tutoriel AR complet\n• Scanner d'œuvres d'art\n\n**Comment utiliser :**\n1. Allez sur la page AR\n2. Activez votre caméra\n3. Scannez les QR codes\n4. Explorez les modèles 3D\n\n**Lien direct :** /realite-augmentee",
         links: [{
-          text: "🥽 Essayer la Réalité Augmentée",
+          text: "🥽 Accéder à la Page AR",
           url: "/realite-augmentee"
         }],
-        tags: ["AR", "Innovation", "Technologie"],
-        confidence: 0.9,
+        tags: ["AR", "Scanner QR", "3D"],
+        confidence: 0.95,
         metadata: {
           culture: "Technologie",
+          period: "Contemporain",
+          language: "fr",
+          emotion: analysis.emotion
+        }
+      };
+    }
+
+    // Reconnaissance de l'accueil avec fautes de frappe
+    if (questionLower.includes("accueil") || questionLower.includes("page d'accueil") || 
+        questionLower.includes("aceil") || questionLower.includes("acceuil") || 
+        questionLower.includes("acueil") || questionLower.includes("accuiel")) {
+      
+      console.log('🔍 DIAGNOSTIC: Reconnaissance accueil détectée');
+      console.log('📝 Question originale:', question);
+      console.log('🔤 Question en minuscules:', questionLower);
+      console.log('🎯 Mots-clés détectés:', ['accueil', 'aceil', 'acceuil', 'acueil', 'accuiel'].filter(word => questionLower.includes(word)));
+      
+      return {
+        text: "🏠 **Page d'accueil du Musée des Civilisations Noires 2.0**\n\n**Fonctionnalités principales :**\n• Hero section avec carrousel 3D\n• Statistiques du musée\n• Fonctionnalités révolutionnaires\n• Navigation vers toutes les sections\n\n**Lien direct :** /",
+        links: [{
+          text: "🏠 Aller à l'accueil",
+          url: "/"
+        }],
+        tags: ["Accueil", "Navigation", "Général"],
+        confidence: 0.95,
+        metadata: {
+          culture: "Général",
           period: "Contemporain",
           language: "fr",
           emotion: analysis.emotion
@@ -409,12 +444,12 @@ export const generateIntelligentResponseAdvanced = (question: string): {
 
   // Réponse par défaut intelligente et contextuelle
   return {
-    text: "C'est une excellente question sur notre patrimoine culturel ! Laissez-moi vous expliquer cette facette fascinante de la culture africaine. Chaque œuvre, chaque tradition, chaque symbole raconte une histoire unique qui nous connecte à nos racines et à notre identité. L'Afrique est un continent d'une richesse culturelle incommensurable, avec plus de 2000 langues et traditions. Chaque région a ses propres coutumes, danses, musiques et arts. C'est une mosaïque de beauté et de sagesse qui s'exprime à travers l'art, la musique, la danse et les rituels. Cette diversité culturelle est notre plus grande richesse et notre fierté. Que souhaitez-vous savoir de plus spécifique sur notre patrimoine ?",
-    tags: ["Culture", "Patrimoine", "Général"],
-    confidence: 0.8,
+    text: "Je suis votre assistant IA du Musée des Civilisations Noires 2.0. Je peux vous aider avec :\n\n• **Page d'accueil** - Découvrez notre application révolutionnaire\n• **Collections** - Explorez nos œuvres d'art en 3D\n• **Réalité Augmentée** - Expérience immersive avec scanner QR\n• **Parcours** - Visites guidées interactives\n• **Culture africaine** - Traditions et patrimoine\n\n**Navigation :**\n🏠 [Page d'accueil](/)\n🎨 [Collections](/collections)\n🥽 [Réalité Augmentée](/realite-augmentee)\n🗺️ [Parcours](/parcours)\n\nQue souhaitez-vous explorer ?",
+    tags: ["Accueil", "Navigation", "Général"],
+    confidence: 0.9,
     metadata: {
       culture: "Général",
-      period: "Non spécifié",
+      period: "Contemporain",
       language: "fr",
       emotion: analysis.emotion
     }

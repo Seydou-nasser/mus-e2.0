@@ -145,11 +145,28 @@ const ChatbotInterface: React.FC = () => {
         console.log('🔑 Début clé:', ENV_VARS.OPENAI_API_KEY?.substring(0, 20) + '...');
         setTypingText('');
         
-        try {
-          console.log('📡 ENVOI REQUÊTE à Google Gemini API...');
-          console.log('📝 Question utilisateur:', inputText);
-          console.log('🎯 Modèle utilisé: gemini-2.0-flash');
-          console.log('⚙️ Configuration: Google Gemini API');
+        // VÉRIFICATION PRÉALABLE POUR LA NAVIGATION
+        if (inputText.toLowerCase().includes('ar') || 
+            inputText.toLowerCase().includes('accueil') || 
+            inputText.toLowerCase().includes('aceil') ||
+            inputText.toLowerCase().includes('page') ||
+            inputText.toLowerCase().includes('lien')) {
+          
+          console.log('🔍 NAVIGATION DÉTECTÉE: Utilisation du service local intelligent');
+          console.log('📝 Question:', inputText);
+          
+          // Utiliser directement le service local pour la navigation
+          const intelligentService = IntelligentChatbotService.getInstance();
+          aiResponse = await intelligentService.processMessage(inputText);
+          
+          console.log('✅ RÉPONSE LOCALE INTELLIGENTE:', aiResponse.text);
+        } else {
+          // Utiliser Gemini pour les autres questions
+          try {
+            console.log('📡 ENVOI REQUÊTE à Google Gemini API...');
+            console.log('📝 Question utilisateur:', inputText);
+            console.log('🎯 Modèle utilisé: gemini-2.0-flash');
+            console.log('⚙️ Configuration: Google Gemini API');
           
           // Appel direct à l'API Google Gemini
           const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${ENV_VARS.GEMINI_API_KEY}`, {
@@ -214,6 +231,7 @@ Question: ${inputText}`
           const intelligentService = IntelligentChatbotService.getInstance();
           aiResponse = await intelligentService.processMessage(inputText);
           console.log('🔄 Service local activé');
+        }
         }
         
         // Animation de frappe progressive
