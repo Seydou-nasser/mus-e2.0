@@ -129,11 +129,11 @@
     "askAI": "Demander à l'IA",
     "openChat": "Ouvrir le chat",
     "closeChat": "Fermer le chat",
-    "welcomeMessage": "Bonjour ! Je suis votre guide virtuel du Musée des Civilisations Noires. Comment puis-je vous aider aujourd'hui ?",
+    "welcomeMessage": "Bonjour ! Je suis votre guide virtuel du Musée des Civilisations Noires. Posez-moi des questions sur nos œuvres, leur histoire et les cultures africaines !",
     "demoResponse": "Merci pour votre question ! L'API IA sera intégrée prochainement pour vous fournir des réponses détaillées sur les œuvres du musée.",
     "errorMessage": "Une erreur s'est produite. Veuillez réessayer.",
-    "placeholder": "Posez votre question...",
+    "placeholder": "Ex: Parle-moi du Masque Gelede...",
     "typing": "L'assistant écrit...",
-    "disclaimer": "Réponses générées par IA - Informations à vérifier"
+    "disclaimer": "Assistant spécialisé dans le musée uniquement"
   }
 }
