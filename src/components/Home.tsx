@@ -13,7 +13,6 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Hero Section */}
-
       <div className="relative bg-gray-900 text-white h-screen px-4 overflow-hidden flex items-center justify-center">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -42,11 +41,9 @@ const Home = () => {
             >
               {t("home.hero.exploreButton")}
             </button>
-
           </div>
         </div>
       </div>
-
 
       {/* Featured Artworks Section */}
       <div className="max-w-7xl mx-auto py-16 px-4">
@@ -57,15 +54,12 @@ const Home = () => {
           <p className="text-xl text-gray-600 dark:text-gray-400">
             {t("home.featured.subtitle")}
           </p>
-
         </div>
-
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {featuredArtworks.map((artwork) => {
             const translation =
               artwork.translations[currentLang] || artwork.translations.fr;
-
 
             return (
               <div
@@ -104,7 +98,6 @@ const Home = () => {
           })}
         </div>
 
-
         <div className="text-center mt-12">
           <button
             onClick={() => navigate("/collections")}
@@ -118,7 +111,6 @@ const Home = () => {
       {/* Features Section */}
       <div className="bg-gradient-to-b from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 py-20 px-4">
         <div className="max-w-7xl mx-auto">
-
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
               {t("home.features.title")}
