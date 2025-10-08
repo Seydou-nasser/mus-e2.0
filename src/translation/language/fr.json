@@ -18,7 +18,9 @@
     "collections": "Collections",
     "about": "À propos",
     "scan": "Scanner",
-    "language": "Langue"
+    "language": "Langue",
+    "darkMode": "Mode Sombre",
+    "lightMode": "Mode Clair"
   },
   "collections": {
     "title": "Nos Collections",

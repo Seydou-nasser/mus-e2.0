@@ -18,7 +18,9 @@
     "collections": "Lëkkalekaay yi",
     "about": "Ci sun nu",
     "scan": "Scan",
-    "language": "Lakk"
+    "language": "Lakk",
+    "darkMode": "Mood bu Ñuul",
+    "lightMode": "Mood bu Leeral"
   },
   "collections": {
     "title": "Suñu Lëkkalekaay yi",

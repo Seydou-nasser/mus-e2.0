@@ -1,13 +1,47 @@
 import { Link, useLocation } from "react-router";
 import { useTranslation } from "react-i18next";
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, Globe, QrCode, Home, Palette, Info } from "lucide-react";
+import {
+  Menu,
+  X,
+  Globe,
+  QrCode,
+  Home,
+  Palette,
+  Info,
+  Sun,
+  Moon,
+} from "lucide-react";
 
 export default function Header() {
   const { t, i18n } = useTranslation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
   const location = useLocation();
   const menuRef = useRef<HTMLDivElement>(null);
+
+  // Initialiser le thème au chargement
+  useEffect(() => {
+    document.documentElement.classList.toggle(
+      "dark",
+      localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+    );
+    document.body.setAttribute("data-theme", "light");
+    setIsDarkMode(document.documentElement.classList.contains("dark"));
+  }, []);
+
+  const toggleTheme = () => {
+    const newDarkMode = !isDarkMode;
+    setIsDarkMode(newDarkMode);
+    if (newDarkMode) {
+      localStorage.theme = "dark";
+    } else {
+      localStorage.theme = "light";
+    }
+    document.documentElement.classList.toggle("dark", newDarkMode);
+  };
 
   const changeLanguage = (lang: string) => {
     i18n.changeLanguage(lang);
@@ -109,6 +143,15 @@ export default function Header() {
                 WO
               </button>
             </div>
+
+            {/* Theme Toggle */}
+            <button
+              onClick={toggleTheme}
+              className="ml-2 p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200"
+              aria-label="Toggle theme"
+            >
+              {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -227,6 +270,27 @@ export default function Header() {
                   🇸🇳 WO
                 </button>
               </div>
+            </div>
+
+            {/* Theme Toggle Mobile */}
+            <div className="pt-3 border-t border-gray-200 dark:border-gray-700">
+              <button
+                onClick={() => {
+                  toggleTheme();
+                  setMobileMenuOpen(false);
+                }}
+                className="w-full px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 flex items-center justify-center gap-2"
+              >
+                {isDarkMode ? (
+                  <>
+                    <Sun size={16} /> {t("nav.lightMode")}
+                  </>
+                ) : (
+                  <>
+                    <Moon size={16} /> {t("nav.darkMode")}
+                  </>
+                )}
+              </button>
             </div>
           </div>
         </div>
