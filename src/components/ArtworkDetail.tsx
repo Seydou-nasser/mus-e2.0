@@ -4,7 +4,17 @@ import { useState } from "react";
 import { getArtworkById } from "../data/artworkService";
 import type { Language } from "../types/artwork";
 import AudioPlayer from "./AudioPlayer";
-import { Clock, X, MapPin, Calendar, Tag, QrCode, ArrowLeft, Play, Image as ImageIcon } from "lucide-react";
+import {
+  Clock,
+  X,
+  MapPin,
+  Calendar,
+  Tag,
+  QrCode,
+  ArrowLeft,
+  Play,
+  Image as ImageIcon,
+} from "lucide-react";
 
 const ArtworkDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -55,10 +65,13 @@ const ArtworkDetail = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <Link
-              to="/"
+              to="/collections"
               className="flex items-center gap-2 text-[#D17842] dark:text-[#E89563] hover:text-[#B85F30] dark:hover:text-[#D17842] transition-colors group"
             >
-              <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
+              <ArrowLeft
+                size={20}
+                className="group-hover:-translate-x-1 transition-transform"
+              />
               <span className="font-medium">{t("artwork.backToHome")}</span>
             </Link>
             <div className="text-sm text-gray-500 dark:text-gray-400">
@@ -106,7 +119,10 @@ const ArtworkDetail = () => {
             <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow">
               <div className="flex items-center gap-3 mb-6">
                 <div className="p-3 bg-[#D17842]/10 dark:bg-[#E89563]/10 rounded-xl">
-                  <Tag size={24} className="text-[#D17842] dark:text-[#E89563]" />
+                  <Tag
+                    size={24}
+                    className="text-[#D17842] dark:text-[#E89563]"
+                  />
                 </div>
                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                   {t("artwork.description")}
@@ -171,7 +187,10 @@ const ArtworkDetail = () => {
             <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow">
               <div className="flex items-center gap-3 mb-6">
                 <div className="p-2 bg-[#D17842]/10 dark:bg-[#E89563]/10 rounded-lg">
-                  <Clock size={20} className="text-[#D17842] dark:text-[#E89563]" />
+                  <Clock
+                    size={20}
+                    className="text-[#D17842] dark:text-[#E89563]"
+                  />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white">
                   {t("artwork.history")}
@@ -179,7 +198,10 @@ const ArtworkDetail = () => {
               </div>
               <div className="space-y-4">
                 <div className="flex items-start gap-3 p-3 rounded-lg bg-gray-50 dark:bg-gray-700/50">
-                  <Calendar size={16} className="text-[#D17842] mt-1 flex-shrink-0" />
+                  <Calendar
+                    size={16}
+                    className="text-[#D17842] mt-1 flex-shrink-0"
+                  />
                   <div>
                     <p className="font-semibold text-gray-900 dark:text-white text-sm">
                       {t("artwork.creationPeriod")}
@@ -191,7 +213,10 @@ const ArtworkDetail = () => {
                 </div>
 
                 <div className="flex items-start gap-3 p-3 rounded-lg bg-gray-50 dark:bg-gray-700/50">
-                  <MapPin size={16} className="text-blue-500 mt-1 flex-shrink-0" />
+                  <MapPin
+                    size={16}
+                    className="text-blue-500 mt-1 flex-shrink-0"
+                  />
                   <div>
                     <p className="font-semibold text-gray-900 dark:text-white text-sm">
                       {t("artwork.origin")}
@@ -203,7 +228,10 @@ const ArtworkDetail = () => {
                 </div>
 
                 <div className="flex items-start gap-3 p-3 rounded-lg bg-gray-50 dark:bg-gray-700/50">
-                  <Tag size={16} className="text-green-500 mt-1 flex-shrink-0" />
+                  <Tag
+                    size={16}
+                    className="text-green-500 mt-1 flex-shrink-0"
+                  />
                   <div>
                     <p className="font-semibold text-gray-900 dark:text-white text-sm">
                       {t("artwork.category")}
@@ -215,7 +243,10 @@ const ArtworkDetail = () => {
                 </div>
 
                 <div className="flex items-start gap-3 p-3 rounded-lg bg-gray-50 dark:bg-gray-700/50">
-                  <QrCode size={16} className="text-purple-500 mt-1 flex-shrink-0" />
+                  <QrCode
+                    size={16}
+                    className="text-purple-500 mt-1 flex-shrink-0"
+                  />
                   <div>
                     <p className="font-semibold text-gray-900 dark:text-white text-sm">
                       {t("artwork.identificationCode")}
@@ -235,13 +266,17 @@ const ArtworkDetail = () => {
           <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow">
             <div className="flex items-center gap-3 mb-8">
               <div className="p-3 bg-[#D17842]/10 dark:bg-[#E89563]/10 rounded-xl">
-                <ImageIcon size={24} className="text-[#D17842] dark:text-[#E89563]" />
+                <ImageIcon
+                  size={24}
+                  className="text-[#D17842] dark:text-[#E89563]"
+                />
               </div>
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                 {t("artwork.gallery")}
               </h2>
               <span className="text-sm text-gray-500 dark:text-gray-400 ml-auto">
-                {artwork.imageGallery.length} {artwork.imageGallery.length === 1 ? 'image' : 'images'}
+                {artwork.imageGallery.length}{" "}
+                {artwork.imageGallery.length === 1 ? "image" : "images"}
               </span>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
