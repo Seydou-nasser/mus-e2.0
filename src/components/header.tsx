@@ -35,15 +35,15 @@ export default function Header() {
   const navLinkClasses = (path: string) =>
     `px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
       isActive(path)
-        ? "bg-white/20 text-white shadow-md backdrop-blur-sm"
-        : "text-white/90 hover:bg-white/10 hover:text-white"
+        ? "bg-[#D17842] text-white shadow-md"
+        : "text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800"
     }`;
 
   const languageButtonClasses = (lang: string) =>
     `px-3 py-1.5 rounded-md text-xs font-semibold transition-all duration-200 ${
       i18n.language === lang
-        ? "bg-white text-[#D17842] shadow-md"
-        : "bg-white/20 text-white hover:bg-white/30"
+        ? "bg-[#D17842] text-white shadow-md"
+        : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
     }`;
 
   return (
@@ -54,7 +54,7 @@ export default function Header() {
           {/* Logo et nom */}
           <Link
             to="/"
-            className="flex items-center text-white text-lg md:text-2xl font-bold hover:text-amber-200 transition-colors"
+            className="flex items-center text-gray-900 dark:text-white text-lg md:text-2xl font-bold hover:text-[#D17842] dark:hover:text-[#E89563] transition-colors"
           >
             <img
               src="/assets/logoMCN.png"
@@ -79,14 +79,17 @@ export default function Header() {
             </Link>
             <Link
               to="/scan"
-              className="ml-2 px-5 py-2 rounded-lg text-sm font-semibold bg-white text-[#D17842] hover:bg-orange-50 transition-all duration-200 shadow-md hover:shadow-lg hover:scale-105 flex items-center gap-2"
+              className="ml-2 px-5 py-2 rounded-lg text-sm font-semibold bg-[#D17842] text-white hover:bg-[#B85F30] transition-all duration-200 shadow-md hover:shadow-lg hover:scale-105 flex items-center gap-2"
             >
               <QrCode size={16} /> {t("nav.scan")}
             </Link>
 
             {/* Language Selector */}
-            <div className="ml-4 flex items-center space-x-2 bg-white/10 rounded-lg p-1 backdrop-blur-sm">
-              <Globe size={16} className="text-white/70 ml-2" />
+            <div className="ml-4 flex items-center space-x-2 bg-gray-100 dark:bg-gray-800 rounded-lg p-1">
+              <Globe
+                size={16}
+                className="text-gray-600 dark:text-gray-400 ml-2"
+              />
               <button
                 onClick={() => changeLanguage("fr")}
                 className={languageButtonClasses("fr")}
@@ -111,7 +114,7 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg text-white hover:bg-white/20 transition-colors duration-200"
+            className="md:hidden p-2 rounded-lg text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200"
             aria-label="Toggle mobile menu"
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
