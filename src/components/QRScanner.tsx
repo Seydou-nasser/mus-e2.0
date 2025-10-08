@@ -142,7 +142,7 @@ const QRScanner = () => {
             <video id="barcode-video" className="w-full" autoPlay playsInline />
             {scanning && (
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="border-4 border-[#D17842] border-t-transparent rounded-full w-16 h-16 animate-spin"></div>
+                <div className="border-4 border-[#D17842] w-64 h-64 animate-pulse"></div>
               </div>
             )}
           </div>
