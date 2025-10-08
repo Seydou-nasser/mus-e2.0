@@ -143,59 +143,58 @@ const ChatbotInterface: React.FC = () => {
         console.log('🔑 Clé API OpenAI:', ENV_VARS.OPENAI_API_KEY ? 'PRÉSENTE' : 'ABSENTE');
         console.log('🔑 Longueur clé:', ENV_VARS.OPENAI_API_KEY?.length || 0);
         console.log('🔑 Début clé:', ENV_VARS.OPENAI_API_KEY?.substring(0, 20) + '...');
-        setTypingText('Connexion à Hugging Face...');
+        setTypingText('Connexion à Gemini...');
         
         try {
-          console.log('📡 ENVOI REQUÊTE à Hugging Face Router...');
+          console.log('📡 ENVOI REQUÊTE à Google Gemini API...');
           console.log('📝 Question utilisateur:', inputText);
-          console.log('🎯 Modèle utilisé: Qwen/Qwen3-Next-80B-A3B-Instruct');
-          console.log('⚙️ Configuration: Hugging Face Router API');
+          console.log('🎯 Modèle utilisé: gemini-1.5-flash');
+          console.log('⚙️ Configuration: Google Gemini API');
           
-          // Appel direct à l'API Hugging Face Router avec fetch
-          const response = await fetch('https://router.huggingface.co/v1/chat/completions', {
+          // Appel direct à l'API Google Gemini
+          const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${ENV_VARS.GEMINI_API_KEY}`, {
             method: 'POST',
             headers: {
-              'Content-Type': 'application/json',
-              'Authorization': `Bearer ${ENV_VARS.HUGGINGFACE_API_KEY || 'hf_your_token_here'}`
+              'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-              model: "Qwen/Qwen3-Next-80B-A3B-Instruct:novita",
-              messages: [
-                {
-                  role: "system",
-                  content: "Tu es un assistant IA intelligent et polyvalent. Tu peux répondre à TOUTES les questions : culture africaine, politique, géographie, histoire, technologie, etc. Tu es spécialisé en culture africaine au Musée des Civilisations Noires, mais tu peux aussi parler du Togo, de son président, de n'importe quel pays, de n'importe quel sujet. Réponds toujours en français de manière intelligente, détaillée et engageante. Sois informatif et utile pour l'utilisateur."
-                },
-                {
-                  role: "user",
-                  content: inputText
-                }
-              ],
-              max_tokens: 800,
-              temperature: 0.8
+              contents: [{
+                parts: [{
+                  text: `Tu es un assistant IA intelligent et polyvalent spécialisé en culture africaine au Musée des Civilisations Noires. Tu peux répondre à TOUTES les questions : culture africaine, politique, géographie, histoire, technologie, etc. Tu es passionné par la transmission du patrimoine culturel africain et tu peux parler du Togo, de son président, de n'importe quel pays, de n'importe quel sujet. Réponds toujours en français de manière intelligente, détaillée et engageante. Sois informatif et utile pour l'utilisateur.
+
+Question: ${inputText}`
+                }]
+              }],
+              generationConfig: {
+                temperature: 0.8,
+                maxOutputTokens: 800,
+                topP: 0.9,
+                topK: 40
+              }
             })
           });
 
-          console.log('📡 RÉPONSE REÇUE de Hugging Face Router');
+          console.log('📡 RÉPONSE REÇUE de Google Gemini API');
           console.log('📊 Status HTTP:', response.status);
           console.log('📊 Status Text:', response.statusText);
 
           if (!response.ok) {
             const errorData = await response.json();
-            console.error('❌ ERREUR API Hugging Face:', errorData);
+            console.error('❌ ERREUR API Gemini:', errorData);
             throw new Error(`API Error: ${response.status} - ${errorData.error?.message || 'Unknown error'}`);
           }
 
-          const chatCompletion = await response.json();
+          const geminiResponse = await response.json();
 
-          console.log('✅ DONNÉES REÇUES de Hugging Face Router:');
-          console.log('📝 Réponse complète:', chatCompletion.choices[0].message.content);
-          console.log('📏 Longueur réponse:', chatCompletion.choices[0].message.content.length, 'caractères');
-          console.log('🎯 Modèle utilisé par Hugging Face: Qwen/Qwen3-Next-80B-A3B-Instruct');
+          console.log('✅ DONNÉES REÇUES de Google Gemini:');
+          console.log('📝 Réponse complète:', geminiResponse.candidates[0].content.parts[0].text);
+          console.log('📏 Longueur réponse:', geminiResponse.candidates[0].content.parts[0].text.length, 'caractères');
+          console.log('🎯 Modèle utilisé par Gemini: gemini-1.5-flash');
           console.log('⏱️ Temps de traitement: Gratuit');
           console.log('💰 Coût estimé: 0$ (GRATUIT)');
           
           aiResponse = {
-            response: chatCompletion.choices[0].message.content,
+            response: geminiResponse.candidates[0].content.parts[0].text,
             confidence: 0.95,
             metadata: {
               culture: 'Intelligence Générale',
@@ -204,11 +203,11 @@ const ChatbotInterface: React.FC = () => {
             }
           };
           
-          console.log('🎉 SUCCÈS: Hugging Face Router répond intelligemment à toutes les questions !');
+          console.log('🎉 SUCCÈS: Google Gemini répond intelligemment à toutes les questions !');
           console.log('🧠 INTELLIGENCE DÉMONTRÉE: L\'IA peut répondre à n\'importe quelle question');
           console.log('🌟 INNOVATION RÉELLE: Plus de réponses statiques, vraie intelligence artificielle GRATUITE');
         } catch (error) {
-          console.log('⚠️ Hugging Face API échouée, utilisation du service local intelligent');
+          console.log('⚠️ Google Gemini API échouée, utilisation du service local intelligent');
           console.error('❌ Erreur détaillée:', error);
           console.log('🔄 Fallback vers service local...');
           // Fallback intelligent

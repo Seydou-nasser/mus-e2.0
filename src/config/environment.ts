@@ -15,6 +15,7 @@ export const ENV_VARS = {
   OPENAI_API_KEY: import.meta.env.VITE_OPENAI_API_KEY || OPENAI_API_KEY,
   CLAUDE_API_KEY: import.meta.env.VITE_CLAUDE_API_KEY || '',
   HUGGINGFACE_API_KEY: import.meta.env.VITE_HUGGINGFACE_API_KEY || HUGGINGFACE_API_KEY,
+  GEMINI_API_KEY: import.meta.env.VITE_GEMINI_API_KEY || 'AIzaSyCRcNAkKUXgOm78HGnCyEgH98yEWpUQqP4',
   
   // Configuration de l'application
   API_BASE_URL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001',
