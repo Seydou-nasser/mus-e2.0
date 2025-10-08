@@ -9,15 +9,11 @@ import {
   VolumeX,
   RotateCcw,
   Download,
-  Languages,
-  Mic,
-  MicOff,
   Zap,
-  Music,
-  Headphones,
-  Radio
+  Music
 } from 'lucide-react';
 import { elevenLabsService } from '../services/elevenLabsService';
+import { runAudioDiagnostic, testAudioGeneration, logAudioStatus } from '../utils/audioDiagnostic';
 
 /**
  * Composant AudioGuide avec ElevenLabs TTS
@@ -35,7 +31,7 @@ interface AudioGuideProps {
 }
 
 const AudioGuide: React.FC<AudioGuideProps> = ({ oeuvre, isOpen, onClose }) => {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const { getThemeClasses, isDarkMode } = useTheme();
   const themeClasses = getThemeClasses();
   const [isPlaying, setIsPlaying] = useState(false);
@@ -51,6 +47,8 @@ const AudioGuide: React.FC<AudioGuideProps> = ({ oeuvre, isOpen, onClose }) => {
   const [currentTime, setCurrentTime] = useState(0);
   const [playbackRate, setPlaybackRate] = useState(1.0);
   const [progressInterval, setProgressInterval] = useState<NodeJS.Timeout | null>(null);
+  const [isTesting, setIsTesting] = useState(false);
+  const [audioMode, setAudioMode] = useState<'elevenlabs' | 'webspeech' | 'unknown'>('unknown');
 
   // Œuvre par défaut si aucune fournie
   const defaultOeuvre = {
@@ -120,6 +118,56 @@ const AudioGuide: React.FC<AudioGuideProps> = ({ oeuvre, isOpen, onClose }) => {
     };
   }, [progressInterval]);
 
+  // Diagnostic audio au montage du composant (une seule fois)
+  useEffect(() => {
+    let isDiagnosticRunning = false;
+    
+    const runDiagnostic = async () => {
+      if (isDiagnosticRunning) {
+        console.log('🔄 [AUDIO GUIDE] Diagnostic déjà en cours, ignoré');
+        return;
+      }
+      
+      isDiagnosticRunning = true;
+      console.log('🔍 [AUDIO GUIDE] Diagnostic au montage (UNIQUE)');
+      logAudioStatus();
+      
+      try {
+        // Lancer le diagnostic complet
+        const diagnostic = await runAudioDiagnostic();
+        console.log('📊 [AUDIO GUIDE] Diagnostic complet:', diagnostic);
+        
+        // Déterminer le mode audio
+        if (diagnostic.elevenLabs.configured) {
+          setAudioMode('elevenlabs');
+          console.log('🎙️ [AUDIO GUIDE] Mode: ElevenLabs (qualité professionnelle)');
+        } else if (diagnostic.webSpeech.available) {
+          setAudioMode('webspeech');
+          console.log('🎤 [AUDIO GUIDE] Mode: Web Speech API (démonstration)');
+        } else {
+          setAudioMode('unknown');
+          console.log('❌ [AUDIO GUIDE] Mode: Aucun service disponible');
+        }
+        
+        if (diagnostic.errors.length > 0) {
+          console.warn('⚠️ [AUDIO GUIDE] Problèmes détectés:', diagnostic.errors);
+          // Afficher le premier problème dans l'interface
+          setError(diagnostic.errors[0]);
+        }
+        
+        if (diagnostic.recommendations.length > 0) {
+          console.info('💡 [AUDIO GUIDE] Recommandations:', diagnostic.recommendations);
+        }
+      } catch (error) {
+        console.error('❌ [AUDIO GUIDE] Erreur diagnostic:', error);
+      } finally {
+        isDiagnosticRunning = false;
+      }
+    };
+    
+    runDiagnostic();
+  }, []); // Dépendance vide pour éviter les re-exécutions
+
   // Fonction pour démarrer le suivi de progression
   const startProgressTracking = () => {
     if (progressInterval) {
@@ -151,28 +199,43 @@ const AudioGuide: React.FC<AudioGuideProps> = ({ oeuvre, isOpen, onClose }) => {
 
   // Génération de l'audio avec ElevenLabs TTS
   const generateAudio = async (language: 'fr' | 'en' | 'wo') => {
+    console.log('🎙️ [AUDIO GUIDE] Début génération audio');
+    console.log('🌍 [AUDIO GUIDE] Langue sélectionnée:', language);
+    console.log('📚 [AUDIO GUIDE] Œuvre:', currentOeuvre.titre[language]);
+    console.log('🔑 [AUDIO GUIDE] Clé ElevenLabs:', !!import.meta.env.VITE_ELEVENLABS_API_KEY);
+    
     setIsLoading(true);
     setError(null);
     
     try {
-      console.log('🎙️ Génération audio ElevenLabs pour:', language, currentOeuvre);
+      console.log('🎙️ [AUDIO GUIDE] Appel ElevenLabs service...');
       
       // Utiliser ElevenLabs pour une qualité audio professionnelle
       const audioBlob = await elevenLabsService.generateOeuvreGuide(currentOeuvre, language);
       
+      console.log('✅ [AUDIO GUIDE] Audio blob reçu');
+      console.log('📏 [AUDIO GUIDE] Taille blob:', audioBlob.size, 'bytes');
+      console.log('📊 [AUDIO GUIDE] Type blob:', audioBlob.type);
+      
       // Créer un URL pour l'audio
       const audioUrl = URL.createObjectURL(audioBlob);
-      setAudioBlob(audioUrl);
+      setAudioBlob(audioUrl as any);
       
-      console.log('✅ Audio ElevenLabs généré avec succès');
+      console.log('✅ [AUDIO GUIDE] URL audio créée:', audioUrl);
+      console.log('🎵 [AUDIO GUIDE] Configuration audio...');
       
       // Marquer comme chargé et joué
       setCurrentLanguage(language);
       setDuration(30); // Durée simulée
       setIsPlaying(true);
+      
+      console.log('🎉 [AUDIO GUIDE] Audio prêt à être joué');
         
-    } catch (err) {
-      console.error('Erreur ElevenLabs:', err);
+    } catch (err: unknown) {
+      console.error('❌ [AUDIO GUIDE] Erreur détaillée:', err);
+      console.error('📊 [AUDIO GUIDE] Type erreur:', typeof err);
+      console.error('📊 [AUDIO GUIDE] Message:', (err as Error).message);
+      console.error('📊 [AUDIO GUIDE] Stack:', (err as Error).stack);
       
       // Fallback vers Web Speech API en cas d'erreur
       const text = language === 'fr' ? 
@@ -181,12 +244,24 @@ const AudioGuide: React.FC<AudioGuideProps> = ({ oeuvre, isOpen, onClose }) => {
         `Welcome to this exploration of ${currentOeuvre.titre.en}. ${currentOeuvre.description.en}. This work dates from ${currentOeuvre.periode.en} and comes from ${currentOeuvre.region.en}.` :
         `Jëfandikoo bu yees ci ${currentOeuvre.titre.wo}. ${currentOeuvre.description.wo}. Jëfandikoo bi ci ${currentOeuvre.periode.wo} ak ci ${currentOeuvre.region.wo}.`;
       
+      console.log('🔄 [AUDIO GUIDE] Fallback vers Web Speech API');
+      console.log('📝 [AUDIO GUIDE] Texte fallback:', text.substring(0, 100) + '...');
+      
       if ('speechSynthesis' in window) {
+        console.log('🎤 [AUDIO GUIDE] Web Speech API disponible');
+        
         const utterance = new SpeechSynthesisUtterance(text);
         utterance.lang = language === 'fr' ? 'fr-FR' : language === 'en' ? 'en-US' : 'fr-FR';
         utterance.rate = 0.8;
         utterance.pitch = 1;
         utterance.volume = 0.8;
+        
+        console.log('🎵 [AUDIO GUIDE] Configuration utterance:', {
+          lang: utterance.lang,
+          rate: utterance.rate,
+          pitch: utterance.pitch,
+          volume: utterance.volume
+        });
         
         // Mode Web Speech API uniquement (pas de blob audio)
         setCurrentLanguage(language);
@@ -194,9 +269,13 @@ const AudioGuide: React.FC<AudioGuideProps> = ({ oeuvre, isOpen, onClose }) => {
         
         // Lancer la synthèse vocale directement
         speechSynthesis.speak(utterance);
+        console.log('🎉 [AUDIO GUIDE] Synthèse vocale lancée');
         
         // Marquer comme joué
         setIsPlaying(true);
+        console.log('✅ [AUDIO GUIDE] Audio en cours de lecture');
+      } else {
+        console.error('❌ [AUDIO GUIDE] Web Speech API non disponible');
       }
       
       setError('Mode démonstration Web Speech API - Audio fonctionnel !');
@@ -207,12 +286,20 @@ const AudioGuide: React.FC<AudioGuideProps> = ({ oeuvre, isOpen, onClose }) => {
 
   // Contrôles audio
   const togglePlayPause = () => {
+    console.log('🎵 [AUDIO GUIDE] Toggle play/pause');
+    console.log('🎵 [AUDIO GUIDE] État actuel:', isPlaying ? 'En lecture' : 'En pause');
+    console.log('🎵 [AUDIO GUIDE] Langue actuelle:', currentLanguage);
+    console.log('🎵 [AUDIO GUIDE] Volume:', volume, 'Muted:', isMuted);
+    
     if (isPlaying) {
+      console.log('⏸️ [AUDIO GUIDE] Mise en pause');
       // Arrêter la synthèse vocale
       speechSynthesis.cancel();
       stopProgressTracking();
       setIsPlaying(false);
+      console.log('✅ [AUDIO GUIDE] Audio mis en pause');
     } else {
+      console.log('▶️ [AUDIO GUIDE] Reprise lecture');
       // Reprendre la synthèse vocale
       if (currentLanguage) {
         const text = currentLanguage === 'fr' ? 
@@ -221,20 +308,61 @@ const AudioGuide: React.FC<AudioGuideProps> = ({ oeuvre, isOpen, onClose }) => {
           `Welcome to this exploration of ${currentOeuvre.titre.en}. ${currentOeuvre.description.en}.` :
           `Jëfandikoo bu yees ci ${currentOeuvre.titre.wo}. ${currentOeuvre.description.wo}.`;
         
+        console.log('📝 [AUDIO GUIDE] Texte synthèse:', text.substring(0, 100) + '...');
+        
         const utterance = new SpeechSynthesisUtterance(text);
         utterance.lang = currentLanguage === 'fr' ? 'fr-FR' : currentLanguage === 'en' ? 'en-US' : 'fr-FR';
         utterance.rate = playbackRate;
         utterance.pitch = 1;
         utterance.volume = isMuted ? 0 : volume;
         
+        console.log('🎵 [AUDIO GUIDE] Configuration utterance:', {
+          lang: utterance.lang,
+          rate: utterance.rate,
+          pitch: utterance.pitch,
+          volume: utterance.volume
+        });
+        
         speechSynthesis.speak(utterance);
+        console.log('🎉 [AUDIO GUIDE] Synthèse vocale lancée');
         setIsPlaying(true);
         startProgressTracking();
+        console.log('✅ [AUDIO GUIDE] Audio en cours de lecture');
+      } else {
+        console.log('❌ [AUDIO GUIDE] Langue non définie');
       }
     }
   };
 
-  const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
+  // Test de génération audio
+  const testAudio = async () => {
+    console.log('🧪 [AUDIO GUIDE] Test de génération audio');
+    setIsTesting(true);
+    setError(null); // Effacer les erreurs précédentes
+    
+    try {
+      const success = await testAudioGeneration();
+      if (success) {
+        console.log('✅ [AUDIO GUIDE] Test audio réussi');
+        setError('✅ Test audio réussi - Service fonctionnel !');
+        // Lancer un test de synthèse vocale immédiat
+        const testUtterance = new SpeechSynthesisUtterance('Test audio guide réussi');
+        testUtterance.volume = 0.3;
+        testUtterance.rate = 1.2;
+        speechSynthesis.speak(testUtterance);
+      } else {
+        console.log('❌ [AUDIO GUIDE] Test audio échoué');
+        setError('❌ Test audio échoué - Vérifier la configuration');
+      }
+    } catch (error) {
+      console.error('❌ [AUDIO GUIDE] Erreur test audio:', error);
+      setError('❌ Erreur lors du test audio');
+    } finally {
+      setIsTesting(false);
+    }
+  };
+
+  const handleSeek = (_e: React.ChangeEvent<HTMLInputElement>) => {
     // Pour Web Speech API, on ne peut pas contrôler la position
     // Cette fonction est désactivée en mode démonstration
     console.log('Seek non disponible en mode Web Speech API');
@@ -469,6 +597,26 @@ const AudioGuide: React.FC<AudioGuideProps> = ({ oeuvre, isOpen, onClose }) => {
                   )}
                 </motion.button>
 
+                {/* Bouton de test audio */}
+                <motion.button
+                  onClick={testAudio}
+                  disabled={isTesting}
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className={`p-4 rounded-full transition-all disabled:opacity-50 shadow-xl hover:shadow-2xl transform ${
+                    isDarkMode 
+                      ? 'bg-gradient-to-br from-purple-500/20 to-indigo-500/20 hover:from-purple-500/30 hover:to-indigo-500/30 border-purple-500/30'
+                      : 'bg-gradient-to-br from-purple-100 to-indigo-100 hover:from-purple-200 hover:to-indigo-200 border-purple-300'
+                  }`}
+                  title="Test Audio"
+                >
+                  {isTesting ? (
+                    <Zap className={`w-5 h-5 animate-spin ${isDarkMode ? 'text-purple-400' : 'text-purple-600'}`} />
+                  ) : (
+                    <Zap className={`w-5 h-5 ${isDarkMode ? 'text-purple-400' : 'text-purple-600'}`} />
+                  )}
+                </motion.button>
+
                 <button
                   onClick={() => setIsMuted(!isMuted)}
                   className={`p-4 rounded-full transition-all border ${
@@ -508,7 +656,11 @@ const AudioGuide: React.FC<AudioGuideProps> = ({ oeuvre, isOpen, onClose }) => {
                     max="1"
                     step="0.1"
                     value={volume}
-                    onChange={(e) => setVolume(parseFloat(e.target.value))}
+                    onChange={(e) => {
+                      const newVolume = parseFloat(e.target.value);
+                      console.log('🔊 [AUDIO GUIDE] Changement volume:', newVolume);
+                      setVolume(newVolume);
+                    }}
                     className={`w-full h-3 rounded-lg appearance-none cursor-pointer slider ${
                       isDarkMode ? 'bg-gray-700' : 'bg-gray-300'
                     }`}
@@ -552,9 +704,44 @@ const AudioGuide: React.FC<AudioGuideProps> = ({ oeuvre, isOpen, onClose }) => {
             </div>
           )}
 
+          {/* Indicateur de mode audio */}
+          <div className="mt-4 p-3 rounded-xl border">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-2">
+                {audioMode === 'elevenlabs' && (
+                  <>
+                    <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                    <span className="text-sm font-medium text-green-400">Mode ElevenLabs (Professionnel)</span>
+                  </>
+                )}
+                {audioMode === 'webspeech' && (
+                  <>
+                    <div className="w-3 h-3 bg-yellow-500 rounded-full animate-pulse"></div>
+                    <span className="text-sm font-medium text-yellow-400">Mode Web Speech (Démonstration)</span>
+                  </>
+                )}
+                {audioMode === 'unknown' && (
+                  <>
+                    <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+                    <span className="text-sm font-medium text-red-400">Aucun service audio</span>
+                  </>
+                )}
+              </div>
+              <div className="text-xs text-gray-400">
+                {audioMode === 'elevenlabs' && 'Qualité optimale'}
+                {audioMode === 'webspeech' && 'Qualité limitée'}
+                {audioMode === 'unknown' && 'Non fonctionnel'}
+              </div>
+            </div>
+          </div>
+
           {/* Message d'erreur */}
           {error && (
-            <div className="mt-4 p-4 bg-red-500/20 border border-red-500/50 rounded-xl text-red-300">
+            <div className={`mt-4 p-4 rounded-xl border ${
+              error.includes('✅') 
+                ? 'bg-green-500/20 border-green-500/50 text-green-300'
+                : 'bg-red-500/20 border-red-500/50 text-red-300'
+            }`}>
               {error}
             </div>
           )}

@@ -24,7 +24,15 @@ export class ElevenLabsService {
     voiceId: string = 'pNInz6obpgDQGcFmaJgB', // Voix française par défaut
     language: 'fr' | 'en' | 'wo' = 'fr'
   ): Promise<Blob> {
+    console.log('🎙️ [ELEVENLABS] Début génération audio');
+    console.log('📝 [ELEVENLABS] Texte:', text.substring(0, 100) + '...');
+    console.log('🎭 [ELEVENLABS] Voix ID:', voiceId);
+    console.log('🌍 [ELEVENLABS] Langue:', language);
+    console.log('🔑 [ELEVENLABS] Clé API présente:', !!this.apiKey);
+    console.log('🔑 [ELEVENLABS] Longueur clé:', this.apiKey?.length || 0);
+    
     try {
+      console.log('📡 [ELEVENLABS] Envoi requête à ElevenLabs...');
       const response = await axios.post(
         `${this.baseURL}/text-to-speech/${voiceId}`,
         {
@@ -47,10 +55,19 @@ export class ElevenLabsService {
         }
       );
 
+      console.log('✅ [ELEVENLABS] Réponse reçue');
+      console.log('📊 [ELEVENLABS] Status:', response.status);
+      console.log('📊 [ELEVENLABS] Type:', response.headers['content-type']);
+      console.log('📏 [ELEVENLABS] Taille audio:', response.data.size, 'bytes');
+      
       return response.data;
-    } catch (error) {
-      console.error('Erreur ElevenLabs TTS:', error);
-      throw new Error('Impossible de générer l\'audio');
+    } catch (error: any) {
+      console.error('❌ [ELEVENLABS] Erreur détaillée:', error);
+      console.error('📊 [ELEVENLABS] Status:', error.response?.status);
+      console.error('📊 [ELEVENLABS] Message:', error.response?.data);
+      console.error('🔑 [ELEVENLABS] Clé API valide:', !!this.apiKey);
+      
+      throw new Error(`Impossible de générer l'audio: ${error.response?.data?.detail || error.message}`);
     }
   }
 
@@ -102,7 +119,12 @@ export class ElevenLabsService {
     },
     language: 'fr' | 'en' | 'wo' = 'fr'
   ): Promise<Blob> {
+    console.log('🎯 [GUIDE AUDIO] Génération guide pour œuvre');
+    console.log('📚 [GUIDE AUDIO] Œuvre:', oeuvre.titre[language]);
+    console.log('🌍 [GUIDE AUDIO] Langue demandée:', language);
+    
     const voiceId = this.getOptimalVoice(language);
+    console.log('🎭 [GUIDE AUDIO] Voix sélectionnée:', voiceId);
     
     let guideText = '';
     
@@ -128,6 +150,9 @@ export class ElevenLabsService {
         Seetal ci xam-xam bu yees ci jëfandikoo bi ci ngërëm Afrig.
       `;
     }
+
+    console.log('📝 [GUIDE AUDIO] Texte généré:', guideText.substring(0, 150) + '...');
+    console.log('📏 [GUIDE AUDIO] Longueur texte:', guideText.length, 'caractères');
 
     return this.generateSpeech(guideText, voiceId, language);
   }
