@@ -131,8 +131,9 @@
     "closeChat": "Tëj chat",
     "welcomeMessage": "Nanga def! Maa ngi sa guide virtuel bu Musée des Civilisations Noires. Naka laa koy mën di wax?",
     "demoResponse": "Jërëjëf ci sa laaj! API IA dinañ ko intégré ci yoon yu bess ngir joxe sa yeen yi ak detay yu bari ci lëkkalekaay yi.",
+    "errorMessage": "Njuumte am na. Jëmaleen jéemaat.",
     "placeholder": "Laaj sa laaj...",
-    "typing": "Assistant dafa bind...",
+    "type": "Assistant dafa bind...",
     "disclaimer": "Yeen yu IA gën - Xalaat yi war nañu ko xoolal"
   }
 }

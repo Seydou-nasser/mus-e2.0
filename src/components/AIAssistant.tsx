@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { X, Send, Loader2, Sparkles } from "lucide-react";
+import { sendMessageToGroq, type ChatMessage } from "../services/groqService";
 
 interface Message {
   id: string;
@@ -10,7 +11,7 @@ interface Message {
 }
 
 const AIAssistant = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -24,6 +25,9 @@ const AIAssistant = () => {
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const [conversationHistory, setConversationHistory] = useState<ChatMessage[]>(
+    []
+  );
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -50,21 +54,47 @@ const AIAssistant = () => {
     };
 
     setMessages((prev) => [...prev, userMessage]);
+    const userInput = inputMessage;
     setInputMessage("");
     setIsTyping(true);
 
-    // TODO: Intégrer l'API IA ici
-    // Simulation de réponse pour l'instant
-    setTimeout(() => {
+    try {
+      // Ajouter le message utilisateur à l'historique
+      const newHistory: ChatMessage[] = [
+        ...conversationHistory,
+        { role: "user", content: userInput },
+      ];
+
+      // Appeler l'API Groq
+      const aiResponseText = await sendMessageToGroq(newHistory, i18n.language);
+
+      // Ajouter la réponse IA à l'historique
+      setConversationHistory([
+        ...newHistory,
+        { role: "assistant", content: aiResponseText },
+      ]);
+
       const aiResponse: Message = {
         id: (Date.now() + 1).toString(),
-        text: t("aiAssistant.demoResponse"),
+        text: aiResponseText,
         sender: "ai",
         timestamp: new Date(),
       };
       setMessages((prev) => [...prev, aiResponse]);
+    } catch (error) {
+      console.error("Erreur lors de l'envoi du message:", error);
+      const errorMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        text:
+          t("aiAssistant.errorMessage") ||
+          "Une erreur s'est produite. Veuillez réessayer.",
+        sender: "ai",
+        timestamp: new Date(),
+      };
+      setMessages((prev) => [...prev, errorMessage]);
+    } finally {
       setIsTyping(false);
-    }, 1500);
+    }
   };
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {

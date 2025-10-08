@@ -130,6 +130,7 @@
     "closeChat": "Close chat",
     "welcomeMessage": "Hello! I'm your virtual guide to the Museum of Black Civilizations. How can I help you today?",
     "demoResponse": "Thank you for your question! The AI API will be integrated soon to provide you with detailed answers about the museum's artworks.",
+    "errorMessage": "An error occurred. Please try again.",
     "placeholder": "Ask your question...",
     "typing": "Assistant is typing...",
     "disclaimer": "AI-generated responses - Information to be verified"
