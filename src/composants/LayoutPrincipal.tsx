@@ -23,6 +23,7 @@ import {
   Youtube
 } from 'lucide-react';
 import IconeIA from './IconeIA';
+import NotificationsMusee from './NotificationsMusee';
 
 /**
  * Layout principal mode sombre - Design exact selon spécifications
@@ -266,10 +267,8 @@ const LayoutPrincipal: React.FC<LayoutPrincipalProps> = ({ children }) => {
                 />
               </motion.button>
 
-              {/* Notifications - Ultra Responsive */}
-              <button className={`p-1.5 xs:p-2 rounded-full bg-white/10 ${themeClasses.text} hover:bg-white/20 transition-colors`}>
-                <Bell className="w-3 h-3 xs:w-4 xs:h-4 sm:w-5 sm:h-5" />
-              </button>
+              {/* Notifications - Ultra Responsive avec composant sophistiqué */}
+              <NotificationsMusee />
               
               {/* Menu Mobile - Toujours visible sur mobile */}
               <button
