@@ -143,16 +143,16 @@ const ChatbotInterface: React.FC = () => {
         console.log('🔑 Clé API OpenAI:', ENV_VARS.OPENAI_API_KEY ? 'PRÉSENTE' : 'ABSENTE');
         console.log('🔑 Longueur clé:', ENV_VARS.OPENAI_API_KEY?.length || 0);
         console.log('🔑 Début clé:', ENV_VARS.OPENAI_API_KEY?.substring(0, 20) + '...');
-        setTypingText('Connexion à Gemini...');
+        setTypingText('');
         
         try {
           console.log('📡 ENVOI REQUÊTE à Google Gemini API...');
           console.log('📝 Question utilisateur:', inputText);
-          console.log('🎯 Modèle utilisé: gemini-1.5-flash');
+          console.log('🎯 Modèle utilisé: gemini-2.0-flash');
           console.log('⚙️ Configuration: Google Gemini API');
           
           // Appel direct à l'API Google Gemini
-          const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${ENV_VARS.GEMINI_API_KEY}`, {
+          const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${ENV_VARS.GEMINI_API_KEY}`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -189,7 +189,7 @@ Question: ${inputText}`
           console.log('✅ DONNÉES REÇUES de Google Gemini:');
           console.log('📝 Réponse complète:', geminiResponse.candidates[0].content.parts[0].text);
           console.log('📏 Longueur réponse:', geminiResponse.candidates[0].content.parts[0].text.length, 'caractères');
-          console.log('🎯 Modèle utilisé par Gemini: gemini-1.5-flash');
+          console.log('🎯 Modèle utilisé par Gemini: gemini-2.0-flash');
           console.log('⏱️ Temps de traitement: Gratuit');
           console.log('💰 Coût estimé: 0$ (GRATUIT)');
           
