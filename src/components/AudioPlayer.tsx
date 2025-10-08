@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Volume2, VolumeX, Loader2 } from "lucide-react";
+import { Volume2, VolumeX, Loader2, Lightbulb, Globe } from "lucide-react";
 
 interface AudioPlayerProps {
   text: string;
@@ -128,8 +128,9 @@ const AudioPlayer = ({ text, lang, audioUrl }: AudioPlayerProps) => {
             </button>
 
             <div className="mt-3 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-              <p className="text-xs text-blue-800 dark:text-blue-300">
-                💡 <strong>{t("audioPlayer.demoMode")}</strong>
+              <p className="text-xs text-blue-800 dark:text-blue-300 flex items-center gap-2">
+                <Lightbulb size={14} className="text-[#D17842]" />
+                <strong>{t("audioPlayer.demoMode")}</strong>
               </p>
             </div>
 
@@ -145,8 +146,9 @@ const AudioPlayer = ({ text, lang, audioUrl }: AudioPlayerProps) => {
         )}
 
         {/* Info langue */}
-        <div className="text-xs text-gray-500 dark:text-gray-400">
-          🌍 {t("audioPlayer.language")}{" "}
+        <div className="text-xs text-gray-500 dark:text-gray-400 flex items-center gap-2">
+          <Globe size={14} className="text-[#D17842]" />
+          {t("audioPlayer.language")}{" "}
           {lang === "fr"
             ? t("audioPlayer.french")
             : lang === "en"

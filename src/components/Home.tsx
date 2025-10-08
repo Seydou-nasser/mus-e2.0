@@ -2,7 +2,7 @@ import { useNavigate } from "react-router";
 import { useTranslation } from "react-i18next";
 import { getFeaturedArtworks } from "../data/artworkService";
 import type { Language } from "../types/artwork";
-import { QrCode, Globe, Headphones } from "lucide-react";
+import { QrCode, Globe, Headphones, Star } from "lucide-react";
 
 const Home = () => {
   const { i18n, t } = useTranslation();
@@ -73,8 +73,9 @@ const Home = () => {
                     alt={translation.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition duration-300"
                   />
-                  <div className="absolute top-2 right-2 px-3 py-1 bg-[#D17842] text-white text-xs font-semibold rounded-full shadow-md">
-                    ⭐ {t("home.featured.badge")}
+                  <div className="absolute top-2 right-2 px-3 py-1 bg-[#D17842] text-white text-xs font-semibold rounded-full shadow-md flex items-center gap-1">
+                    <Star size={12} />
+                    {t("home.featured.badge")}
                   </div>
                 </div>
 

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router";
 import { useTranslation } from "react-i18next";
 import { artworks, getAllCategories } from "../data/artworkService";
 import type { Language } from "../types/artwork";
+import { Star } from "lucide-react";
 
 const Collections = () => {
   const { i18n, t } = useTranslation();
@@ -119,8 +120,9 @@ const Collections = () => {
                       className="w-full h-full object-cover"
                     />
                     {artwork.featured && (
-                      <span className="absolute top-2 right-2 px-3 py-1 bg-[#D17842] text-white text-xs font-semibold rounded-full shadow-md">
-                        ⭐ {t("collections.featured")}
+                      <span className="absolute top-2 right-2 px-3 py-1 bg-[#D17842] text-white text-xs font-semibold rounded-full shadow-md flex items-center gap-1">
+                        <Star size={12} />
+                        {t("collections.featured")}
                       </span>
                     )}
                   </div>
