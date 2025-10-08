@@ -341,15 +341,20 @@ const AudioGuide: React.FC<AudioGuideProps> = ({ oeuvre, isOpen, onClose }) => {
     setError(null); // Effacer les erreurs précédentes
     
     try {
+      console.log('🔍 [AUDIO GUIDE] Vérification Web Speech API...');
+      
+      if (!('speechSynthesis' in window)) {
+        console.log('❌ [AUDIO GUIDE] Web Speech API non disponible');
+        setError('❌ Web Speech API non disponible dans ce navigateur');
+        return;
+      }
+      
+      console.log('🎤 [AUDIO GUIDE] Web Speech API disponible, lancement du test...');
+      
       const success = await testAudioGeneration();
       if (success) {
         console.log('✅ [AUDIO GUIDE] Test audio réussi');
         setError('✅ Test audio réussi - Service fonctionnel !');
-        // Lancer un test de synthèse vocale immédiat
-        const testUtterance = new SpeechSynthesisUtterance('Test audio guide réussi');
-        testUtterance.volume = 0.3;
-        testUtterance.rate = 1.2;
-        speechSynthesis.speak(testUtterance);
       } else {
         console.log('❌ [AUDIO GUIDE] Test audio échoué');
         setError('❌ Test audio échoué - Vérifier la configuration');

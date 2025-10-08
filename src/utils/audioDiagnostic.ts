@@ -146,27 +146,54 @@ export const testAudioGeneration = async (): Promise<boolean> => {
   try {
     // Test Web Speech API
     if ('speechSynthesis' in window) {
-      const utterance = new SpeechSynthesisUtterance('Test audio guide');
-      utterance.volume = 0.1; // Volume bas pour le test
-      utterance.rate = 1.5; // Vitesse rapide pour le test
+      console.log('🎤 [TEST AUDIO] Web Speech API disponible');
+      
+      const utterance = new SpeechSynthesisUtterance('Test audio guide réussi');
+      utterance.volume = 0.3; // Volume audible pour le test
+      utterance.rate = 1.2; // Vitesse normale pour le test
+      utterance.pitch = 1.0; // Pitch normal
+      
+      console.log('🎵 [TEST AUDIO] Configuration utterance:', {
+        volume: utterance.volume,
+        rate: utterance.rate,
+        pitch: utterance.pitch
+      });
       
       return new Promise((resolve) => {
+        let isResolved = false;
+        
+        utterance.onstart = () => {
+          console.log('🎉 [TEST AUDIO] Synthèse vocale démarrée');
+        };
+        
         utterance.onend = () => {
-          console.log('✅ [TEST AUDIO] Web Speech API fonctionnel');
-          resolve(true);
+          if (!isResolved) {
+            isResolved = true;
+            console.log('✅ [TEST AUDIO] Web Speech API fonctionnel');
+            resolve(true);
+          }
         };
+        
         utterance.onerror = (error) => {
-          console.error('❌ [TEST AUDIO] Erreur Web Speech API:', error);
-          resolve(false);
+          if (!isResolved) {
+            isResolved = true;
+            console.error('❌ [TEST AUDIO] Erreur Web Speech API:', error);
+            resolve(false);
+          }
         };
         
+        // Lancer la synthèse vocale
         speechSynthesis.speak(utterance);
+        console.log('🚀 [TEST AUDIO] Synthèse vocale lancée');
         
-        // Timeout après 3 secondes
+        // Timeout après 5 secondes (plus de temps)
         setTimeout(() => {
-          console.log('⏰ [TEST AUDIO] Timeout Web Speech API');
-          resolve(false);
-        }, 3000);
+          if (!isResolved) {
+            isResolved = true;
+            console.log('⏰ [TEST AUDIO] Timeout Web Speech API');
+            resolve(false);
+          }
+        }, 5000);
       });
     } else {
       console.log('❌ [TEST AUDIO] Web Speech API non disponible');
