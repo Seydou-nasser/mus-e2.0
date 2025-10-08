@@ -1,0 +1,193 @@
+[
+  {
+    "id": "mcn-001",
+    "qrCode": "MCN001",
+    "imageUrl": "/assets/image_1.png",
+    "imageGallery": [
+      "https://images.unsplash.com/photo-1749556341506-88683bd6cce1?q=80&w=866&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1627837586900-56adbee910a1?q=80&w=725&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "category": "Sculpture",
+    "translations": {
+      "fr": {
+        "title": "Masque Gelede",
+        "description": "Le masque Gelede est une œuvre majeure de l'art Yoruba, utilisé lors des cérémonies rituelles pour honorer les mères ancestrales et les forces féminines. Cette pièce exceptionnelle illustre la maîtrise technique et symbolique des sculpteurs Yoruba.",
+        "period": "XIXe siècle",
+        "origin": "Nigéria - Peuple Yoruba",
+        "culturalContext": "Les masques Gelede font partie d'une tradition sacrée visant à apaiser et célébrer les pouvoirs spirituels des femmes âgées, considérées comme détentrices de forces mystiques.",
+        "audioUrl": "/audio/mcn-001-fr.mp3"
+      },
+      "en": {
+        "title": "Gelede Mask",
+        "description": "The Gelede mask is a major work of Yoruba art, used in ritual ceremonies to honor ancestral mothers and feminine forces. This exceptional piece illustrates the technical and symbolic mastery of Yoruba sculptors.",
+        "period": "19th century",
+        "origin": "Nigeria - Yoruba People",
+        "culturalContext": "Gelede masks are part of a sacred tradition aimed at appeasing and celebrating the spiritual powers of elderly women, considered holders of mystical forces.",
+        "audioUrl": "/audio/mcn-001-en.mp3"
+      },
+      "wo": {
+        "title": "Mask Gelede",
+        "description": "Mask Gelede mooy benn lëkkalekaay bu mag ci art Yoruba, ngir des yi ci seraan yi ngir yaatuwaay yaay yi ak doole ju jigeen. Lëkkalekaay bii mooy benn xeetu melokaan ak solo bu mag ci Yoruba.",
+        "period": "Wareef 19",
+        "origin": "Niiseriya - Mbooloo Yoruba",
+        "culturalContext": "Mask Gelede mooy benn aada bu sanni ngir noppi ak waxal ci doole yu jigeen yi mag yi, nguir ñu amul doole yu gaaw-gaaw.",
+        "audioUrl": "/audio/mcn-001-wo.mp3"
+      }
+    },
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "createdAt": "1850",
+    "featured": true
+  },
+  {
+    "id": "mcn-002",
+    "qrCode": "MCN002",
+    "imageUrl": "https://images.unsplash.com/photo-1558642843-d6351b0ccf51?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "imageGallery": [
+      "https://images.unsplash.com/photo-1703145219083-6037d97decb5?q=80&w=742&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "category": "Textile",
+    "translations": {
+      "fr": {
+        "title": "Tissu Kente Royal",
+        "description": "Le Kente est un tissu tissé à la main, symbole de richesse, de statut social et d'héritage culturel chez les Akan du Ghana. Chaque motif et couleur possède une signification spécifique.",
+        "period": "XVIIIe siècle",
+        "origin": "Ghana - Peuple Akan",
+        "culturalContext": "Traditionnellement réservé à la royauté et aux occasions spéciales, le Kente incarne l'excellence artisanale et la transmission des valeurs culturelles akan.",
+        "audioUrl": "/audio/mcn-002-fr.mp3"
+      },
+      "en": {
+        "title": "Royal Kente Cloth",
+        "description": "Kente is a hand-woven cloth, symbol of wealth, social status and cultural heritage among the Akan people of Ghana. Each pattern and color has a specific meaning.",
+        "period": "18th century",
+        "origin": "Ghana - Akan People",
+        "culturalContext": "Traditionally reserved for royalty and special occasions, Kente embodies craft excellence and the transmission of Akan cultural values.",
+        "audioUrl": "/audio/mcn-002-en.mp3"
+      },
+      "wo": {
+        "title": "Dëkk Kente bu Buur",
+        "description": "Kente mooy dëkk bu ñu res ci loxo, melokaan na soow, joñe ci aadaa ak aada bu mbooloo Akan ci Ghana. Benn xeet bu nekk ak benn melo am na solo bu am solo.",
+        "period": "Wareef 18",
+        "origin": "Ghana - Mbooloo Akan",
+        "culturalContext": "Ci njëkk ci aada, Kente nekk na ngir buur yi ak des yu bari, mooy melokaan na lëkkalekaay bu baax ak jox-joxe ci kàddu yu aada Akan.",
+        "audioUrl": "/audio/mcn-002-wo.mp3"
+      }
+    },
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "createdAt": "1750",
+    "featured": true
+  },
+  {
+    "id": "mcn-003",
+    "qrCode": "MCN003",
+    "imageUrl": "https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?w=800",
+    "imageGallery": [
+      "https://images.unsplash.com/photo-1703145219083-6037d97decb5?q=80&w=742&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "category": "Sculpture",
+    "translations": {
+      "fr": {
+        "title": "Statue de Fertilité Ashanti",
+        "description": "Cette statue Akua'ba représente l'idéal de beauté et de fertilité dans la culture Ashanti. Les femmes la portaient pour favoriser la conception et protéger la grossesse.",
+        "period": "Début XXe siècle",
+        "origin": "Ghana - Peuple Ashanti",
+        "culturalContext": "Les poupées Akua'ba sont profondément ancrées dans les croyances spirituelles liées à la maternité et à la protection des enfants dans la société Ashanti.",
+        "audioUrl": "/audio/mcn-003-fr.mp3"
+      },
+      "en": {
+        "title": "Ashanti Fertility Statue",
+        "description": "This Akua'ba statue represents the ideal of beauty and fertility in Ashanti culture. Women wore it to promote conception and protect pregnancy.",
+        "period": "Early 20th century",
+        "origin": "Ghana - Ashanti People",
+        "culturalContext": "Akua'ba dolls are deeply rooted in spiritual beliefs related to motherhood and child protection in Ashanti society.",
+        "audioUrl": "/audio/mcn-003-en.mp3"
+      },
+      "wo": {
+        "title": "Xar Akua'ba Ashanti",
+        "description": "Xar bii Akua'ba mooy melokaan na rafet ak mag ci aada Ashanti. Jigeen yi di ko weet ngir am doom ak ngir gëm doom bi.",
+        "period": "Tammit wareef 20",
+        "origin": "Ghana - Mbooloo Ashanti",
+        "culturalContext": "Pupe Akua'ba nekk na ci diine ak yaakaar ci digël doomam ak noppi ci aadaa Ashanti.",
+        "audioUrl": "/audio/mcn-003-wo.mp3"
+      }
+    },
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "createdAt": "1920",
+    "featured": false
+  },
+  {
+    "id": "mcn-004",
+    "qrCode": "MCN004",
+    "imageUrl": "https://images.unsplash.com/photo-1566305977571-5666677c6e98?w=800",
+    "imageGallery": [
+      "https://images.unsplash.com/photo-1566305977571-5666677c6e98?w=800"
+    ],
+    "category": "Instrument",
+    "translations": {
+      "fr": {
+        "title": "Tambour Parlant Yoruba",
+        "description": "Le tambour parlant, ou 'Dùndún', est un instrument de communication traditionnel capable de reproduire les tonalités de la langue Yoruba. Il servait à transmettre des messages sur de longues distances.",
+        "period": "XIXe siècle",
+        "origin": "Nigéria - Peuple Yoruba",
+        "culturalContext": "Ces tambours jouent un rôle crucial dans les cérémonies royales, les fêtes et la transmission orale de l'histoire et des généalogies.",
+        "audioUrl": "/audio/mcn-004-fr.mp3"
+      },
+      "en": {
+        "title": "Yoruba Talking Drum",
+        "description": "The talking drum, or 'Dùndún', is a traditional communication instrument capable of reproducing the tones of the Yoruba language. It was used to transmit messages over long distances.",
+        "period": "19th century",
+        "origin": "Nigeria - Yoruba People",
+        "culturalContext": "These drums play a crucial role in royal ceremonies, festivals and oral transmission of history and genealogies.",
+        "audioUrl": "/audio/mcn-004-en.mp3"
+      },
+      "wo": {
+        "title": "Tama Yoruba bu Wax",
+        "description": "Tama bu wax, walla 'Dùndún', mooy benn jumtukaay bu njëkk bu mën a defar melodie ci lakk Yoruba. Dañu ko jëfandikoo ngir yónni bataaxal ci ngeer.",
+        "period": "Wareef 19",
+        "origin": "Niiseriya - Mbooloo Yoruba",
+        "culturalContext": "Tama yii am na jafe bu mag ci seraañ yu buur, fett yi ak yónni taariix ak lëkkalekaay ci gémmiñ.",
+        "audioUrl": "/audio/mcn-004-wo.mp3"
+      }
+    },
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "createdAt": "1880",
+    "featured": false
+  },
+  {
+    "id": "mcn-005",
+    "qrCode": "MCN005",
+    "imageUrl": "https://images.unsplash.com/photo-1543780294-6d354b587dc0?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "imageGallery": [
+      "https://images.unsplash.com/photo-1674115905649-d56cfe3b6810?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Q291cm9ubmUlMjBSb3lhbGUlMjBCYW1vdW4lMjBzZW5lZ2FsfGVufDB8fDB8fHww"
+    ],
+    "category": "Bijoux",
+    "translations": {
+      "fr": {
+        "title": "Couronne Royale Bamoun",
+        "description": "Cette couronne somptueuse illustre le prestige et le pouvoir des souverains Bamoun du Cameroun. Ornée de perles et de tissus précieux, elle est portée lors des grandes cérémonies.",
+        "period": "Début XXe siècle",
+        "origin": "Cameroun - Royaume Bamoun",
+        "culturalContext": "Le royaume Bamoun possède une riche tradition d'artisanat royal, et cette couronne témoigne de la sophistication de leur culture matérielle.",
+        "audioUrl": "/audio/mcn-005-fr.mp3"
+      },
+      "en": {
+        "title": "Bamoun Royal Crown",
+        "description": "This sumptuous crown illustrates the prestige and power of the Bamoun rulers of Cameroon. Adorned with beads and precious fabrics, it is worn during great ceremonies.",
+        "period": "Early 20th century",
+        "origin": "Cameroon - Bamoun Kingdom",
+        "culturalContext": "The Bamoun kingdom has a rich tradition of royal craftsmanship, and this crown testifies to the sophistication of their material culture.",
+        "audioUrl": "/audio/mcn-005-en.mp3"
+      },
+      "wo": {
+        "title": "Kuroon Buur Bamoun",
+        "description": "Kuroon bii mooy melokaan na soow ak doole bu buur yi Bamoun ci Cameroun. Am na perle ak dëkk yu njool, di ko weet ci seraañ yu mag.",
+        "period": "Tammit wareef 20",
+        "origin": "Cameroun - Réew Bamoun",
+        "culturalContext": "Réew Bamoun am na aada bu nañu ci lëkkalekaay bu buur, kuroon bii mooy xeetu ni ñu am aada bu rafet.",
+        "audioUrl": "/audio/mcn-005-wo.mp3"
+      }
+    },
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "createdAt": "1910",
+    "featured": true
+  }
+]

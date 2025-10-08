@@ -1,65 +1,141 @@
 {
-  "museumTitle": "Musée des Civilisations Noires - Dakar Slush'D",
-  "home": "Accueil",
-  "collections": "Collections",
-  "about": "À propos",
-  "selectLanguage": "Choisir la langue",
-  "french": "Français",
-  "english": "English",
-  "wolof": "Wolof",
-  "viewMore": "Voir plus",
-  "description": "Description",
-  "history": "Historique",
-  "audio": "Audio",
-  "video": "Vidéo",
-  "scanQR": "Scanner QR Code",
-  "backToHome": "Retour à l'accueil",
-  "loading": "Chargement...",
-  "error": "Erreur",
-  "artworkNotFound": "Œuvre non trouvée",
-  "exploreCollection": "Explorer la Collection",
-  "learnMore": "En Savoir Plus",
-  "seeAllArtworks": "Voir Toutes les Œuvres",
-  "featuredArtworks": "Œuvres Phares",
-  "featuredArtworksDesc": "Découvrez une sélection de nos pièces les plus remarquables",
-  "ourMission": "Notre Mission",
-  "ourHistory": "Notre Histoire",
-  "ourCollections": "Nos Collections",
-  "visitUs": "Visitez-nous",
-  "readyToExplore": "Prêt à Explorer ?",
-  "exploreDesc": "Plongez dans l'univers riche et diversifié des civilisations noires. Chaque œuvre raconte une histoire, chaque visite est une découverte.",
-  "exploreCollections": "🖼️ Explorer les Collections",
-  "aboutMuseum": "📖 À Propos du Musée",
-  "seeFullCollection": "Voir Toute la Collection →",
-  "artworksCount": "œuvre",
-  "artworksCountPlural": "œuvres",
-  "found": "trouvée",
-  "foundPlural": "trouvées",
-  "for": "pour",
-  "in": "dans",
-  "noResults": "Aucun résultat",
-  "tryDifferentSearch": "Essayez de modifier vos critères de recherche",
-  "resetFilters": "Réinitialiser les filtres",
-  "exploreByRegion": "Explorer par Région",
-  "regionDesc": "Découvrez les œuvres organisées par leur région d'origine",
-  "uniqueArtworks": "Œuvres Uniques",
-  "inDigitalCollection": "Dans notre collection digitale",
-  "multilingual": "Multilingue",
-  "languages": "Français, Anglais, Wolof",
-  "accessibility": "Accessibilité",
-  "integratedAudioVideo": "Audio et vidéo intégrés",
-  "scanDescription": "Scannez les QR codes des œuvres pour accéder à des descriptions complètes en français, anglais et wolof",
-  "scanFeature": "Scannez les QR codes présents sur les œuvres du musée pour accéder instantanément aux descriptions complètes, audios et vidéos explicatives.",
-  "searchPlaceholder": "Rechercher une œuvre...",
-  "allRegions": "Toutes les régions",
-  "resultsFound": "œuvre trouvée",
-  "resultsFoundPlural": "œuvres trouvées",
-  "regionDescription": "Découvrez les œuvres organisées par leur région d'origine",
-  "collectionDescription": "Explorez notre collection complète d'art et d'histoire des civilisations noires",
-  "aboutDesc": "Découvrez l'histoire et la mission du Musée des Civilisations Noires",
-  "ourMissionTitle": "Notre Mission",
-  "missionText": "Le Musée des Civilisations Noires, l'un des plus grands espaces culturels du Sénégal et d'Afrique, abrite une richesse patrimoniale inestimable. Dans le cadre du Dakar Slush'D (09-10 octobre 2025), Senstartup organise ce hackathon exclusif pour repenser l'expérience de visite grâce au digital et démocratiser l'accès aux contenus culturels du musée.",
-  "ourHistoryTitle": "Notre Histoire",
-  "historyText": "Fondé en 2024, notre musée numérique représente l'évolution des institutions culturelles traditionnelles vers l'ère digitale. Nous combinons la richesse des collections physiques avec les possibilités infinies du numérique pour rendre l'art accessible à tous.",
-  "features": "📱 Disponible sur mobile et PC • 🌍 3 langues • 🎧 Audio intégré • 📹 Vidéo explicative"
+
+  "helloWorld": "Bonjour le monde !",
+  "qrScanner": {
+    "title": "Scanner une œuvre",
+    "instruction": "Pointez votre caméra vers le QR code de l'œuvre",
+    "artworkNotFound": "Œuvre non trouvée. Vérifiez le QR code.",
+    "cameraError": "Impossible d'accéder à la caméra. Vérifiez les permissions.",
+    "cancel": "Annuler",
+    "tips": {
+      "title": "Conseils pour un scan optimal",
+      "light": "Assurez-vous d'avoir un bon éclairage",
+      "stable": "Maintenez votre appareil stable",
+      "distance": "Gardez une distance d'environ 15-20 cm"
+    }
+  },
+  "nav": {
+    "home": "Accueil",
+    "collections": "Collections",
+    "about": "À propos",
+    "scan": "Scanner",
+    "language": "Langue"
+  },
+  "collections": {
+    "title": "Nos Collections",
+    "subtitle": "Découvrez les trésors du Musée des Civilisations Noires",
+    "searchPlaceholder": "Rechercher une œuvre...",
+    "all": "Toutes",
+    "results": "œuvre(s) trouvée(s)",
+    "featured": "En vedette",
+    "viewDetails": "Voir les détails",
+    "noResults": "Aucune œuvre trouvée pour cette recherche"
+  },
+  "home": {
+    "hero": {
+      "title": "Musée des Civilisations Noires",
+      "subtitle": "Découvrez l'héritage culturel africain comme jamais auparavant",
+      "scanButton": "Scanner une œuvre",
+      "exploreButton": "Explorer les collections"
+    },
+    "featured": {
+      "title": "Œuvres en vedette",
+      "subtitle": "Découvrez nos pièces les plus emblématiques",
+      "badge": "Vedette",
+      "discover": "Découvrir",
+      "viewAll": "Voir toutes les collections"
+    },
+    "features": {
+      "title": "Une expérience unique",
+      "subtitle": "Découvrez nos fonctionnalités innovantes pour une expérience immersive",
+      "scan": {
+        "title": "Scan QR Code",
+        "description": "Scannez les QR codes pour accéder instantanément aux informations détaillées"
+      },
+      "multilingual": {
+        "title": "Multilingue",
+        "description": "Contenu disponible en Français, Anglais et Wolof"
+      },
+      "audio": {
+        "title": "Guides audio",
+        "description": "Écoutez les descriptions pour une expérience immersive"
+      }
+    }
+  },
+  "about": {
+    "title": "À propos",
+    "subtitle": "Découvrez notre mission et notre projet",
+    "museum": {
+      "title": "Le Musée des Civilisations Noires",
+      "description": "Le Musée des Civilisations Noires est l'un des plus grands espaces culturels du Sénégal et d'Afrique. Il abrite une richesse patrimoniale inestimable qui mérite d'être accessible au plus grand nombre. Ce lieu emblématique célèbre la diversité et la richesse des civilisations africaines à travers les âges."
+    },
+    "project": {
+      "title": "Le Projet Musée 2.0",
+      "description": "Musée 2.0 est une plateforme digitale innovante qui repense l'expérience de visite du musée. Notre objectif est de démocratiser l'accès aux contenus culturels et de faire rayonner ce patrimoine au-delà des murs du musée.",
+      "features": {
+        "title": "Fonctionnalités principales",
+        "scan": "Scan QR Code pour accéder aux informations détaillées",
+        "multilingual": "Descriptions multilingues (Français, Anglais, Wolof)",
+        "audio": "Guides audio pour une expérience immersive",
+        "accessible": "Accessible partout, au musée comme à distance"
+      }
+    },
+    "hackathon": {
+      "title": "Hackathon Dakar Slush'D",
+      "description": "Ce projet a été développé dans le cadre du Hackathon organisé par Senstartup en partenariat avec le Musée des Civilisations Noires lors du Dakar Slush'D (09-10 octobre 2025).",
+      "organizer": "Organisateur",
+      "event": "Événement"
+    }
+  },
+  "artwork": {
+    "history": "Informations historiques",
+    "creationPeriod": "Période de création",
+    "origin": "Origine",
+    "category": "Catégorie",
+    "identificationCode": "Code d'identification",
+    "culturalContext": "Contexte culturel",
+    "description": "Description",
+    "gallery": "Galerie",
+    "listenDescription": "Écouter la description",
+    "videoExplanation": "Vidéo explicative",
+    "backToHome": "Retour",
+    "notFound": "Œuvre non trouvée"
+  },
+  "audioPlayer": {
+    "title": "Écouter la description",
+    "browserNotSupported": "Votre navigateur ne supporte pas la lecture audio.",
+    "useTTSInstead": "Utiliser la synthèse vocale à la place",
+    "browserNotSupportedTTS": "Votre navigateur ne supporte pas la synthèse vocale",
+    "audioError": "Erreur lors de la lecture audio",
+    "loading": "Chargement...",
+    "stopPlayback": "Arrêter la lecture",
+    "listenWithTTS": "Écouter avec synthèse vocale",
+    "demoMode": "Mode démo : Cette lecture utilise la synthèse vocale de votre navigateur. Pour une meilleure qualité, des fichiers audio professionnels seront ajoutés.",
+    "backToAudioPlayer": "Revenir au lecteur audio",
+    "language": "Langue :",
+    "french": "Français",
+    "english": "English",
+    "wolof": "Wolof"
+  },
+  "footer": {
+    "description": "Explorez le patrimoine culturel africain grâce à une expérience digitale innovante.",
+    "links": "Liens rapides",
+    "contact": "Contact",
+    "rights": "Tous droits réservés",
+    "hackathon": "Projet développé pour le"
+  },
+  "aiAssistant": {
+    "title": "Assistant IA",
+    "subtitle": "Posez vos questions",
+    "askAI": "Demander à l'IA",
+    "openChat": "Ouvrir le chat",
+    "closeChat": "Fermer le chat",
+    "welcomeMessage": "Bonjour ! Je suis votre guide virtuel du Musée des Civilisations Noires. Posez-moi des questions sur nos œuvres, leur histoire et les cultures africaines !",
+    "demoResponse": "Merci pour votre question ! L'API IA sera intégrée prochainement pour vous fournir des réponses détaillées sur les œuvres du musée.",
+    "errorMessage": "Une erreur s'est produite. Veuillez réessayer.",
+    "placeholder": "Ex: Parle-moi du Masque Gelede...",
+    "typing": "L'assistant écrit...",
+    "disclaimer": "Assistant spécialisé dans le musée uniquement"
+  }
+
 }

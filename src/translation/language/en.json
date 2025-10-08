@@ -1,65 +1,140 @@
 {
-  "museumTitle": "Museum of Black Civilizations - Dakar Slush'D",
-  "home": "Home",
-  "collections": "Collections",
-  "about": "About",
-  "selectLanguage": "Select Language",
-  "french": "French",
-  "english": "English",
-  "wolof": "Wolof",
-  "viewMore": "View More",
-  "description": "Description",
-  "history": "History",
-  "audio": "Audio",
-  "video": "Video",
-  "scanQR": "Scan QR Code",
-  "backToHome": "Back to Home",
-  "loading": "Loading...",
-  "error": "Error",
-  "artworkNotFound": "Artwork not found",
-  "exploreCollection": "Explore Collection",
-  "learnMore": "Learn More",
-  "seeAllArtworks": "See All Artworks",
-  "featuredArtworks": "Featured Artworks",
-  "featuredArtworksDesc": "Discover a selection of our most remarkable pieces",
-  "ourMission": "Our Mission",
-  "ourHistory": "Our History",
-  "ourCollections": "Our Collections",
-  "visitUs": "Visit Us",
-  "readyToExplore": "Ready to Explore?",
-  "exploreDesc": "Dive into the rich and diverse world of Black civilizations. Each artwork tells a story, each visit is a discovery.",
-  "exploreCollections": "🖼️ Explore Collections",
-  "aboutMuseum": "📖 About the Museum",
-  "seeFullCollection": "See Full Collection →",
-  "artworksCount": "artwork",
-  "artworksCountPlural": "artworks",
-  "found": "found",
-  "foundPlural": "found",
-  "for": "for",
-  "in": "in",
-  "noResults": "No results",
-  "tryDifferentSearch": "Try modifying your search criteria",
-  "resetFilters": "Reset filters",
-  "exploreByRegion": "Explore by Region",
-  "regionDesc": "Discover artworks organized by their region of origin",
-  "uniqueArtworks": "Unique Artworks",
-  "inDigitalCollection": "In our digital collection",
-  "multilingual": "Multilingual",
-  "languages": "French, English, Wolof",
-  "accessibility": "Accessibility",
-  "integratedAudioVideo": "Integrated audio and video",
-  "scanDescription": "Scan the QR codes of the artworks to access complete descriptions in French, English and Wolof",
-  "scanFeature": "Scan the QR codes present on the museum's artworks to instantly access complete descriptions, explanatory audios and videos.",
-  "searchPlaceholder": "Search for an artwork...",
-  "allRegions": "All regions",
-  "resultsFound": "artwork found",
-  "resultsFoundPlural": "artworks found",
-  "regionDescription": "Discover artworks organized by their region of origin",
-  "collectionDescription": "Explore our complete collection of art and history of Black civilizations",
-  "aboutDesc": "Discover the history and mission of the Museum of Black Civilizations",
-  "ourMissionTitle": "Our Mission",
-  "missionText": "The Museum of Black Civilizations, one of the largest cultural spaces in Senegal and Africa, houses an invaluable heritage wealth. As part of Dakar Slush'D (October 9-10, 2025), Senstartup organizes this exclusive hackathon to rethink the visit experience through digital and democratize access to the museum's cultural content.",
-  "ourHistoryTitle": "Our History",
-  "historyText": "Founded in 2024, our digital museum represents the evolution of traditional cultural institutions towards the digital age. We combine the richness of physical collections with the infinite possibilities of digital to make art accessible to all.",
-  "features": "📱 Available on mobile and PC • 🌍 3 languages • 🎧 Integrated audio • 📹 Explanatory video"
+
+  "qrScanner": {
+    "title": "Scan an artwork",
+    "instruction": "Point your camera at the artwork's QR code",
+    "artworkNotFound": "Artwork not found. Check the QR code.",
+    "cameraError": "Cannot access camera. Check permissions.",
+    "cancel": "Cancel",
+    "tips": {
+      "title": "Tips for optimal scanning",
+      "light": "Make sure you have good lighting",
+      "stable": "Keep your device steady",
+      "distance": "Keep a distance of about 15-20 cm"
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "collections": "Collections",
+    "about": "About",
+    "scan": "Scan",
+    "language": "Language"
+  },
+  "collections": {
+    "title": "Our Collections",
+    "subtitle": "Discover the treasures of the Museum of Black Civilizations",
+    "searchPlaceholder": "Search for an artwork...",
+    "all": "All",
+    "results": "artwork(s) found",
+    "featured": "Featured",
+    "viewDetails": "View details",
+    "noResults": "No artwork found for this search"
+  },
+  "home": {
+    "hero": {
+      "title": "Museum of Black Civilizations",
+      "subtitle": "Discover African cultural heritage like never before",
+      "scanButton": "Scan an artwork",
+      "exploreButton": "Explore collections"
+    },
+    "featured": {
+      "title": "Featured Artworks",
+      "subtitle": "Discover our most iconic pieces",
+      "badge": "Featured",
+      "discover": "Discover",
+      "viewAll": "View all collections"
+    },
+    "features": {
+      "title": "A unique experience",
+      "subtitle": "Discover our innovative features for an immersive experience",
+      "scan": {
+        "title": "QR Code Scan",
+        "description": "Scan QR codes to instantly access detailed information"
+      },
+      "multilingual": {
+        "title": "Multilingual",
+        "description": "Content available in French, English and Wolof"
+      },
+      "audio": {
+        "title": "Audio guides",
+        "description": "Listen to descriptions for an immersive experience"
+      }
+    }
+  },
+  "about": {
+    "title": "About",
+    "subtitle": "Discover our mission and project",
+    "museum": {
+      "title": "The Museum of Black Civilizations",
+      "description": "The Museum of Black Civilizations is one of the largest cultural spaces in Senegal and Africa. It houses invaluable heritage that deserves to be accessible to as many people as possible. This iconic place celebrates the diversity and richness of African civilizations through the ages."
+    },
+    "project": {
+      "title": "The Museum 2.0 Project",
+      "description": "Museum 2.0 is an innovative digital platform that reimagines the museum visit experience. Our goal is to democratize access to cultural content and showcase this heritage beyond the museum walls.",
+      "features": {
+        "title": "Key Features",
+        "scan": "QR Code scan to access detailed information",
+        "multilingual": "Multilingual descriptions (French, English, Wolof)",
+        "audio": "Audio guides for an immersive experience",
+        "accessible": "Accessible anywhere, at the museum or remotely"
+      }
+    },
+    "hackathon": {
+      "title": "Dakar Slush'D Hackathon",
+      "description": "This project was developed as part of the Hackathon organized by Senstartup in partnership with the Museum of Black Civilizations during Dakar Slush'D (October 9-10, 2025).",
+      "organizer": "Organizer",
+      "event": "Event"
+    }
+  },
+  "artwork": {
+    "history": "Historical Information",
+    "creationPeriod": "Creation Period",
+    "origin": "Origin",
+    "category": "Category",
+    "identificationCode": "Identification Code",
+    "culturalContext": "Cultural Context",
+    "description": "Description",
+    "gallery": "Gallery",
+    "listenDescription": "Listen to description",
+    "videoExplanation": "Explanatory Video",
+    "backToHome": "Back",
+    "notFound": "Artwork not found"
+  },
+  "audioPlayer": {
+    "title": "Listen to description",
+    "browserNotSupported": "Your browser does not support audio playback.",
+    "useTTSInstead": "Use text-to-speech instead",
+    "browserNotSupportedTTS": "Your browser does not support text-to-speech",
+    "audioError": "Error during audio playback",
+    "loading": "Loading...",
+    "stopPlayback": "Stop playback",
+    "listenWithTTS": "Listen with text-to-speech",
+    "demoMode": "Demo mode: This playback uses your browser's text-to-speech. For better quality, professional audio files will be added.",
+    "backToAudioPlayer": "Return to audio player",
+    "language": "Language:",
+    "french": "French",
+    "english": "English",
+    "wolof": "Wolof"
+  },
+  "footer": {
+    "description": "Explore African cultural heritage through an innovative digital experience.",
+    "links": "Quick Links",
+    "contact": "Contact",
+    "rights": "All rights reserved",
+    "hackathon": "Project developed for"
+  },
+  "aiAssistant": {
+    "title": "AI Assistant",
+    "subtitle": "Ask your questions",
+    "askAI": "Ask AI",
+    "openChat": "Open chat",
+    "closeChat": "Close chat",
+    "welcomeMessage": "Hello! I'm your virtual guide to the Museum of Black Civilizations. Ask me about our artworks, their history, and African cultures!",
+    "demoResponse": "Thank you for your question! The AI API will be integrated soon to provide you with detailed answers about the museum's artworks.",
+    "errorMessage": "An error occurred. Please try again.",
+    "placeholder": "Ex: Tell me about the Gelede Mask...",
+    "typing": "Assistant is typing...",
+    "disclaimer": "Assistant specialized in the museum only"
+  }
+
 }

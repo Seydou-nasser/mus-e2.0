@@ -1,65 +1,141 @@
 {
-  "museumTitle": "Musée bu Siviilisaasioñ yi Ñuñu - Dakar Slush'D",
-  "home": "Xët",
-  "collections": "Yëf yi",
-  "about": "Li nu bokk",
-  "selectLanguage": "Tànnal làkk",
-  "french": "Wàll",
-  "english": "Angale",
-  "wolof": "Wolof",
-  "viewMore": "Gis yeneen",
-  "description": "Tegtal",
-  "history": "Taariix",
-  "audio": "Audio",
-  "video": "Wideo",
-  "scanQR": "Sànn kod QR",
-  "backToHome": "Dellu ci xët wi",
-  "loading": "Yokk...",
-  "error": "Njuumte",
-  "artworkNotFound": "Yëf bi gisuñu",
-  "exploreCollection": "Gis yëf yi",
-  "learnMore": "Gis yeneen",
-  "seeAllArtworks": "Gis yëf yépp",
-  "featuredArtworks": "Yëf yi ñu jël",
-  "featuredArtworksDesc": "Gis tànne yëf yi ñu jël ci li nu am",
-  "ourMission": "Li nu bokk",
-  "ourHistory": "Taariix bu nu",
-  "ourCollections": "Yëf yi nu",
-  "visitUs": "Wàññ nu",
-  "readyToExplore": "Soluwa nga gis ?",
-  "exploreDesc": "Bajsi ci àdduna bu baax bu sàrtax bu siviilisaasioñ yi ñuñu. Yëf bu nekk di woy lëkk, gis bu nekk di gëmmiñu.",
-  "exploreCollections": "🖼️ Gis yëf yi",
-  "aboutMuseum": "📖 Li nu bokk ci Musée bi",
-  "seeFullCollection": "Gis yëf yépp →",
-  "artworksCount": "yëf",
-  "artworksCountPlural": "yëf yi",
-  "found": "gis",
-  "foundPlural": "gis",
-  "for": "ngir",
-  "in": "ci",
-  "noResults": "Amul njariñ",
-  "tryDifferentSearch": "Jéemaatal soppi sàrt yi nga seet",
-  "resetFilters": "Delloo sàrt yi",
-  "exploreByRegion": "Gis ci diiwaanu",
-  "regionDesc": "Gis yëf yi ñu jag ci diiwaanu yi ñu dugg",
-  "uniqueArtworks": "Yëf yi bu am solo",
-  "inDigitalCollection": "Ci yëf yu dijital bi nu",
-  "multilingual": "Làkk yu bari",
-  "languages": "Wàll, Angale, Wolof",
-  "accessibility": "Jot",
-  "integratedAudioVideo": "Audio ak wideo ñu duggal",
-  "scanDescription": "Sànn kod QR yi ñu am ci yëf yi ngir jot teg yi yépp ci wàll, angale ak wolof",
-  "scanFeature": "Sànn kod QR yi ñu am ci yëf yu musée bi ngir jot teg yi yépp, audio yi ak wideo yi ñu teg ci saa si.",
-  "searchPlaceholder": "Seet yëf...",
-  "allRegions": "Diiwaanu yépp",
-  "resultsFound": "gis",
-  "resultsFoundPlural": "gis",
-  "regionDescription": "Gis yëf yi ñu jag ci diiwaanu yi ñu dugg",
-  "collectionDescription": "Gis yëf yu nu am bu yépp ci far ñeel ak taariix bu siviilisaasioñ yi ñuñu",
-  "aboutDesc": "Gis taariix ak li nu bokk ci Musée bu Siviilisaasioñ yi Ñuñu",
-  "ourMissionTitle": "Li nu bokk",
-  "missionText": "Musée bu Siviilisaasioñ yi Ñuñu, kenn ci diggante yu yëf yu Senegaal ak Afrik, am tontu taamu bu ñu manul dara. Ci mbirum Dakar Slush'D (9-10 oktoobar 2025), Senstartup dagale hackathon bu ñu jël ngir soppi gis gi ci dijital ak jappal jot ci yëf yu kulturaal yu musée bi.",
-  "ourHistoryTitle": "Taariix bu nu",
-  "historyText": "Duggal ci 2024, musée bu nu yu dijital di wone soppi institusioñ yu kulturaal yu dëgg ci jamono dijital. Nu dagale baaxam yëf yu fisel yi ak mën yi dijital yi ngir jappal far ñeel ci yëf yi.",
-  "features": "📱 Am ci telefon ak ordinatëer • 🌍 3 làkk • 🎧 Audio ñu duggal • 📹 Wideo ñu teg"
+
+  "helloWorld": "Nanga def aduna !",
+  "qrScanner": {
+    "title": "Scan benn lëkkalekaay",
+    "instruction": "Wut sa kamera ci QR code bi ci lëkkalekaay bi",
+    "artworkNotFound": "Lëkkalekaay bi amuul. Xoolal QR code bi.",
+    "cameraError": "Manuñu jël kamera bi. Xoolal permissions yi.",
+    "cancel": "Doxal",
+    "tips": {
+      "title": "Ndimbal ngir scan bu baax",
+      "light": "Jëkk ni amnga benn lumière bu baax",
+      "stable": "Tëral sa aparey bi mu nekk mu jaadu",
+      "distance": "Amnga 15-20 cm ci biir"
+    }
+  },
+  "nav": {
+    "home": "Njaboot",
+    "collections": "Lëkkalekaay yi",
+    "about": "Ci sun nu",
+    "scan": "Scan",
+    "language": "Lakk"
+  },
+  "collections": {
+    "title": "Suñu Lëkkalekaay yi",
+    "subtitle": "Giseel li njool ci Musée des Civilisations Noires",
+    "searchPlaceholder": "Seet benn lëkkalekaay...",
+    "all": "Lépp",
+    "results": "lëkkalekaay bi ñu gis",
+    "featured": "Yu bari",
+    "viewDetails": "Xool ci kanam",
+    "noResults": "Amuñu gis lëkkalekaay bu amul ni ci seet bi"
+  },
+  "home": {
+    "hero": {
+      "title": "Musée des Civilisations Noires",
+      "subtitle": "Giseel aada bu Afrik ci benn fann bu bees",
+      "scanButton": "Scan benn lëkkalekaay",
+      "exploreButton": "Xool lëkkalekaay yi"
+    },
+    "featured": {
+      "title": "Lëkkalekaay yu bari",
+      "subtitle": "Giseel suñu lëkkalekaay yi ñu gën a bari",
+      "badge": "Yu bari",
+      "discover": "Gis",
+      "viewAll": "Xool lépp lëkkalekaay yi"
+    },
+    "features": {
+      "title": "Benn xeetu bu wër",
+      "subtitle": "Gis suñu fonctionnalités yu bees ngir am benn xeetu bu gën",
+      "scan": {
+        "title": "Scan QR Code",
+        "description": "Scan QR code yi ngir am xalaat yu bari ci yoon bu gaaw"
+      },
+      "multilingual": {
+        "title": "Ay lakk yu bari",
+        "description": "Xalaat yi amnañu ko ci Fränsee, Angéle ak Wolof"
+      },
+      "audio": {
+        "title": "Guide audio",
+        "description": "Deglu ay xalaat ngir am benn xeetu bu gën"
+      }
+    }
+  },
+  "about": {
+    "title": "Ci sunñu",
+    "subtitle": "Gis suñu misin ak suñu projee",
+    "museum": {
+      "title": "Musée des Civilisations Noires",
+      "description": "Musée des Civilisations Noires mooy benn ci espace yu mag yu aada ci Sénégal ak Afrik. Am na patrimoine bu njool bu war a am ci biir néeg yi. Benen sa bi mooy melokaan na loxo bu bees bu aada yu Afrik ci yoon yi lépp."
+    },
+    "project": {
+      "title": "Projee Musée 2.0",
+      "description": "Musée 2.0 mooy benn plateforme digital bu bees bu di wut xeetu gën ci musée bi. Suñu xeltu mooy jox ay xalaat yu aada ci néeg yi lépp te melokaan patrimoine bi ci gina biir musée bi.",
+      "features": {
+        "title": "Li ñu di def",
+        "scan": "Scan QR Code ngir am xalaat yu bari",
+        "multilingual": "Xalaat ci ay lakk yu bari (Fränsee, Angéle, Wolof)",
+        "audio": "Guide audio ngir benn xeetu bu gën",
+        "accessible": "Manñu ko am ci lu nekk, ci musée walla ci kaw"
+      }
+    },
+    "hackathon": {
+      "title": "Hackathon Dakar Slush'D",
+      "description": "Projee bii ñu ko def ci Hackathon bu Senstartup organise ak Musée des Civilisations Noires ci Dakar Slush'D (09-10 Oktoobar 2025).",
+      "organizer": "Mööl",
+      "event": "Des"
+    }
+  },
+  "artwork": {
+    "history": "Xalaat yu taariix",
+    "creationPeriod": "Jamono mu ñu ko def",
+    "origin": "Jiitu",
+    "category": "Wàllu",
+    "identificationCode": "Koodu xam-xam",
+    "culturalContext": "Yoon bu aada",
+    "description": "Saññ-saññ",
+    "gallery": "Nataal",
+    "listenDescription": "Deglu saññ-saññ bi",
+    "videoExplanation": "Widéwo bu faral",
+    "backToHome": "Dellu",
+    "notFound": "Lëkkalekaay gisuma"
+  },
+  "audioPlayer": {
+    "title": "Deglu saññ-saññ bi",
+    "browserNotSupported": "Sa navigateur deglu audio du.",
+    "useTTSInstead": "Jëfandikoo bind bu mat ci sa bopp",
+    "browserNotSupportedTTS": "Sa navigateur jëfandikoo bind du",
+    "audioError": "Njuumte ci deglu audio bi",
+    "loading": "Yeb...",
+    "stopPlayback": "Taxaw deglu bi",
+    "listenWithTTS": "Deglu ak jëfandikoo bind",
+    "demoMode": "Mode demo: Deglu goo jëfandikoo bindu sa navigateur. Ngir xol bu gën, ay fichier audio yu profeesyonel dinañ yees.",
+    "backToAudioPlayer": "Dellu ci deglukaay audio",
+    "language": "Làkk:",
+    "french": "Français",
+    "english": "English",
+    "wolof": "Wolof"
+  },
+  "footer": {
+    "description": "Xool patrimoine bu aada bu Afrik ci benn xeetu digital bu bees.",
+    "links": "Lien yu gaaw",
+    "contact": "Jokkoo",
+    "rights": "Lépp ay sag yi am nañu ko",
+    "hackathon": "Projee bi ñu ko def ngir"
+  },
+  "aiAssistant": {
+    "title": "Jëfandikoo IA",
+    "subtitle": "Laaj sa laaj",
+    "askAI": "Laaj IA",
+    "openChat": "Ubbi chat",
+    "closeChat": "Tëj chat",
+    "welcomeMessage": "Nanga def! Maa ngi sa guide virtuel bu Musée des Civilisations Noires. Laajal ma ci lëkkalekaay yi, tarih yi ak aadaa yu Afrik!",
+    "demoResponse": "Jërëjëf ci sa laaj! API IA dinañ ko intégré ci yoon yu bess ngir joxe sa yeen yi ak detay yu bari ci lëkkalekaay yi.",
+    "errorMessage": "Njuumte am na. Jëmaleen jéemaat.",
+    "placeholder": "Misaal: Wax ma ci Masque Gelede...",
+    "typing": "Assistant dafa bind...",
+    "disclaimer": "Assistant bi dafa xam musée rekk"
+  }
+
 }
