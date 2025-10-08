@@ -5,7 +5,7 @@ import type { Artwork } from "../types/artwork";
 const artworks = artworksData as Artwork[];
 
 // Configuration Groq
-const GROQ_API_KEY = "your_groq_api_key_here"; // Clé par défaut pour le développement (à remplacer en production)
+const GROQ_API_KEY = import.meta.env.VITE_GROQ_API_KEY || "";
 
 // Initialiser le client Groq
 const groq = new Groq({
