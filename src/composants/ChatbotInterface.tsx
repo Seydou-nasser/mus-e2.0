@@ -4,7 +4,6 @@ import { useTheme } from './ThemeProvider';
 import { useContexteIA } from './ContexteIA';
 import { useTranslation } from 'react-i18next';
 import { ENV_VARS } from '../config/environment';
-import { OpenAI } from 'openai';
 import { 
   Bot, 
   X, 
@@ -21,8 +20,6 @@ import {
   Heart
 } from 'lucide-react';
 import ParametresChatbot from './ParametresChatbot';
-import { ChatbotService } from '../services/chatbotService';
-import { callChatbotAPI } from '../services/chatbotAPI';
 import { checkAPIConfiguration } from '../config/environment';
 import { IntelligentChatbotService } from '../services/intelligentChatbotService';
 
@@ -33,7 +30,7 @@ import { IntelligentChatbotService } from '../services/intelligentChatbotService
 const ChatbotInterface: React.FC = () => {
   const { isDarkMode, getThemeClasses } = useTheme();
   const { isIAEnLigne, isChatbotOpen, setIsChatbotOpen } = useContexteIA();
-  const { } = useTranslation();
+  const { t } = useTranslation();
   const themeClasses = getThemeClasses();
   
   const [messages, setMessages] = useState<Array<{
@@ -243,14 +240,14 @@ Question: ${inputText}`
           text: aiResponse.response,
           isUser: false,
           timestamp: new Date(),
-          tags: (aiResponse as any).metadata?.culture ? [(aiResponse as any).metadata.culture] : ["Assistant"],
+          tags: (aiResponse as { metadata?: { culture?: string } }).metadata?.culture ? [(aiResponse as { metadata?: { culture?: string } }).metadata!.culture] : ["Assistant"],
           score: 0,
           isLiked: false,
           isStarred: false,
           isBookmarked: false,
           category: "Assistant",
           confidence: Math.round(aiResponse.confidence * 100),
-          links: (aiResponse as any).links
+          links: (aiResponse as { links?: { text: string; url: string }[] }).links
         };
         
         setMessages(prev => [...prev, aiMessage]);
@@ -327,13 +324,16 @@ Question: ${inputText}`
 
   if (!isChatbotOpen) return null;
 
+  // Si les paramètres sont ouverts et que la position est center, on désactive les interactions du chatbot
+  const isChatbotDisabled = showParametres && position === 'center';
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 20 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
-          className={`fixed ${isDarkMode ? 'bg-gray-900' : 'bg-white'} rounded-3xl shadow-2xl overflow-hidden z-[10000] border-2 ${isDarkMode ? 'border-gray-700' : 'border-gray-200'} ${
+          className={`fixed ${isDarkMode ? 'bg-gray-900' : 'bg-white'} rounded-3xl shadow-2xl overflow-hidden ${isChatbotDisabled ? 'z-[9999] pointer-events-none' : 'z-[10000]'} border-2 ${isDarkMode ? 'border-gray-700' : 'border-gray-200'} ${
             isFullscreen 
               ? 'inset-2 sm:inset-4 w-auto h-auto' 
               : isMinimized 
@@ -363,8 +363,8 @@ Question: ${inputText}`
             </motion.div>
             
                 <div>
-                  <h3 className={`text-base sm:text-lg font-bold ${themeClasses.text}`}>Assistant IA</h3>
-                  <p className={`text-xs sm:text-sm ${themeClasses.textSecondary}`}>Spécialiste Civilisations Africaines</p>
+                  <h3 className={`text-base sm:text-lg font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Assistant IA</h3>
+                  <p className={`text-xs sm:text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>Spécialiste Civilisations Africaines</p>
                 <div className="flex items-center space-x-1 mt-1">
                   <span className={`text-xs px-2 py-1 rounded-full ${
                     position === 'bottom-right' ? 'bg-blue-500 text-white' : 
@@ -377,7 +377,7 @@ Question: ${inputText}`
                 </div>
               <div className="flex items-center space-x-2 mt-1">
                 <div className={`w-2 h-2 rounded-full ${isIAEnLigne ? 'bg-green-500' : 'bg-red-500'}`}></div>
-                <span className={`text-xs ${themeClasses.textSecondary}`}>
+                <span className={`text-xs ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                   {isIAEnLigne ? 'En ligne' : 'Hors ligne'}
                 </span>
                 <div className="flex items-center space-x-1">
@@ -472,11 +472,17 @@ Question: ${inputText}`
                     className={`p-3 rounded-2xl relative ${
                       message.isUser
                         ? `${isDarkMode ? 'bg-green-600' : 'bg-green-500'} text-white`
-                        : `${isDarkMode ? 'bg-blue-900' : 'bg-blue-100'} ${themeClasses.text}`
+                        : `${isDarkMode ? 'bg-blue-900' : 'bg-blue-100'} ${
+                            isDarkMode ? 'text-white' : 'text-gray-900'
+                          }`
                     }`}
                     whileHover={{ scale: 1.02 }}
                   >
-                    <p className="text-sm whitespace-pre-line">{message.text}</p>
+                    <p className={`text-sm whitespace-pre-line ${
+                      message.isUser 
+                        ? 'text-white' 
+                        : isDarkMode ? 'text-white' : 'text-gray-900'
+                    }`}>{message.text}</p>
                     
                     {/* Affichage des liens de navigation */}
                     {message.links && message.links.length > 0 && (
@@ -606,7 +612,7 @@ Question: ${inputText}`
                   />
                 </div>
                 <span className="text-sm text-blue-600">{typingText}</span>
-              </div>
+              </div>image.png
             </motion.div>
           )}
           
@@ -679,7 +685,13 @@ Question: ${inputText}`
       <ParametresChatbot
         isOpen={showParametres}
         onClose={() => setShowParametres(false)}
-        onPositionChange={setPosition}
+        onPositionChange={(newPosition) => {
+          setPosition(newPosition);
+          // Si on change vers center, on ferme les paramètres pour éviter les conflits
+          if (newPosition === 'center' && showParametres) {
+            setShowParametres(false);
+          }
+        }}
         onFullscreenChange={setIsFullscreen}
         onMinimizeChange={setIsMinimized}
         currentPosition={position}

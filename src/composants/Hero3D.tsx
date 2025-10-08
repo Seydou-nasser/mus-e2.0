@@ -107,13 +107,13 @@ const Hero3D: React.FC = () => {
     }
   ];
 
-  // Auto-play du carrousel avec pause au hover
+  // Auto-play du carrousel avec pause au hover - Animation plus douce
   useEffect(() => {
     if (!isPlaying || isHovered) return;
     
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % oeuvres.length);
-    }, 4000); // Réduit à 4s pour plus de dynamisme
+    }, 5000); // Augmenté à 5s pour plus de douceur
 
     return () => clearInterval(interval);
   }, [isPlaying, isHovered, oeuvres.length]);
@@ -200,24 +200,36 @@ const Hero3D: React.FC = () => {
         <div className="w-full max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
           <motion.div 
             className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-12 items-center"
-            initial={{ y: 50, opacity: 0 }}
+            initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            transition={{ 
+              duration: 1.2, 
+              delay: 0.2,
+              ease: "easeOut"
+            }}
           >
             
             {/* Contenu textuel à gauche */}
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
+              initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ 
+                duration: 1.0, 
+                delay: 0.3,
+                ease: "easeOut"
+              }}
               className={`${themeClasses.text} space-y-8`}
             >
               <div className="space-y-2 sm:space-y-4">
                 <motion.h1 
                   className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-tight"
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
+                  transition={{ 
+                    delay: 0.4, 
+                    duration: 0.8,
+                    ease: "easeOut"
+                  }}
                 >
                   {i18n.language === 'fr' ? (
                     <>
@@ -240,9 +252,13 @@ const Hero3D: React.FC = () => {
                 
                 <motion.p 
                   className={`text-lg sm:text-xl ${themeClasses.textSecondary} leading-relaxed`}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
+                  transition={{ 
+                    delay: 0.6, 
+                    duration: 0.8,
+                    ease: "easeOut"
+                  }}
                 >
                   {i18n.language === 'fr' ? 
                     "Explorez les trésors culturels de l'Afrique à travers une expérience immersive et interactive" :
@@ -287,9 +303,13 @@ const Hero3D: React.FC = () => {
             {/* Carrousel d'images à droite */}
             <motion.div
               className="relative"
-              initial={{ opacity: 0, x: 50 }}
+              initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ 
+                duration: 1.0, 
+                delay: 0.4,
+                ease: "easeOut"
+              }}
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
@@ -300,14 +320,15 @@ const Hero3D: React.FC = () => {
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={currentSlide}
-                    initial={{ opacity: 0, scale: 1.1, rotateY: 15 }}
+                    initial={{ opacity: 0, scale: 1.05, rotateY: 8 }}
                     animate={{ opacity: 1, scale: 1, rotateY: 0 }}
-                    exit={{ opacity: 0, scale: 0.9, rotateY: -15 }}
+                    exit={{ opacity: 0, scale: 0.95, rotateY: -8 }}
                     transition={{ 
-                      duration: 0.8, 
+                      duration: 1.2, 
                       ease: "easeInOut",
                       type: "spring",
-                      stiffness: 100
+                      stiffness: 60,
+                      damping: 20
                     }}
                     className="absolute inset-0"
                   >
@@ -379,12 +400,15 @@ const Hero3D: React.FC = () => {
                     }
                   >
                     <motion.div
-                      whileHover={{ scale: 1.2 }}
+                      whileHover={{ scale: 1.15 }}
                       animate={{ 
-                        scale: isLiked ? [1, 1.3, 1] : 1,
+                        scale: isLiked ? [1, 1.2, 1] : 1,
                         color: isLiked ? '#ef4444' : undefined
                       }}
-                      transition={{ duration: 0.3 }}
+                      transition={{ 
+                        duration: 0.4,
+                        ease: "easeOut"
+                      }}
                     >
                       <Heart className={`w-4 h-4 ${isLiked ? 'fill-current' : ''}`} />
                     </motion.div>
@@ -393,8 +417,8 @@ const Hero3D: React.FC = () => {
                   <motion.button 
                     onClick={() => shareOeuvre(currentOeuvre)}
                     disabled={isSharing}
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    whileTap={{ scale: 0.95 }}
+                    whileHover={{ scale: 1.08, rotate: 3 }}
+                    whileTap={{ scale: 0.96 }}
                     className={`${isDarkMode 
                       ? isSharing
                         ? 'bg-blue-500/30 backdrop-blur-lg text-blue-400 cursor-not-allowed' 
@@ -411,14 +435,15 @@ const Hero3D: React.FC = () => {
                     }
                   >
                     <motion.div
-                      whileHover={{ scale: 1.2 }}
+                      whileHover={{ scale: 1.15 }}
                       animate={{ 
-                        scale: isSharing ? [1, 1.1, 1] : 1,
+                        scale: isSharing ? [1, 1.08, 1] : 1,
                         rotate: isSharing ? 360 : 0
                       }}
                       transition={{ 
-                        duration: isSharing ? 1 : 0.3,
-                        repeat: isSharing ? Infinity : 0
+                        duration: isSharing ? 1.2 : 0.4,
+                        repeat: isSharing ? Infinity : 0,
+                        ease: "easeInOut"
                       }}
                     >
                       <Share2 className="w-4 h-4" />
@@ -481,11 +506,11 @@ const Hero3D: React.FC = () => {
                     <motion.div
                       className="w-full h-full rounded-full"
                       animate={{
-                        scale: index === currentSlide ? [1, 1.2, 1] : 1,
-                        opacity: index === currentSlide ? [0.8, 1, 0.8] : 1
+                        scale: index === currentSlide ? [1, 1.15, 1] : 1,
+                        opacity: index === currentSlide ? [0.9, 1, 0.9] : 1
                       }}
                       transition={{
-                        duration: 2,
+                        duration: 2.5,
                         repeat: index === currentSlide ? Infinity : 0,
                         ease: "easeInOut"
                       }}
@@ -510,13 +535,14 @@ const Hero3D: React.FC = () => {
               top: `${Math.random() * 100}%`,
             }}
             animate={{
-              y: [0, -100, 0],
-              opacity: [0, 1, 0],
+              y: [0, -80, 0],
+              opacity: [0, 0.8, 0],
             }}
             transition={{
-              duration: 3 + Math.random() * 2,
+              duration: 4 + Math.random() * 2,
               repeat: Infinity,
-              delay: Math.random() * 2,
+              delay: Math.random() * 3,
+              ease: "easeInOut"
             }}
           />
         ))}

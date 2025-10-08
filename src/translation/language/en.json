@@ -6,6 +6,20 @@
     "boutonCollections": "EXPLORE COLLECTIONS",
     "boutonQR": "SCAN QR CODE",
     "boutonAR": "AUGMENTED REALITY",
+    "impact": {
+      "titre": "Revolutionary Impact",
+      "description": "Discover the technologies transforming the museum experience"
+    },
+    "fonctionnalites": {
+      "titre": "Revolutionary Features",
+      "description": "Cutting-edge technologies at the service of African heritage"
+    },
+    "cta": {
+      "titre": "Start Your Journey",
+      "description": "Explore African heritage like never before",
+      "scanner": "Scan QR",
+      "audio": "Audio Guide"
+    },
     "statistiques": {
       "visiteurs": "VISITORS",
       "oeuvres": "ARTWORKS",
@@ -13,6 +27,24 @@
       "oeuvresDescription": "Heritage treasures",
       "parcoursDescription": "Immersive experiences",
       "gamifies": "Gamified"
+    }
+  },
+  "fonctionnalites": {
+    "ia": {
+      "titre": "AI Assistant",
+      "description": "Artificial intelligence specialized in African culture"
+    },
+    "ar": {
+      "titre": "Augmented Reality",
+      "description": "Immersive experience with artworks"
+    },
+    "gamification": {
+      "titre": "Gamification",
+      "description": "Playful and interactive tours"
+    },
+    "securite": {
+      "titre": "Security",
+      "description": "Data protection and privacy"
     }
   },
   "header": {

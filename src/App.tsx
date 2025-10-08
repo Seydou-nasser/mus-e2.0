@@ -19,10 +19,10 @@ import { Palette, Map, Eye, Info } from "lucide-react";
 function ApplicationMusee() {
   return (
     <BrowserRouter>
-      <I18nextProvider i18n={i18n}>
+    <I18nextProvider i18n={i18n}>
         <ThemeProvider>
           <ContexteIAProvider>
-          <Routes>
+      <Routes>
             {/* Page d'accueil */}
             <Route path="/" element={
               <LayoutPrincipal>
@@ -153,7 +153,7 @@ function ApplicationMusee() {
                 />
               </LayoutPrincipal>
             } />
-          </Routes>
+      </Routes>
           
           {/* Bouton IA Global - Vraiment flottant et visible partout */}
           <BoutonIAGlobal />
@@ -162,7 +162,7 @@ function ApplicationMusee() {
           <ChatbotInterface />
           </ContexteIAProvider>
         </ThemeProvider>
-      </I18nextProvider>
+    </I18nextProvider>
     </BrowserRouter>
   );
 }

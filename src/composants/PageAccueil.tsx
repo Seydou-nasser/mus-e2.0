@@ -72,28 +72,78 @@ const PageAccueil: React.FC = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  // Variantes d'animation pour les éléments
+  // Variantes d'animation pour les éléments avec parallax doux
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3,
-        delayChildren: 0.2
+        staggerChildren: 0.2,
+        delayChildren: 0.1
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: { 
       opacity: 1, 
       y: 0,
       transition: {
         type: "spring" as const,
-        stiffness: 100,
-        damping: 15
+        stiffness: 80,
+        damping: 20,
+        duration: 0.8
       }
+    }
+  };
+
+  // Variantes parallax douces pour les couches
+  const parallaxVariants = {
+    background: {
+      y: [0, -8, 0],
+      transition: {
+        duration: 6,
+        repeat: Infinity,
+        repeatType: "reverse" as const,
+        ease: "easeInOut"
+      }
+    },
+    foreground: {
+      y: [0, 4, 0],
+      transition: {
+        duration: 4,
+        repeat: Infinity,
+        repeatType: "reverse" as const,
+        ease: "easeInOut"
+      }
+    },
+    floating: {
+      y: [0, -3, 0],
+      transition: {
+        duration: 3,
+        repeat: Infinity,
+        repeatType: "reverse" as const,
+        ease: "easeInOut"
+      }
+    }
+  };
+
+  // Variantes pour les micro-interactions
+  const hoverVariants = {
+    rest: { 
+      scale: 1, 
+      y: 0,
+      transition: { duration: 0.3, ease: "easeOut" }
+    },
+    hover: { 
+      scale: 1.02, 
+      y: -2,
+      transition: { duration: 0.2, ease: "easeOut" }
+    },
+    tap: { 
+      scale: 0.98,
+      transition: { duration: 0.1 }
     }
   };
 
@@ -162,8 +212,13 @@ const PageAccueil: React.FC = () => {
         <div className="container mx-auto max-w-6xl">
           {/* Titre Révolutionnaire avec mots-clés colorés - Ultra Responsive */}
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
+            transition={{ 
+              duration: 1.0, 
+              delay: 0.2,
+              ease: "easeOut"
+            }}
             className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 mb-4 xs:mb-6 sm:mb-8 leading-tight"
           >
             <motion.span 
@@ -172,9 +227,9 @@ const PageAccueil: React.FC = () => {
                 backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
               }}
               transition={{
-                duration: 3,
+                duration: 4,
                 repeat: Infinity,
-                ease: "linear",
+                ease: "easeInOut",
               }}
             >
               <span className={`${themeClasses.text} drop-shadow-2xl`}>
@@ -255,24 +310,32 @@ const PageAccueil: React.FC = () => {
             {/* Bouton Vert - Scanner QR */}
             <motion.button
               whileHover={{ 
-                scale: 1.05, 
-                boxShadow: "0 25px 50px rgba(40, 167, 69, 0.6)",
-                y: -2
+                scale: 1.03, 
+                boxShadow: "0 20px 40px rgba(40, 167, 69, 0.5)",
+                y: -1
               }}
-              whileTap={{ scale: 0.95 }}
+              whileTap={{ scale: 0.97 }}
               onClick={() => setIsScannerQROpen(true)}
               className="bg-[#28A745] hover:bg-[#218838] text-white px-6 py-4 sm:px-10 sm:py-5 rounded-2xl sm:rounded-3xl font-black text-lg sm:text-xl transition-all duration-500 flex items-center space-x-3 sm:space-x-4 shadow-2xl border-2 border-green-400/30 hover:border-green-400/60 w-full sm:w-auto justify-center"
             >
               <motion.div
-                animate={{ scale: [1, 1.1, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
+                animate={{ scale: [1, 1.08, 1] }}
+                transition={{ 
+                  duration: 2.5, 
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
               >
                 <QrCode className="w-7 h-7" />
               </motion.div>
                   <span className="drop-shadow-lg">{t('accueil.boutonQR')}</span>
               <motion.div
                 animate={{ rotate: [0, 360] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                transition={{ 
+                  duration: 4, 
+                  repeat: Infinity, 
+                  ease: "easeInOut" 
+                }}
               >
                 <Sparkles className="w-7 h-7" />
               </motion.div>
@@ -350,9 +413,9 @@ const PageAccueil: React.FC = () => {
             <motion.div
               variants={itemVariants}
               whileHover={{ 
-                scale: 1.05, 
-                y: -10,
-                boxShadow: "0 25px 50px rgba(34, 197, 94, 0.3)"
+                scale: 1.03, 
+                y: -6,
+                boxShadow: "0 20px 40px rgba(34, 197, 94, 0.25)"
               }}
               className="bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-xl rounded-2xl xs:rounded-3xl p-6 xs:p-8 text-center border border-white/30 hover:border-green-400/50 transition-all duration-500 shadow-2xl relative overflow-hidden group"
             >
@@ -370,13 +433,14 @@ const PageAccueil: React.FC = () => {
                       top: `${Math.random() * 100}%`,
                     }}
                     animate={{
-                      y: [0, -20, 0],
-                      opacity: [0, 1, 0],
+                      y: [0, -15, 0],
+                      opacity: [0, 0.8, 0],
                     }}
                     transition={{
-                      duration: 2 + Math.random() * 2,
+                      duration: 3 + Math.random() * 2,
                       repeat: Infinity,
-                      delay: Math.random() * 2,
+                      delay: Math.random() * 3,
+                      ease: "easeInOut"
                     }}
                   />
                 ))}
@@ -477,9 +541,9 @@ const PageAccueil: React.FC = () => {
             <motion.div
               variants={itemVariants}
               whileHover={{ 
-                scale: 1.05, 
-                y: -10,
-                boxShadow: "0 25px 50px rgba(59, 130, 246, 0.3)"
+                scale: 1.03, 
+                y: -6,
+                boxShadow: "0 20px 40px rgba(59, 130, 246, 0.25)"
               }}
               className="bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-xl rounded-3xl p-8 text-center border border-white/30 hover:border-blue-400/50 transition-all duration-500 shadow-2xl relative overflow-hidden group"
             >
@@ -568,9 +632,9 @@ const PageAccueil: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.9 }}
               whileHover={{ 
-                scale: 1.05, 
-                y: -10,
-                boxShadow: "0 25px 50px rgba(59, 130, 246, 0.3)"
+                scale: 1.03, 
+                y: -6,
+                boxShadow: "0 20px 40px rgba(59, 130, 246, 0.25)"
               }}
               className="bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-xl rounded-2xl xs:rounded-3xl p-6 xs:p-8 text-center border border-white/30 hover:border-blue-400/50 transition-all duration-500 shadow-2xl relative overflow-hidden group"
             >
@@ -588,13 +652,14 @@ const PageAccueil: React.FC = () => {
                       top: `${Math.random() * 100}%`,
                     }}
                     animate={{
-                      y: [0, -20, 0],
-                      opacity: [0, 1, 0],
+                      y: [0, -15, 0],
+                      opacity: [0, 0.8, 0],
                     }}
                     transition={{
-                      duration: 2 + Math.random() * 2,
+                      duration: 3 + Math.random() * 2,
                       repeat: Infinity,
-                      delay: Math.random() * 2,
+                      delay: Math.random() * 3,
+                      ease: "easeInOut"
                     }}
                   />
                 ))}
@@ -676,13 +741,14 @@ const PageAccueil: React.FC = () => {
                       top: `${Math.random() * 100}%`,
                     }}
                     animate={{
-                      y: [0, -20, 0],
-                      opacity: [0, 1, 0],
+                      y: [0, -15, 0],
+                      opacity: [0, 0.8, 0],
                     }}
                     transition={{
-                      duration: 2 + Math.random() * 2,
+                      duration: 3 + Math.random() * 2,
                       repeat: Infinity,
-                      delay: Math.random() * 2,
+                      delay: Math.random() * 3,
+                      ease: "easeInOut"
                     }}
                   />
                 ))}
@@ -762,13 +828,14 @@ const PageAccueil: React.FC = () => {
                       top: `${Math.random() * 100}%`,
                     }}
                     animate={{
-                      y: [0, -20, 0],
-                      opacity: [0, 1, 0],
+                      y: [0, -15, 0],
+                      opacity: [0, 0.8, 0],
                     }}
                     transition={{
-                      duration: 2 + Math.random() * 2,
+                      duration: 3 + Math.random() * 2,
                       repeat: Infinity,
-                      delay: Math.random() * 2,
+                      delay: Math.random() * 3,
+                      ease: "easeInOut"
                     }}
                   />
                 ))}
