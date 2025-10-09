@@ -4,7 +4,10 @@
     "title": "Scanner une œuvre",
     "instruction": "Pointez votre caméra vers le QR code de l'œuvre",
     "artworkNotFound": "Œuvre non trouvée. Vérifiez le QR code.",
+    "invalidQR": "QR code invalide. Assurez-vous de scanner un QR code du musée.",
     "cameraError": "Impossible d'accéder à la caméra. Vérifiez les permissions.",
+    "noCamera": "Aucune caméra détectée sur cet appareil.",
+    "cameraDenied": "Accès à la caméra refusé. Veuillez autoriser l'accès dans les paramètres de votre navigateur.",
     "cancel": "Annuler",
     "tips": {
       "title": "Conseils pour un scan optimal",

@@ -29,6 +29,18 @@ const QRScanner = () => {
     setScanning(true);
     setError("");
 
+    // Vérifier les permissions de la caméra
+    try {
+      const permissionStatus = await navigator.permissions.query({ name: 'camera' as PermissionName });
+      if (permissionStatus.state === 'denied') {
+        setError(t("qrScanner.cameraError"));
+        setScanning(false);
+        return;
+      }
+    } catch (permErr) {
+      console.log("Permission check not supported, continuing...");
+    }
+
     const hints = new Map();
     hints.set(DecodeHintType.POSSIBLE_FORMATS, enabledFormats);
 
@@ -55,8 +67,26 @@ const QRScanner = () => {
         "barcode-video",
         (result) => {
           if (result) {
-            const qrCode = result.getText();
-            console.log("QR Code détecté:", qrCode);
+            const scannedText = result.getText();
+            console.log("QR Code détecté:", scannedText);
+
+            let qrCode: string;
+
+            // Vérifier si c'est une URL complète
+            if (scannedText.startsWith('http')) {
+              // Extraire l'ID de l'œuvre depuis l'URL
+              const urlParts = scannedText.split('/artwork/');
+              if (urlParts.length > 1) {
+                qrCode = urlParts[1]; // Récupérer la partie après /artwork/
+              } else {
+                setError(t("qrScanner.invalidQR"));
+                setTimeout(() => setError(""), 3000);
+                return;
+              }
+            } else {
+              // Utiliser directement le code QR
+              qrCode = scannedText;
+            }
 
             const artwork = getArtworkByQRCode(qrCode);
 
@@ -84,7 +114,22 @@ const QRScanner = () => {
       setControls(ctrls);
     } catch (err) {
       console.error("Erreur démarrage scanner:", err);
-      setError(t("qrScanner.cameraError"));
+
+      // Messages d'erreur plus spécifiques
+      if (err instanceof Error) {
+        if (err.message.includes('Permission denied') || err.message.includes('permission')) {
+          setError(t("qrScanner.cameraError"));
+        } else if (err.message.includes('NotFoundError') || err.message.includes('not found')) {
+          setError(t("qrScanner.noCamera"));
+        } else if (err.message.includes('NotAllowedError')) {
+          setError(t("qrScanner.cameraDenied"));
+        } else {
+          setError(t("qrScanner.cameraError"));
+        }
+      } else {
+        setError(t("qrScanner.cameraError"));
+      }
+
       setScanning(false);
     }
   };
@@ -109,10 +154,7 @@ const QRScanner = () => {
   };
 
   useEffect(() => {
-    const scanTimeout = window.setTimeout(handleScanBarcode, 500);
-
     return () => {
-      clearTimeout(scanTimeout);
       handleStopScan();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -138,16 +180,36 @@ const QRScanner = () => {
           )}
 
           {/* Vidéo scanner */}
-          <div className="relative w-full rounded-lg overflow-hidden bg-black">
+          <div className="relative w-full rounded-lg overflow-hidden bg-black min-h-64">
             <video id="barcode-video" className="w-full" autoPlay playsInline />
             {scanning && (
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="border-4 border-[#D17842] w-64 h-64 animate-pulse"></div>
               </div>
             )}
+            {!scanning && !error && (
+              <div className="absolute inset-0 flex items-center justify-center bg-gray-900 bg-opacity-75">
+                <button
+                  onClick={handleScanBarcode}
+                  className="px-8 py-4 bg-[#D17842] text-white rounded-lg hover:bg-[#B86432] transition flex items-center gap-2 text-lg font-semibold"
+                >
+                  <Camera size={24} />
+                  Démarrer le scan
+                </button>
+              </div>
+            )}
           </div>
 
-          <div className="mt-6 text-center">
+          <div className="mt-6 text-center space-y-3">
+            {scanning && (
+              <button
+                onClick={handleStopScan}
+                className="px-6 py-3 bg-red-500 text-white rounded-lg hover:bg-red-600 transition flex items-center gap-2 mx-auto"
+              >
+                <X size={20} />
+                Arrêter le scan
+              </button>
+            )}
             <button
               onClick={() => {
                 handleStopScan();

@@ -3,7 +3,10 @@
     "title": "Scan an artwork",
     "instruction": "Point your camera at the artwork's QR code",
     "artworkNotFound": "Artwork not found. Check the QR code.",
+    "invalidQR": "Invalid QR code. Make sure you're scanning a museum QR code.",
     "cameraError": "Cannot access camera. Check permissions.",
+    "noCamera": "No camera detected on this device.",
+    "cameraDenied": "Camera access denied. Please allow access in your browser settings.",
     "cancel": "Cancel",
     "tips": {
       "title": "Tips for optimal scanning",

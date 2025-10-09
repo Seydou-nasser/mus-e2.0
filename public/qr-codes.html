@@ -89,12 +89,13 @@
     <div class="qr-grid" id="qr-container"></div>
 
     <script>
+        const baseUrl = "https://muse2-0.netlify.app";
         const artworks = [
-            { id: "mcn-001", code: "MCN001", title: "Masque Gelede", origin: "Nigeria - Yoruba" },
-            { id: "mcn-002", code: "MCN002", title: "Tissu Kente Royal", origin: "Ghana - Akan" },
-            { id: "mcn-003", code: "MCN003", title: "Statue de Fertilité Ashanti", origin: "Ghana - Ashanti" },
-            { id: "mcn-004", code: "MCN004", title: "Tambour Parlant Yoruba", origin: "Nigeria - Yoruba" },
-            { id: "mcn-005", code: "MCN005", title: "Couronne Royale Bamoun", origin: "Cameroun - Bamoun" }
+            { id: "mcn-001", code: "MCN001", title: "Masque Gelede", origin: "Nigeria - Yoruba", url: `${baseUrl}/artwork/mcn-001` },
+            { id: "mcn-002", code: "MCN002", title: "Tissu Kente Royal", origin: "Ghana - Akan", url: `${baseUrl}/artwork/mcn-002` },
+            { id: "mcn-003", code: "MCN003", title: "Statue de Fertilité Ashanti", origin: "Ghana - Ashanti", url: `${baseUrl}/artwork/mcn-003` },
+            { id: "mcn-004", code: "MCN004", title: "Tambour Parlant Yoruba", origin: "Nigeria - Yoruba", url: `${baseUrl}/artwork/mcn-004` },
+            { id: "mcn-005", code: "MCN005", title: "Couronne Royale Bamoun", origin: "Cameroun - Bamoun", url: `${baseUrl}/artwork/mcn-005` }
         ];
 
         const container = document.getElementById('qr-container');
@@ -126,7 +127,7 @@
             // Générer le QR code avec QRCode.js
             try {
                 new QRCode(qrContainer, {
-                    text: artwork.code,
+                    text: artwork.url,
                     width: 200,
                     height: 200,
                     colorDark: "#000000",
