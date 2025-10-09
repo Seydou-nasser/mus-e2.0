@@ -31,13 +31,15 @@ const QRScanner = () => {
 
     // Vérifier les permissions de la caméra
     try {
-      const permissionStatus = await navigator.permissions.query({ name: 'camera' as PermissionName });
-      if (permissionStatus.state === 'denied') {
+      const permissionStatus = await navigator.permissions.query({
+        name: "camera" as PermissionName,
+      });
+      if (permissionStatus.state === "denied") {
         setError(t("qrScanner.cameraError"));
         setScanning(false);
         return;
       }
-    } catch (permErr) {
+    } catch {
       console.log("Permission check not supported, continuing...");
     }
 
@@ -73,9 +75,9 @@ const QRScanner = () => {
             let qrCode: string;
 
             // Vérifier si c'est une URL complète
-            if (scannedText.startsWith('http')) {
+            if (scannedText.startsWith("http")) {
               // Extraire l'ID de l'œuvre depuis l'URL
-              const urlParts = scannedText.split('/artwork/');
+              const urlParts = scannedText.split("/artwork/");
               if (urlParts.length > 1) {
                 qrCode = urlParts[1]; // Récupérer la partie après /artwork/
               } else {
@@ -117,11 +119,17 @@ const QRScanner = () => {
 
       // Messages d'erreur plus spécifiques
       if (err instanceof Error) {
-        if (err.message.includes('Permission denied') || err.message.includes('permission')) {
+        if (
+          err.message.includes("Permission denied") ||
+          err.message.includes("permission")
+        ) {
           setError(t("qrScanner.cameraError"));
-        } else if (err.message.includes('NotFoundError') || err.message.includes('not found')) {
+        } else if (
+          err.message.includes("NotFoundError") ||
+          err.message.includes("not found")
+        ) {
           setError(t("qrScanner.noCamera"));
-        } else if (err.message.includes('NotAllowedError')) {
+        } else if (err.message.includes("NotAllowedError")) {
           setError(t("qrScanner.cameraDenied"));
         } else {
           setError(t("qrScanner.cameraError"));
